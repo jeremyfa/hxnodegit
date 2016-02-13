@@ -1,0 +1,3 @@
+[submodule "nodegit"]
+	path = nodegit
+	url = git@github.com:nodegit/nodegit.git

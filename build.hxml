@@ -1,0 +1,7 @@
+-main Convert
+-cpp convert.cppia
+-D cppia
+
+#--next
+
+-cmd haxelib run hxcpp convert.cppia
