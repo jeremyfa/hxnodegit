@@ -1,0 +1,28 @@
+{
+  "name": "hxnodegit",
+  "version": "0.1.0",
+  "description": "NodeGit externs for Haxe",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremyfa/hxnodegit.git"
+  },
+  "keywords": [
+    "haxe",
+    "nodegit",
+    "hxnodegit"
+  ],
+  "author": "Jeremy Faivre <contact@jeremyfa.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremyfa/hxnodegit/issues"
+  },
+  "homepage": "https://github.com/jeremyfa/hxnodegit#readme",
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "jsdom": "^8.0.2"
+  }
+}

@@ -1,7 +1,7 @@
--main Convert
--cpp convert.cppia
--D cppia
+-main Main
+-js index.tmp.js
+-lib hxnodejs
 
-#--next
+--next
 
--cmd haxelib run hxcpp convert.cppia
+-cmd sed -e 's/window\.jQuery/require\("jquery"\)\(require\("jsdom"\)\.jsdom\(\).defaultView\)/g' index.tmp.js > index.js; rm index.tmp.js
