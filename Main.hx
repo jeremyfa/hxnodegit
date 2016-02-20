@@ -10,6 +10,8 @@ import js.node.Path.basename;
 import sys.FileSystem;
 import sys.io.File;
 
+import haxe.Json;
+
 using StringTools;
 
 typedef Module = {
@@ -31,9 +33,18 @@ typedef ModuleMethod = {
 
     var type:String;
 
+    var args:Array<ModuleMethodArg>;
+
     @:optional var is_static:Bool;
 
     @:optional var is_async:Bool;
+}
+
+typedef ModuleMethodArg = {
+
+    var name:String;
+
+    var type:String;
 }
 
 typedef ModuleProperty = {
@@ -50,6 +61,15 @@ typedef ModuleEnum = {
 
     var name:String;
 
+    var flags:Array<ModuleEnumFlag>;
+
+}
+
+typedef ModuleEnumFlag = {
+
+    var name:String;
+
+    var value:Int;
 }
 
 class Main {
@@ -160,18 +180,30 @@ class Main {
 
     static function local_html_api_ready() {
 
-        modules = [];
+        if (!FileSystem.exists(join(api_local_path, 'api.json'))) {
 
-        for (name in FileSystem.readDirectory(api_local_path)) {
+            modules = [];
 
-            var dir = join(api_local_path, name);
+            for (name in FileSystem.readDirectory(api_local_path)) {
 
-            if (FileSystem.isDirectory(dir) && FileSystem.exists(join(dir, 'index.html'))) {
+                var dir = join(api_local_path, name);
 
-                extract_extended_module(join(dir, 'index.html'));
+                if (FileSystem.isDirectory(dir) && FileSystem.exists(join(dir, 'index.html'))) {
 
-                if (modules.length > 5) break;
+                    extract_extended_module(join(dir, 'index.html'));
+                }
             }
+
+            // Save modules API data as JSON
+            println('save: api.json');
+            File.saveContent(join(api_local_path, 'api.json'), Json.stringify({modules: modules}, null, '    '));
+
+        } else {
+
+            // Retrieve modules API data from saved JSON
+            println('load: api.json');
+            modules = Json.parse(File.getContent(join(api_local_path, 'api.json'))).modules;
+
         }
 
     } //local_html_api_ready
@@ -186,6 +218,8 @@ class Main {
             name: dom.find('.banner h2').first().text().trim(),
             href: basename(dirname(path))
         };
+
+        println('extract module: ' + module.name);
 
         modules.push(module);
 
@@ -223,24 +257,50 @@ class Main {
 
                 var type = null;
                 var description = null;
+                var args = [];
+
+                // Look for a table after the h2, and before any other h2
                 var table = next_of_type_before(h2, 'table', 'h2');
 
-                // TODO differenciate arguments and return value
+                while (table.length > 0) {
 
-                table.find('tbody tr').each(function(index, el) {
+                    // Method parameters
+                    if (table.find('thead tr th').first().text().trim() == 'Parameters') {
 
-                    var td0 = _(_(el).find('td').get(0));
-                    var td1 = _(_(el).find('td').get(1));
+                        table.find('tbody tr').each(function(index, el) {
 
-                    type = td0.text().trim();
-                    description = td1.text().trim();
-                    if (description.length == 0) description = null;
-                });
+                            var td0 = _(_(el).find('td').get(0));
+                            var td1 = _(_(el).find('td').get(1));
+
+                            args.push({
+                                name: td0.text().trim(),
+                                type: td1.text().trim()
+                            });
+                        });
+                    }
+                    // Method return value
+                    else if (table.find('thead tr th').first().text().trim() == 'Returns') {
+
+                        table.find('tbody tr').each(function(index, el) {
+
+                            var td0 = _(_(el).find('td').get(0));
+                            var td1 = _(_(el).find('td').get(1));
+
+                            type = td0.text().trim();
+                            description = td1.text().trim();
+                            if (description.length == 0) description = null;
+                        });
+                    }
+
+                    // Look for another table after this one, before any h2
+                    table = next_of_type_before(table, 'table', 'h2');
+                }
 
                 // Method
                 var method:ModuleMethod = {
                     name: a.attr('name'),
                     type: type,
+                    args: args,
                     is_static: !prefix_span.text().trim().endsWith('#'),
                     is_async: tag_async.length > 0
                 };
@@ -249,17 +309,36 @@ class Main {
             }
             else {
 
+                var flags = [];
+
+                // Look for a table after the h2, and before any other h2
+                var table = next_of_type_before(h2, 'table', 'h2');
+
+                // Enum flags
+                if (table.find('thead tr th').first().text().trim() == 'Flag') {
+
+                    table.find('tbody tr').each(function(index, el) {
+
+                        var td0 = _(_(el).find('td').get(0));
+                        var td1 = _(_(el).find('td').get(1));
+
+                        flags.push({
+                            name: td0.text().trim().substr(td0.text().trim().lastIndexOf('.') + 1),
+                            value: Std.parseInt(td1.text().trim())
+                        });
+                    });
+                }
+
                 // Enum
                 var enum_:ModuleEnum = {
-                    name: a.attr('name')
+                    name: a.attr('name'),
+                    flags: flags
                 };
 
                 module.enums.push(enum_);
 
             }
         });
-
-        trace(module);
 
     } //extract_extended_module
 

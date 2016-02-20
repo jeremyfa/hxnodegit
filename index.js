@@ -70,23 +70,31 @@ Main.download_single_module = function(index) {
 	});
 };
 Main.local_html_api_ready = function() {
-	Main.modules = [];
-	var _g = 0;
-	var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
-	while(_g < _g1.length) {
-		var name = _g1[_g];
-		++_g;
-		var dir = js_node_Path.join(Main.api_local_path,name);
-		if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) {
-			Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
-			if(Main.modules.length > 5) break;
+	if(!sys_FileSystem.exists(js_node_Path.join(Main.api_local_path,"api.json"))) {
+		Main.modules = [];
+		var _g = 0;
+		var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
+		while(_g < _g1.length) {
+			var name = _g1[_g];
+			++_g;
+			var dir = js_node_Path.join(Main.api_local_path,name);
+			if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
 		}
+		process.stdout.write("save: api.json");
+		process.stdout.write("\n");
+		sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
+	} else {
+		process.stdout.write("load: api.json");
+		process.stdout.write("\n");
+		Main.modules = JSON.parse(sys_io_File.getContent(js_node_Path.join(Main.api_local_path,"api.json"))).modules;
 	}
 };
 Main.extract_extended_module = function(path) {
 	var html = js_node_Fs.readFileSync(path,{ encoding : "utf8"});
 	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
 	var $module = { name : StringTools.trim(dom.find(".banner h2").first().text()), href : js_node_Path.basename(js_node_Path.dirname(path))};
+	process.stdout.write("extract module: " + $module.name);
+	process.stdout.write("\n");
 	Main.modules.push($module);
 	$module.methods = [];
 	$module.properties = [];
@@ -108,22 +116,42 @@ Main.extract_extended_module = function(path) {
 		} else if(tag_enum.length == 0) {
 			var type = null;
 			var description = null;
+			var args = [];
 			var table1 = Main.next_of_type_before(h2,"table","h2");
-			table1.find("tbody tr").each(function(index2,el2) {
-				var td01 = Main._(Main._(el2).find("td").get(0));
-				var td11 = Main._(Main._(el2).find("td").get(1));
-				type = StringTools.trim(td01.text());
-				description = StringTools.trim(td11.text());
-				if(description.length == 0) description = null;
-			});
-			var method = { name : a.attr("name"), type : type, is_static : !StringTools.endsWith(StringTools.trim(prefix_span.text()),"#"), is_async : tag_async.length > 0};
+			while(table1.length > 0) {
+				if(StringTools.trim(table1.find("thead tr th").first().text()) == "Parameters") table1.find("tbody tr").each(function(index2,el2) {
+					var td01 = Main._(Main._(el2).find("td").get(0));
+					var td11 = Main._(Main._(el2).find("td").get(1));
+					args.push({ name : StringTools.trim(td01.text()), type : StringTools.trim(td11.text())});
+				}); else if(StringTools.trim(table1.find("thead tr th").first().text()) == "Returns") table1.find("tbody tr").each(function(index3,el3) {
+					var td02 = Main._(Main._(el3).find("td").get(0));
+					var td12 = Main._(Main._(el3).find("td").get(1));
+					type = StringTools.trim(td02.text());
+					description = StringTools.trim(td12.text());
+					if(description.length == 0) description = null;
+				});
+				table1 = Main.next_of_type_before(table1,"table","h2");
+			}
+			var method = { name : a.attr("name"), type : type, args : args, is_static : !StringTools.endsWith(StringTools.trim(prefix_span.text()),"#"), is_async : tag_async.length > 0};
 			$module.methods.push(method);
 		} else {
-			var enum_ = { name : a.attr("name")};
+			var flags = [];
+			var table2 = Main.next_of_type_before(h2,"table","h2");
+			if(StringTools.trim(table2.find("thead tr th").first().text()) == "Flag") table2.find("tbody tr").each(function(index4,el4) {
+				var td03 = Main._(Main._(el4).find("td").get(0));
+				var td13 = Main._(Main._(el4).find("td").get(1));
+				flags.push({ name : (function($this) {
+					var $r;
+					var _this = StringTools.trim(td03.text());
+					var pos = StringTools.trim(td03.text()).lastIndexOf(".") + 1;
+					$r = HxOverrides.substr(_this,pos,null);
+					return $r;
+				}(this)), value : Std.parseInt(StringTools.trim(td13.text()))});
+			});
+			var enum_ = { name : a.attr("name"), flags : flags};
 			$module.enums.push(enum_);
 		}
 	});
-	console.log($module);
 };
 Main.next_of_type_before = function(el,type,stop) {
 	var orig_el = el;
@@ -141,6 +169,12 @@ var Std = function() { };
 Std.__name__ = true;
 Std.string = function(s) {
 	return js_Boot.__string_rec(s,"");
+};
+Std.parseInt = function(x) {
+	var v = parseInt(x,10);
+	if(v == 0 && (HxOverrides.cca(x,1) == 120 || HxOverrides.cca(x,1) == 88)) v = parseInt(x);
+	if(isNaN(v)) return null;
+	return v;
 };
 var StringTools = function() { };
 StringTools.__name__ = true;
@@ -593,6 +627,14 @@ sys_FileSystem.createDirectory = function(path) {
 			if(!stat.isDirectory()) throw e;
 		}
 	}
+};
+var sys_io_File = function() { };
+sys_io_File.__name__ = true;
+sys_io_File.getContent = function(path) {
+	return js_node_Fs.readFileSync(path,{ encoding : "utf8"});
+};
+sys_io_File.saveContent = function(path,content) {
+	js_node_Fs.writeFileSync(path,content);
 };
 String.prototype.__class__ = String;
 String.__name__ = true;
