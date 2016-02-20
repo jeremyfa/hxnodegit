@@ -51,11 +51,15 @@ Main.get_contents = function(url,callback) {
 			data += Std.string(chunk);
 		});
 		response.on("end",function() {
-			callback(data.substring(data.indexOf("<body>") + 6,data.lastIndexOf("</body>")));
+			callback(data);
 		});
 	});
 };
+Main.cleanup_html = function(html) {
+	return html.substring(html.indexOf("<body>") + 6,html.lastIndexOf("</body>"));
+};
 Main.extract_modules = function(html) {
+	html = Main.cleanup_html(html);
 	Main.modules = [];
 	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
 	dom.find("h2 a").each(function(index,el) {
@@ -91,6 +95,7 @@ Main.local_html_api_ready = function() {
 };
 Main.extract_extended_module = function(path) {
 	var html = js_node_Fs.readFileSync(path,{ encoding : "utf8"});
+	html = Main.cleanup_html(html);
 	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
 	var $module = { name : StringTools.trim(dom.find(".banner h2").first().text()), href : js_node_Path.basename(js_node_Path.dirname(path))};
 	process.stdout.write("extract module: " + $module.name);

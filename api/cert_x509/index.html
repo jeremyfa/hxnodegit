@@ -1,4 +1,65 @@
+<!DOCTYPE html>
+<html>
 
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CertX509</title>
+  <meta name="description" content="Asynchronous native Node bindings to libgit2">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://nodegit.org/api/cert_x509/">
+  <link rel="alternate" type="application/atom+xml" title="NodeGit" href="http://nodegit.org/feed.xml" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="/js/sticky.js"></script>
+  <script>
+    var headlines = [];
+    $(function() {
+      $(".outline").stick_in_parent({offset_top:30});
+      $('a[name]').each(function() {
+        headlines.push({el: $(this), top:$(this).offset().top});
+      });
+
+      var selectHeadline = function() {
+        if (headlines.length) {
+          var top = $(window).scrollTop();
+          var headline = headlines[0].el;
+          for(var i=0;i<headlines.length;i++) {
+            if (headlines[i].top <= top + 30) {
+              headline = headlines[i].el;
+            }
+          }
+
+          var el = $("a[href='#" + headline.attr('name') + "']");
+          if (!el.hasClass('selected')) {
+            $('a[href^=#].selected').removeClass('selected');
+            el.addClass('selected');
+          }
+        }
+      }
+
+      $(window).on('scroll', selectHeadline);
+      selectHeadline();
+    });
+
+    $(document).on('click', 'a[href^=#]', function(e) {
+      var tag = $(e.currentTarget).attr('href').replace(/^#/, '');
+      var el = $("a[name='" + tag + "']");
+      $('html,body').animate({scrollTop: el.offset().top-30});
+      return false;
+    });
+
+    $(document).on('click', '.hamburger', function() {
+      $('.hamburger, nav').toggleClass('open');
+    })
+  </script>
+
+</head>
+
+
+  <body>
 
     <header class="site-header">
 
@@ -159,4 +220,6 @@
 </script>
 
 
-  
+  </body>
+
+</html>

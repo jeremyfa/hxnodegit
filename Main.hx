@@ -134,13 +134,21 @@ class Main {
                 data += chunk;
             });
             response.on('end', function() {
-                callback(data.substring(data.indexOf("<body>")+6, data.lastIndexOf("</body>")));
+                callback(data);
             });
         });
 
     } //get_contents
 
+    static function cleanup_html(html:String):String {
+
+        return html.substring(html.indexOf("<body>")+6, html.lastIndexOf("</body>"));
+
+    } //cleanup_html
+
     static function extract_modules(html:String):Void {
+
+        html = cleanup_html(html);
 
         modules = [];
 
@@ -211,6 +219,7 @@ class Main {
     static function extract_extended_module(path:String) {
 
         var html = File.getContent(path);
+        html = cleanup_html(html);
 
         var dom = _(('<div>'+html+'</div>').replace("\n",' '));
 
