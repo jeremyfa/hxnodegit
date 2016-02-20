@@ -1,7 +1,7 @@
 package nodegit;
 @:jsRequire("nodegit", "CherrypickOptions") extern class CherrypickOptions {
-	var checkoutOpts : Dynamic;
+	var checkoutOpts : nodegit.CheckoutOptions;
 	var mainline : Float;
-	var mergeOpts : Dynamic;
+	var mergeOpts : nodegit.MergeOptions;
 	var version : Float;
 }

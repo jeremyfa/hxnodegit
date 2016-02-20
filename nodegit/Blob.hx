@@ -1,16 +1,16 @@
 package nodegit;
 @:jsRequire("nodegit", "Blob") extern class Blob {
-	static function createFromBuffer(repo:Dynamic, buffer:Dynamic, len:Float):Dynamic;
-	static function createFromDisk(id:Dynamic, repo:Dynamic, path:String):Float;
-	static function createFromWorkdir(id:Dynamic, repo:Dynamic, relative_path:String):Float;
-	static function lookup(repo:Dynamic, id:Dynamic):Promise<Dynamic>;
-	static function lookupPrefix(repo:Dynamic, id:Dynamic, len:Float):Promise<Dynamic>;
+	static function createFromBuffer(repo:nodegit.Repository, buffer:Dynamic, len:Float):nodegit.Oid;
+	static function createFromDisk(id:nodegit.Oid, repo:nodegit.Repository, path:String):Float;
+	static function createFromWorkdir(id:nodegit.Oid, repo:nodegit.Repository, relative_path:String):Float;
+	static function lookup(repo:nodegit.Repository, id:Dynamic):js.Promise<nodegit.Blob>;
+	static function lookupPrefix(repo:nodegit.Repository, id:nodegit.Oid, len:Float):js.Promise<nodegit.Blob>;
 	function content():Dynamic;
 	function filemode():Float;
 	function free():Void;
-	function id():Dynamic;
+	function id():nodegit.Oid;
 	function isBinary():Dynamic;
-	function owner():Dynamic;
+	function owner():nodegit.Repository;
 	function rawcontent():Dynamic;
 	function rawsize():Float;
 	function toString():String;

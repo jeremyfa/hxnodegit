@@ -1,7 +1,7 @@
 package nodegit;
 @:jsRequire("nodegit", "SubmoduleUpdateOptions") extern class SubmoduleUpdateOptions {
-	var checkoutOpts : Dynamic;
+	var checkoutOpts : nodegit.CheckoutOptions;
 	var cloneCheckoutStrategy : Float;
-	var fetchOpts : Dynamic;
+	var fetchOpts : nodegit.FetchOptions;
 	var version : Float;
 }

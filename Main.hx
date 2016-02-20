@@ -2,6 +2,7 @@
 import Sys.println;
 
 import js.JQuery;
+import js.JQuery.JQueryHelper.J;
 import js.Promise;
 import js.node.Http;
 import js.node.Path.join;
@@ -156,20 +157,16 @@ class Main {
 
     } //cleanup_html
 
-    static function _(value:Dynamic):JQuery {
-        return new JQuery(value);
-    }
-
     static function extract_modules(html:String):Void {
 
         html = cleanup_html(html);
 
         modules = [];
 
-        var dom = _(('<div>'+html+'</div>').replace("\n",' '));
+        var dom = J(('<div>'+html+'</div>').replace("\n",' '));
 
         dom.find('h2 a').each(function(index, el) {
-            var a = _(el);
+            var a = J(el);
             if (a.attr('href') != null) {
                 modules.push({
                     name: a.text().trim(),
@@ -238,7 +235,7 @@ class Main {
         var html = File.getContent(path);
         html = cleanup_html(html);
 
-        var dom = _(('<div>'+html+'</div>').replace("\n",' '));
+        var dom = J(('<div>'+html+'</div>').replace("\n",' '));
 
         var module:Module = {
             name: dom.find('.banner h2').first().text().trim(),
@@ -255,7 +252,7 @@ class Main {
 
         dom.find('.page-content h2').each(function(index, el) {
 
-            var h2 = _(el);
+            var h2 = J(el);
             var a = h2.find('a').first();
             var prefix_span = h2.find('span').first();
             var tag_async = h2.find('.tags .async');
@@ -266,8 +263,8 @@ class Main {
                 var table = next_of_type_before(h2, 'table', 'h2');
                 table.find('tbody tr').each(function(index, el) {
 
-                    var td0 = _(_(el).find('td').get(0));
-                    var td1 = _(_(el).find('td').get(1));
+                    var td0 = J(J(el).find('td').get(0));
+                    var td1 = J(J(el).find('td').get(1));
 
                     // Property
                     var property:ModuleProperty = {
@@ -295,8 +292,8 @@ class Main {
 
                         table.find('tbody tr').each(function(index, el) {
 
-                            var td0 = _(_(el).find('td').get(0));
-                            var td1 = _(_(el).find('td').get(1));
+                            var td0 = J(J(el).find('td').get(0));
+                            var td1 = J(J(el).find('td').get(1));
 
                             args.push({
                                 name: td0.text().trim(),
@@ -309,8 +306,8 @@ class Main {
 
                         table.find('tbody tr').each(function(index, el) {
 
-                            var td0 = _(_(el).find('td').get(0));
-                            var td1 = _(_(el).find('td').get(1));
+                            var td0 = J(J(el).find('td').get(0));
+                            var td1 = J(J(el).find('td').get(1));
 
                             type = td0.text().trim();
                             description = td1.text().trim();
@@ -345,8 +342,8 @@ class Main {
 
                     table.find('tbody tr').each(function(index, el) {
 
-                        var td0 = _(_(el).find('td').get(0));
-                        var td1 = _(_(el).find('td').get(1));
+                        var td0 = J(J(el).find('td').get(0));
+                        var td1 = J(J(el).find('td').get(1));
 
                         flags.push({
                             name: td0.text().trim().substr(td0.text().trim().lastIndexOf('.') + 1),
@@ -488,38 +485,38 @@ class Main {
         case null:
             if (options.allow_void) {
                 if (options.is_async)
-                    macro :Promise<Void>
+                    macro :js.Promise<Void>
                 else
                     macro :Void;
             } else {
                 if (options.is_async)
-                    macro :Promise<Dynamic>
+                    macro :js.Promise<Dynamic>
                 else
                     macro :Dynamic;
             }
         case 'String':
             if (options.is_async)
-                macro :Promise<String>
+                macro :js.Promise<String>
             else
                 macro :String;
         case 'Bool', 'Boolean', 'bool', 'boolean':
             if (options.is_async)
-                macro :Promise<Bool>
+                macro :js.Promise<Bool>
             else
                 macro :Bool;
         case 'Number':
             if (options.is_async)
-                macro :Promise<Float>
+                macro :js.Promise<Float>
             else
                 macro :Float;
         case 'Integer', 'int':
             if (options.is_async)
-                macro :Promise<Int>
+                macro :js.Promise<Int>
             else
                 macro :Int;
         case 'Array':
             if (options.is_async)
-                macro :Promise<Array<Dynamic>>
+                macro :js.Promise<Array<Dynamic>>
             else
                 macro :Array<Dynamic>;
         default:
@@ -534,34 +531,41 @@ class Main {
                     switch (collection_type) {
                     case 'String':
                         if (options.is_async)
-                            macro :Promise<Array<String>>
+                            macro :js.Promise<Array<String>>
                         else
                             macro :Array<String>;
                     case 'Bool', 'Boolean', 'bool', 'boolean':
                         if (options.is_async)
-                            macro :Promise<Array<Bool>>
+                            macro :js.Promise<Array<Bool>>
                         else
                             macro :Array<Bool>;
                     case 'Number':
                         if (options.is_async)
-                            macro :Promise<Array<Float>>
+                            macro :js.Promise<Array<Float>>
                         else
                             macro :Array<Float>;
                     case 'Integer', 'int':
                         if (options.is_async)
-                            macro :Promise<Array<Int>>
+                            macro :js.Promise<Array<Int>>
                         else
                             macro :Array<Int>;
                     default:
                         if (options.is_async)
-                            macro :Promise<Array<Dynamic>>
+                            macro :js.Promise<Array<Dynamic>>
                         else
                             macro :Array<Dynamic>;
                     }
                 }
-            } else {
+            }
+            else if (module_types.exists(raw_type)) {
                 if (options.is_async)
-                    macro :Promise<Dynamic>
+                    TPath({pack: ['js'], name: 'Promise', params: [TPType(TPath({pack: ['nodegit'], name: raw_type}))]});
+                else
+                    TPath({pack: ['nodegit'], name: raw_type});
+            }
+            else {
+                if (options.is_async)
+                    macro :js.Promise<Dynamic>
                 else
                     macro :Dynamic;
             }

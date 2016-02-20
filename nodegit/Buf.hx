@@ -5,7 +5,7 @@ package nodegit;
 	var size : Float;
 	function containsNul():Float;
 	function free():Void;
-	function grow(target_size:Float):Promise<Dynamic>;
+	function grow(target_size:Float):js.Promise<nodegit.Buf>;
 	function isBinary():Float;
-	function set(data:Dynamic, datalen:Float):Promise<Dynamic>;
+	function set(data:Dynamic, datalen:Float):js.Promise<nodegit.Buf>;
 }

@@ -1,8 +1,8 @@
 package nodegit;
 @:jsRequire("nodegit", "CheckoutOptions") extern class CheckoutOptions {
 	var ancestorLabel : String;
-	var baseline : Dynamic;
-	var baselineIndex : Dynamic;
+	var baseline : nodegit.Tree;
+	var baselineIndex : nodegit.Index;
 	var checkoutStrategy : Float;
 	var dirMode : Float;
 	var disableFilters : Float;
@@ -12,7 +12,7 @@ package nodegit;
 	var notifyFlags : Float;
 	var notifyPayload : Dynamic;
 	var ourLabel : String;
-	var paths : Dynamic;
+	var paths : nodegit.Strarray;
 	var perfdataCb : Dynamic;
 	var perfdataPayload : Dynamic;
 	var progressCb : Dynamic;

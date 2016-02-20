@@ -10,6 +10,6 @@ package nodegit;
 	var notifyCb : Dynamic;
 	var notifyPayload : Dynamic;
 	var oldPrefix : String;
-	var pathspec : Dynamic;
+	var pathspec : nodegit.Strarray;
 	var version : Float;
 }

@@ -1,5 +1,5 @@
 package nodegit;
 @:jsRequire("nodegit", "Revert") extern class Revert {
-	static function commit(repo:Dynamic, revert_commit:Dynamic, our_commit:Dynamic, mainline:Float, merge_options:Dynamic):Promise<Dynamic>;
-	static function revert(repo:Dynamic, commit:Dynamic, given_opts:Dynamic):Promise<Float>;
+	static function commit(repo:nodegit.Repository, revert_commit:nodegit.Commit, our_commit:nodegit.Commit, mainline:Float, merge_options:nodegit.MergeOptions):js.Promise<nodegit.Index>;
+	static function revert(repo:nodegit.Repository, commit:nodegit.Commit, given_opts:nodegit.RevertOptions):js.Promise<Float>;
 }

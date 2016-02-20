@@ -1,18 +1,18 @@
 package nodegit;
 @:jsRequire("nodegit", "Object") extern class Object {
-	static function lookup(repo:Dynamic, id:Dynamic, type:Float):Promise<Dynamic>;
-	static function lookupPrefix(repo:Dynamic, id:Dynamic, len:Float, type:Float):Promise<Dynamic>;
+	static function lookup(repo:nodegit.Repository, id:nodegit.Oid, type:Float):js.Promise<nodegit.Object>;
+	static function lookupPrefix(repo:nodegit.Repository, id:nodegit.Oid, len:Float, type:Float):js.Promise<nodegit.Object>;
 	static function size(type:Float):Float;
 	static function string2type(str:String):Float;
 	static function type2string(type:Float):String;
 	static function typeisloose(type:Float):Dynamic;
-	function dup():Promise<Dynamic>;
+	function dup():js.Promise<nodegit.Object>;
 	function free():Void;
-	function id():Dynamic;
-	function lookupByPath(path:String, type:Float):Promise<Dynamic>;
-	function owner():Dynamic;
-	function peel(target_type:Float):Promise<Dynamic>;
-	function shortId():Promise<Dynamic>;
+	function id():nodegit.Oid;
+	function lookupByPath(path:String, type:Float):js.Promise<Dynamic>;
+	function owner():nodegit.Repository;
+	function peel(target_type:Float):js.Promise<nodegit.Object>;
+	function shortId():js.Promise<nodegit.Buf>;
 	function type():Float;
 	static var TYPE : Dynamic;
 }

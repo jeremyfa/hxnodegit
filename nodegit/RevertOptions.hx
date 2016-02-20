@@ -1,7 +1,7 @@
 package nodegit;
 @:jsRequire("nodegit", "RevertOptions") extern class RevertOptions {
-	var checkoutOpts : Dynamic;
+	var checkoutOpts : nodegit.CheckoutOptions;
 	var mainline : Float;
-	var mergeOpts : Dynamic;
+	var mergeOpts : nodegit.MergeOptions;
 	var version : Float;
 }

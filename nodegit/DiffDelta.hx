@@ -1,9 +1,9 @@
 package nodegit;
 @:jsRequire("nodegit", "DiffDelta") extern class DiffDelta {
 	var flags : Float;
-	var newFile : Dynamic;
+	var newFile : nodegit.DiffFile;
 	var nfiles : Float;
-	var oldFile : Dynamic;
+	var oldFile : nodegit.DiffFile;
 	var similarity : Float;
 	var status : Float;
 }

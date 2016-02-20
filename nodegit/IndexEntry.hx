@@ -1,15 +1,15 @@
 package nodegit;
 @:jsRequire("nodegit", "IndexEntry") extern class IndexEntry {
-	var ctime : Dynamic;
+	var ctime : nodegit.IndexTime;
 	var dev : Float;
 	var fileSize : Float;
 	var flags : Float;
 	var flagsExtended : Float;
 	var gid : Float;
-	var id : Dynamic;
+	var id : nodegit.Oid;
 	var ino : Float;
 	var mode : Float;
-	var mtime : Dynamic;
+	var mtime : nodegit.IndexTime;
 	var path : String;
 	var uid : Float;
 }

@@ -4,7 +4,7 @@ package nodegit;
 	var maxLine : Float;
 	var minLine : Float;
 	var minMatchCharacters : Float;
-	var newestCommit : Dynamic;
-	var oldestCommit : Dynamic;
+	var newestCommit : nodegit.Oid;
+	var oldestCommit : nodegit.Oid;
 	var version : Float;
 }

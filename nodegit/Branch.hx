@@ -1,14 +1,14 @@
 package nodegit;
 @:jsRequire("nodegit", "Branch") extern class Branch {
-	static function create(repo:Dynamic, branch_name:String, target:Dynamic, force:Float):Promise<Dynamic>;
-	static function createFromAnnotated(repository:Dynamic, branch_name:String, commit:Dynamic, force:Float):Dynamic;
-	static function delete(branch:Dynamic):Float;
-	static function isHead(branch:Dynamic):Dynamic;
-	static function iteratorNew(repo:Dynamic, list_flags:Float):Promise<Dynamic>;
-	static function lookup(repo:Dynamic, branch_name:String, branch_type:Float):Promise<Dynamic>;
-	static function move(branch:Dynamic, new_branch_name:String, force:Float):Promise<Dynamic>;
-	static function name(ref:Dynamic):Promise<String>;
-	static function setUpstream(branch:Dynamic, upstream_name:String):Promise<Float>;
-	static function upstream(branch:Dynamic):Promise<Dynamic>;
+	static function create(repo:nodegit.Repository, branch_name:String, target:nodegit.Commit, force:Float):js.Promise<nodegit.Reference>;
+	static function createFromAnnotated(repository:nodegit.Repository, branch_name:String, commit:nodegit.AnnotatedCommit, force:Float):nodegit.Reference;
+	static function delete(branch:nodegit.Reference):Float;
+	static function isHead(branch:nodegit.Reference):Dynamic;
+	static function iteratorNew(repo:nodegit.Repository, list_flags:Float):js.Promise<Dynamic>;
+	static function lookup(repo:nodegit.Repository, branch_name:String, branch_type:Float):js.Promise<nodegit.Reference>;
+	static function move(branch:nodegit.Reference, new_branch_name:String, force:Float):js.Promise<nodegit.Reference>;
+	static function name(ref:nodegit.Reference):js.Promise<String>;
+	static function setUpstream(branch:nodegit.Reference, upstream_name:String):js.Promise<Float>;
+	static function upstream(branch:nodegit.Reference):js.Promise<Dynamic>;
 	static var BRANCH : Dynamic;
 }

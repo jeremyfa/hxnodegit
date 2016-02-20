@@ -1,6 +1,6 @@
 package nodegit;
 @:jsRequire("nodegit", "Indexer") extern class Indexer {
-	function commit(stats:Dynamic):Float;
+	function commit(stats:nodegit.TransferProgress):Float;
 	function free():Void;
-	function hash():Dynamic;
+	function hash():nodegit.Oid;
 }

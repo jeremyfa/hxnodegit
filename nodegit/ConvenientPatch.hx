@@ -1,6 +1,6 @@
 package nodegit;
 @:jsRequire("nodegit", "ConvenientPatch") extern class ConvenientPatch {
-	function hunks():Promise<Array<Dynamic>>;
+	function hunks():js.Promise<Array<Dynamic>>;
 	function isAdded():Bool;
 	function isConflicted():Bool;
 	function isCopied():Bool;
@@ -13,8 +13,8 @@ package nodegit;
 	function isUnreadable():Bool;
 	function isUntracked():Bool;
 	function lineStats():Dynamic;
-	function newFile():Dynamic;
-	function oldFile():Dynamic;
+	function newFile():nodegit.DiffFile;
+	function oldFile():nodegit.DiffFile;
 	function size():Float;
 	function status():Float;
 }

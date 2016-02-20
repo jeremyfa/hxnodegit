@@ -62,15 +62,14 @@ Main.get_contents = function(url,callback) {
 Main.cleanup_html = function(html) {
 	return html.substring(html.indexOf("<body>") + 6,html.lastIndexOf("</body>"));
 };
-Main._ = function(value) {
-	return js.JQuery(value);
-};
 Main.extract_modules = function(html) {
 	html = Main.cleanup_html(html);
 	Main.modules = [];
-	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
+	var dom;
+	var html1 = StringTools.replace("<div>" + html + "</div>","\n"," ");
+	dom = js.JQuery(html1);
 	dom.find("h2 a").each(function(index,el) {
-		var a = Main._(el);
+		var a = js.JQuery(el);
 		if(a.attr("href") != null) Main.modules.push({ name : StringTools.trim(a.text()), href : StringTools.replace(a.attr("href"),"/api/","")});
 	});
 };
@@ -104,7 +103,9 @@ Main.local_html_api_ready = function() {
 Main.extract_extended_module = function(path) {
 	var html = js_node_Fs.readFileSync(path,{ encoding : "utf8"});
 	html = Main.cleanup_html(html);
-	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
+	var dom;
+	var html1 = StringTools.replace("<div>" + html + "</div>","\n"," ");
+	dom = js.JQuery(html1);
 	var $module = { name : StringTools.trim(dom.find(".banner h2").first().text()), href : js_node_Path.basename(js_node_Path.dirname(path))};
 	process.stdout.write("extract module: " + $module.name);
 	process.stdout.write("\n");
@@ -113,7 +114,7 @@ Main.extract_extended_module = function(path) {
 	$module.properties = [];
 	$module.enums = [];
 	dom.find(".page-content h2").each(function(index,el) {
-		var h2 = Main._(el);
+		var h2 = js.JQuery(el);
 		var a = h2.find("a").first();
 		var prefix_span = h2.find("span").first();
 		var tag_async = h2.find(".tags .async");
@@ -121,8 +122,12 @@ Main.extract_extended_module = function(path) {
 		if(StringTools.trim(h2.text()) == "Instance Variables") {
 			var table = Main.next_of_type_before(h2,"table","h2");
 			table.find("tbody tr").each(function(index1,el1) {
-				var td0 = Main._(Main._(el1).find("td").get(0));
-				var td1 = Main._(Main._(el1).find("td").get(1));
+				var td0;
+				var html2 = js.JQuery(el1).find("td").get(0);
+				td0 = js.JQuery(html2);
+				var td1;
+				var html3 = js.JQuery(el1).find("td").get(1);
+				td1 = js.JQuery(html3);
 				var property = { name : StringTools.trim(td0.text()), type : StringTools.trim(td1.text())};
 				$module.properties.push(property);
 			});
@@ -133,12 +138,20 @@ Main.extract_extended_module = function(path) {
 			var table1 = Main.next_of_type_before(h2,"table","h2");
 			while(table1.length > 0) {
 				if(StringTools.trim(table1.find("thead tr th").first().text()) == "Parameters") table1.find("tbody tr").each(function(index2,el2) {
-					var td01 = Main._(Main._(el2).find("td").get(0));
-					var td11 = Main._(Main._(el2).find("td").get(1));
+					var td01;
+					var html4 = js.JQuery(el2).find("td").get(0);
+					td01 = js.JQuery(html4);
+					var td11;
+					var html5 = js.JQuery(el2).find("td").get(1);
+					td11 = js.JQuery(html5);
 					args.push({ name : StringTools.trim(td01.text()), type : StringTools.trim(td11.text())});
 				}); else if(StringTools.trim(table1.find("thead tr th").first().text()) == "Returns") table1.find("tbody tr").each(function(index3,el3) {
-					var td02 = Main._(Main._(el3).find("td").get(0));
-					var td12 = Main._(Main._(el3).find("td").get(1));
+					var td02;
+					var html6 = js.JQuery(el3).find("td").get(0);
+					td02 = js.JQuery(html6);
+					var td12;
+					var html7 = js.JQuery(el3).find("td").get(1);
+					td12 = js.JQuery(html7);
 					type = StringTools.trim(td02.text());
 					description = StringTools.trim(td12.text());
 					if(description.length == 0) description = null;
@@ -151,8 +164,12 @@ Main.extract_extended_module = function(path) {
 			var flags = [];
 			var table2 = Main.next_of_type_before(h2,"table","h2");
 			if(StringTools.trim(table2.find("thead tr th").first().text()) == "Flag") table2.find("tbody tr").each(function(index4,el4) {
-				var td03 = Main._(Main._(el4).find("td").get(0));
-				var td13 = Main._(Main._(el4).find("td").get(1));
+				var td03;
+				var html8 = js.JQuery(el4).find("td").get(0);
+				td03 = js.JQuery(html8);
+				var td13;
+				var html9 = js.JQuery(el4).find("td").get(1);
+				td13 = js.JQuery(html9);
 				flags.push({ name : (function($this) {
 					var $r;
 					var _this = StringTools.trim(td03.text());
@@ -240,23 +257,23 @@ Main.convert_enum = function(enum_) {
 Main.convert_type = function(raw_type,options) {
 	if(raw_type == null) {
 		if(options.allow_void) {
-			if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Void", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Void", params : []});
-		} else if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []});
+			if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Void", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Void", params : []});
+		} else if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []});
 	} else switch(raw_type) {
 	case "String":
-		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []});
+		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []});
 		break;
 	case "Bool":case "Boolean":case "bool":case "boolean":
-		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []});
+		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []});
 		break;
 	case "Number":
-		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []});
+		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []});
 		break;
 	case "Integer":case "int":
-		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []});
+		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []});
 		break;
 	case "Array":
-		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]});
+		if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]});
 		break;
 	default:
 		if(StringTools.startsWith(raw_type,"Array<")) {
@@ -265,21 +282,23 @@ Main.convert_type = function(raw_type,options) {
 				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : raw_type}))]}); else return haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : raw_type});
 			} else switch(collection_type) {
 			case "String":
-				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]});
+				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]});
 				break;
 			case "Bool":case "Boolean":case "bool":case "boolean":
-				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []}))]});
+				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Bool", params : []}))]});
 				break;
 			case "Number":
-				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []}))]});
+				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Float", params : []}))]});
 				break;
 			case "Integer":case "int":
-				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}))]});
+				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}))]});
 				break;
 			default:
-				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]});
+				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]});
 			}
-		} else if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : [], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []});
+		} else if(Main.module_types.exists(raw_type)) {
+			if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : raw_type}))]}); else return haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : raw_type});
+		} else if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []});
 	}
 };
 Math.__name__ = true;

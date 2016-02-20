@@ -1,6 +1,6 @@
 package nodegit;
 @:jsRequire("nodegit", "DiffBinary") extern class DiffBinary {
-	var newFile : Dynamic;
-	var oldFile : Dynamic;
+	var newFile : nodegit.DiffBinaryFile;
+	var oldFile : nodegit.DiffBinaryFile;
 	static var DIFF_BINARY : Dynamic;
 }

@@ -2,11 +2,11 @@ package nodegit;
 @:jsRequire("nodegit", "Signature") extern class Signature {
 	var email : String;
 	var name : String;
-	var when : Dynamic;
-	static function create(name:String, email:String, time:Float, offset:Float):Dynamic;
-	static function default(repo:Dynamic):Dynamic;
-	static function now(name:String, email:String):Dynamic;
-	function dup():Promise<Dynamic>;
+	var when : nodegit.Time;
+	static function create(name:String, email:String, time:Float, offset:Float):nodegit.Signature;
+	static function default(repo:nodegit.Repository):nodegit.Signature;
+	static function now(name:String, email:String):nodegit.Signature;
+	function dup():js.Promise<nodegit.Signature>;
 	function free():Void;
 	function toString():Dynamic;
 }

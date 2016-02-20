@@ -1,6 +1,6 @@
 package nodegit;
 @:jsRequire("nodegit", "Cherrypick") extern class Cherrypick {
-	static function cherrypick(repo:Dynamic, commit:Dynamic, [options]:Dynamic):Promise<Int>;
-	static function commit(repo:Dynamic, cherrypick_commit:Dynamic, our_commit:Dynamic, mainline:Int, [merge_options]:Dynamic):Promise<Int>;
-	static function initOptions(opts:Dynamic, version:Float):Float;
+	static function cherrypick(repo:nodegit.Repository, commit:nodegit.Commit, [options]:nodegit.CherrypickOptions):js.Promise<Int>;
+	static function commit(repo:nodegit.Repository, cherrypick_commit:nodegit.Commit, our_commit:nodegit.Commit, mainline:Int, [merge_options]:nodegit.MergeOptions):js.Promise<Int>;
+	static function initOptions(opts:nodegit.CherrypickOptions, version:Float):Float;
 }
