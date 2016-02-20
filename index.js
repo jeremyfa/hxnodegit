@@ -6,18 +6,47 @@ function $extend(from, fields) {
 	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
 	return proto;
 }
+var HxOverrides = function() { };
+HxOverrides.__name__ = true;
+HxOverrides.cca = function(s,index) {
+	var x = s.charCodeAt(index);
+	if(x != x) return undefined;
+	return x;
+};
+HxOverrides.substr = function(s,pos,len) {
+	if(pos != null && pos != 0 && len != null && len < 0) return "";
+	if(len == null) len = s.length;
+	if(pos < 0) {
+		pos = s.length + pos;
+		if(pos < 0) pos = 0;
+	} else if(len < 0) len = s.length + len - pos;
+	return s.substr(pos,len);
+};
+var js_node_Path = require("path");
 var Main = function() { };
 Main.__name__ = true;
 Main.main = function() {
-	process.stdout.write("HELLO FROM MAIN (node)");
-	process.stdout.write("\n");
-	Main.get_contents("http://www.nodegit.org/api/",function(html) {
+	if(!sys_FileSystem.exists(Main.api_local_path)) Main.download(Main.api_url,js_node_Path.join(Main.api_local_path,"index.html"),function(html) {
 		Main.extract_modules(html);
+		Main.download_single_module(0);
+	}); else Main.local_html_api_ready();
+};
+Main._ = function(value) {
+	return js.JQuery(value);
+};
+Main.download = function(url,destination,callback) {
+	var dir = js_node_Path.dirname(destination);
+	if(!sys_FileSystem.exists(dir)) sys_FileSystem.createDirectory(dir);
+	Main.get_contents(url,function(html) {
+		js_node_Fs.writeFileSync(destination,html);
+		callback(html);
 	});
 };
 Main.get_contents = function(url,callback) {
+	process.stdout.write("download: " + url);
+	process.stdout.write("\n");
 	var data = "";
-	js_node_Http.get("http://www.nodegit.org/api/",function(response) {
+	js_node_Http.get(url,function(response) {
 		response.on("data",function(chunk) {
 			data += Std.string(chunk);
 		});
@@ -27,7 +56,85 @@ Main.get_contents = function(url,callback) {
 	});
 };
 Main.extract_modules = function(html) {
-	Sys.println(js.JQuery("<div>" + html + StringTools.replace("</div>","\n"," ")).text());
+	Main.modules = [];
+	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
+	dom.find("h2 a").each(function(index,el) {
+		var a = Main._(el);
+		if(a.attr("href") != null) Main.modules.push({ name : StringTools.trim(a.text()), href : StringTools.replace(a.attr("href"),"/api/","")});
+	});
+};
+Main.download_single_module = function(index) {
+	var $module = Main.modules[index];
+	Main.download(Main.api_url + $module.href,js_node_Path.join(Main.api_local_path,$module.href,"index.html"),function(html) {
+		if(index < Main.modules.length - 1) Main.download_single_module(index + 1); else Main.local_html_api_ready();
+	});
+};
+Main.local_html_api_ready = function() {
+	Main.modules = [];
+	var _g = 0;
+	var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
+	while(_g < _g1.length) {
+		var name = _g1[_g];
+		++_g;
+		var dir = js_node_Path.join(Main.api_local_path,name);
+		if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) {
+			Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
+			if(Main.modules.length > 5) break;
+		}
+	}
+};
+Main.extract_extended_module = function(path) {
+	var html = js_node_Fs.readFileSync(path,{ encoding : "utf8"});
+	var dom = Main._(StringTools.replace("<div>" + html + "</div>","\n"," "));
+	var $module = { name : StringTools.trim(dom.find(".banner h2").first().text()), href : js_node_Path.basename(js_node_Path.dirname(path))};
+	Main.modules.push($module);
+	$module.methods = [];
+	$module.properties = [];
+	$module.enums = [];
+	dom.find(".page-content h2").each(function(index,el) {
+		var h2 = Main._(el);
+		var a = h2.find("a").first();
+		var prefix_span = h2.find("span").first();
+		var tag_async = h2.find(".tags .async");
+		var tag_enum = h2.find(".tags .enum");
+		if(StringTools.trim(h2.text()) == "Instance Variables") {
+			var table = Main.next_of_type_before(h2,"table","h2");
+			table.find("tbody tr").each(function(index1,el1) {
+				var td0 = Main._(Main._(el1).find("td").get(0));
+				var td1 = Main._(Main._(el1).find("td").get(1));
+				var property = { name : StringTools.trim(td0.text()), type : StringTools.trim(td1.text())};
+				$module.properties.push(property);
+			});
+		} else if(tag_enum.length == 0) {
+			var type = null;
+			var description = null;
+			var table1 = Main.next_of_type_before(h2,"table","h2");
+			table1.find("tbody tr").each(function(index2,el2) {
+				var td01 = Main._(Main._(el2).find("td").get(0));
+				var td11 = Main._(Main._(el2).find("td").get(1));
+				type = StringTools.trim(td01.text());
+				description = StringTools.trim(td11.text());
+				if(description.length == 0) description = null;
+			});
+			var method = { name : a.attr("name"), type : type, is_static : !StringTools.endsWith(StringTools.trim(prefix_span.text()),"#"), is_async : tag_async.length > 0};
+			$module.methods.push(method);
+		} else {
+			var enum_ = { name : a.attr("name")};
+			$module.enums.push(enum_);
+		}
+	});
+	console.log($module);
+};
+Main.next_of_type_before = function(el,type,stop) {
+	var orig_el = el;
+	while(true) {
+		if(el.next(stop).length > 0) return orig_el.next(type);
+		var target_el = el.next(type);
+		if(target_el.length > 0) return target_el;
+		el = el.next();
+		if(el.length == 0) return orig_el.next(type);
+	}
+	return orig_el.next(type);
 };
 Math.__name__ = true;
 var Std = function() { };
@@ -37,14 +144,32 @@ Std.string = function(s) {
 };
 var StringTools = function() { };
 StringTools.__name__ = true;
+StringTools.endsWith = function(s,end) {
+	var elen = end.length;
+	var slen = s.length;
+	return slen >= elen && HxOverrides.substr(s,slen - elen,elen) == end;
+};
+StringTools.isSpace = function(s,pos) {
+	var c = HxOverrides.cca(s,pos);
+	return c > 8 && c < 14 || c == 32;
+};
+StringTools.ltrim = function(s) {
+	var l = s.length;
+	var r = 0;
+	while(r < l && StringTools.isSpace(s,r)) r++;
+	if(r > 0) return HxOverrides.substr(s,r,l - r); else return s;
+};
+StringTools.rtrim = function(s) {
+	var l = s.length;
+	var r = 0;
+	while(r < l && StringTools.isSpace(s,l - r - 1)) r++;
+	if(r > 0) return HxOverrides.substr(s,0,l - r); else return s;
+};
+StringTools.trim = function(s) {
+	return StringTools.ltrim(StringTools.rtrim(s));
+};
 StringTools.replace = function(s,sub,by) {
 	return s.split(sub).join(by);
-};
-var Sys = function() { };
-Sys.__name__ = true;
-Sys.println = function(v) {
-	process.stdout.write(v);
-	process.stdout.write("\n");
 };
 var haxe__$Int64__$_$_$Int64 = function(high,low) {
 	this.high = high;
@@ -436,7 +561,39 @@ js_html_compat_Uint8Array._subarray = function(start,end) {
 	a.byteOffset = start;
 	return a;
 };
+var js_node_Fs = require("fs");
 var js_node_Http = require("http");
+var sys_FileSystem = function() { };
+sys_FileSystem.__name__ = true;
+sys_FileSystem.exists = function(path) {
+	try {
+		js_node_Fs.accessSync(path);
+		return true;
+	} catch( _ ) {
+		if (_ instanceof js__$Boot_HaxeError) _ = _.val;
+		return false;
+	}
+};
+sys_FileSystem.createDirectory = function(path) {
+	try {
+		js_node_Fs.mkdirSync(path);
+	} catch( e ) {
+		if (e instanceof js__$Boot_HaxeError) e = e.val;
+		if(e.code == "ENOENT") {
+			sys_FileSystem.createDirectory(js_node_Path.dirname(path));
+			js_node_Fs.mkdirSync(path);
+		} else {
+			var stat;
+			try {
+				stat = js_node_Fs.statSync(path);
+			} catch( _ ) {
+				if (_ instanceof js__$Boot_HaxeError) _ = _.val;
+				throw e;
+			}
+			if(!stat.isDirectory()) throw e;
+		}
+	}
+};
 String.prototype.__class__ = String;
 String.__name__ = true;
 Array.__name__ = true;
@@ -455,6 +612,9 @@ var ArrayBuffer = $global.ArrayBuffer || js_html_compat_ArrayBuffer;
 if(ArrayBuffer.prototype.slice == null) ArrayBuffer.prototype.slice = js_html_compat_ArrayBuffer.sliceImpl;
 var DataView = $global.DataView || js_html_compat_DataView;
 var Uint8Array = $global.Uint8Array || js_html_compat_Uint8Array._new;
+Main.api_url = "http://www.nodegit.org/api/";
+Main.api_local_path = js_node_Path.join(process.cwd(),"api");
+Main.modules = [];
 haxe_io_FPHelper.i64tmp = (function($this) {
 	var $r;
 	var x = new haxe__$Int64__$_$_$Int64(0,0);
