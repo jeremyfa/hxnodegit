@@ -1,0 +1,669 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Revwalk</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#fastWalk">#fastWalk</a></li>
+            
+            <li><a href="#fileHistoryWalk">#fileHistoryWalk</a></li>
+            
+            <li><a href="#getCommits">#getCommits</a></li>
+            
+            <li><a href="#getCommitsUntil">#getCommitsUntil</a></li>
+            
+            <li><a href="#hide">#hide</a></li>
+            
+            <li><a href="#hideGlob">#hideGlob</a></li>
+            
+            <li><a href="#hideHead">#hideHead</a></li>
+            
+            <li><a href="#hideRef">#hideRef</a></li>
+            
+            <li><a href="#next">#next</a></li>
+            
+            <li><a href="#push">#push</a></li>
+            
+            <li><a href="#pushGlob">#pushGlob</a></li>
+            
+            <li><a href="#pushHead">#pushHead</a></li>
+            
+            <li><a href="#pushRange">#pushRange</a></li>
+            
+            <li><a href="#pushRef">#pushRef</a></li>
+            
+            <li><a href="#repository">#repository</a></li>
+            
+            <li><a href="#reset">#reset</a></li>
+            
+            <li><a href="#simplifyFirstParent">#simplifyFirstParent</a></li>
+            
+            <li><a href="#sorting">#sorting</a></li>
+            
+            <li><a href="#walk">#walk</a></li>
+            
+            <li><a href="#SORT">SORT</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="create"></a><span>Revwalk.</span>create <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">revwalk</span> <span class="o">=</span> <span class="nx">Revwalk</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repo to walk through</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/revwalk/">Revwalk</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="fastWalk"></a><span>Revwalk#</span>fastWalk <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">fastWalk</span><span class="p">(</span><span class="nx">max_count</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">stdVectorGitOid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use stdVectorGitOid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>max_count</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Std::vector<gitOid> *</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="fileHistoryWalk"></a><span>Revwalk#</span>fileHistoryWalk <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">fileHistoryWalk</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">max_count</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayHistoryEntry</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayHistoryEntry</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filePath</td>
+<td>String</td>
+</tr>
+<tr>
+<td>max_count</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;historyEntry&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getCommits"></a><span>Revwalk#</span>getCommits <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">getCommits</span><span class="p">(</span><span class="nx">count</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayCommit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayCommit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Get a number of commits.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>count</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/commit/">Commit</a>&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getCommitsUntil"></a><span>Revwalk#</span>getCommitsUntil <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">getCommitsUntil</span><span class="p">(</span><span class="nx">checkFn</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use array</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Walk the history grabbing commits until the checkFn called with the
+current commit returns false.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>checkFn</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="hide"></a><span>Revwalk#</span>hide <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">hide</span><span class="p">(</span><span class="nx">commit_id</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>commit_id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="hideGlob"></a><span>Revwalk#</span>hideGlob <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">hideGlob</span><span class="p">(</span><span class="nx">glob</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>glob</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="hideHead"></a><span>Revwalk#</span>hideHead <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">hideHead</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="hideRef"></a><span>Revwalk#</span>hideRef <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">hideRef</span><span class="p">(</span><span class="nx">refname</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refname</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="next"></a><span>Revwalk#</span>next <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the oid of the next commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="push"></a><span>Revwalk#</span>push <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pushGlob"></a><span>Revwalk#</span>pushGlob <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">pushGlob</span><span class="p">(</span><span class="nx">glob</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>glob</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pushHead"></a><span>Revwalk#</span>pushHead <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">pushHead</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pushRange"></a><span>Revwalk#</span>pushRange <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">pushRange</span><span class="p">(</span><span class="nx">range</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>range</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pushRef"></a><span>Revwalk#</span>pushRef <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">pushRef</span><span class="p">(</span><span class="nx">refname</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refname</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="repository"></a><span>Revwalk#</span>repository <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">repository</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository being walked</td>
+</tr>
+</tbody></table>
+
+<h2><a name="reset"></a><span>Revwalk#</span>reset <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="simplifyFirstParent"></a><span>Revwalk#</span>simplifyFirstParent <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">simplifyFirstParent</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="sorting"></a><span>Revwalk#</span>sorting <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">revwalk</span><span class="p">.</span><span class="nx">sorting</span><span class="p">(</span><span class="nx">sort</span><span class="p">);</span>
+</code></pre></div>
+<p>Set the sort order for the revwalk. This function takes variable arguments
+like <code>revwalk.sorting(NodeGit.RevWalk.Topological, NodeGit.RevWalk.Reverse).</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sort</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<h2><a name="walk"></a><span>Revwalk#</span>walk <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">commit</span> <span class="o">=</span> <span class="nx">revwalk</span><span class="p">.</span><span class="nx">walk</span><span class="p">(</span><span class="nx">oid</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div>
+<p>Walk the history from the given oid. The callback is invoked for each commit;
+When the walk is over, the callback is invoked with <code>(null, null)</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>oid</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="SORT"></a><span>Revwalk.</span>SORT <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Revwalk.SORT.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Revwalk.SORT.</span>TOPOLOGICAL</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Revwalk.SORT.</span>TIME</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Revwalk.SORT.</span>REVERSE</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

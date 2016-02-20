@@ -1,0 +1,427 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Packbuilder</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#hash">#hash</a></li>
+            
+            <li><a href="#insert">#insert</a></li>
+            
+            <li><a href="#insertCommit">#insertCommit</a></li>
+            
+            <li><a href="#insertRecur">#insertRecur</a></li>
+            
+            <li><a href="#insertTree">#insertTree</a></li>
+            
+            <li><a href="#insertWalk">#insertWalk</a></li>
+            
+            <li><a href="#objectCount">#objectCount</a></li>
+            
+            <li><a href="#setThreads">#setThreads</a></li>
+            
+            <li><a href="#written">#written</a></li>
+            
+            <li><a href="#STAGE">STAGE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="create"></a><span>Packbuilder.</span>create <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">packbuilder</span> <span class="o">=</span> <span class="nx">Packbuilder</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/packbuilder/">Packbuilder</a></td>
+<td>The new packbuilder object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Packbuilder#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">packbuilder</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="hash"></a><span>Packbuilder#</span>hash <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">hash</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="insert"></a><span>Packbuilder#</span>insert <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="insertCommit"></a><span>Packbuilder#</span>insertCommit <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">insertCommit</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="insertRecur"></a><span>Packbuilder#</span>insertRecur <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">insertRecur</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="insertTree"></a><span>Packbuilder#</span>insertTree <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">insertTree</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="insertWalk"></a><span>Packbuilder#</span>insertWalk <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">insertWalk</span><span class="p">(</span><span class="nx">walk</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>walk</td>
+<td><a href="/api/revwalk/">Revwalk</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="objectCount"></a><span>Packbuilder#</span>objectCount <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">objectCount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the number of objects in the packfile</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setThreads"></a><span>Packbuilder#</span>setThreads <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">setThreads</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>number of actual threads to be used</td>
+</tr>
+</tbody></table>
+
+<h2><a name="written"></a><span>Packbuilder#</span>written <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">packbuilder</span><span class="p">.</span><span class="nx">written</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the number of objects which have already been written</td>
+</tr>
+</tbody></table>
+
+<h2><a name="STAGE"></a><span>Packbuilder.</span>STAGE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Packbuilder.STAGE.</span>ADDING_OBJECTS</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Packbuilder.STAGE.</span>DELTAFICATION</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

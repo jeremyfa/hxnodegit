@@ -1,0 +1,438 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Rebase</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#init">init</a></li>
+            
+            <li><a href="#initOptions">initOptions</a></li>
+            
+            <li><a href="#open">open</a></li>
+            
+            <li><a href="#abort">#abort</a></li>
+            
+            <li><a href="#commit">#commit</a></li>
+            
+            <li><a href="#finish">#finish</a></li>
+            
+            <li><a href="#next">#next</a></li>
+            
+            <li><a href="#operationByIndex">#operationByIndex</a></li>
+            
+            <li><a href="#operationCurrent">#operationCurrent</a></li>
+            
+            <li><a href="#operationEntrycount">#operationEntrycount</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="init"></a><span>Rebase.</span>init <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Rebase</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">branch</span><span class="p">,</span> <span class="nx">upstream</span><span class="p">,</span> <span class="nx">onto</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">rebase</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use rebase</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository to perform the rebase</td>
+</tr>
+<tr>
+<td>branch</td>
+<td><a href="/api/annotated_commit/">AnnotatedCommit</a></td>
+<td>The terminal commit to rebase, or NULL to rebase the current branch</td>
+</tr>
+<tr>
+<td>upstream</td>
+<td><a href="/api/annotated_commit/">AnnotatedCommit</a></td>
+<td>The commit to begin rebasing from, or NULL to rebase all reachable commits</td>
+</tr>
+<tr>
+<td>onto</td>
+<td><a href="/api/annotated_commit/">AnnotatedCommit</a></td>
+<td>The branch to rebase onto, or NULL to rebase onto the given upstream</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/rebase_options/">RebaseOptions</a></td>
+<td>Options to specify how rebase is performed, or NULL</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/rebase/">Rebase</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="initOptions"></a><span>Rebase.</span>initOptions <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Rebase</span><span class="p">.</span><span class="nx">initOptions</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/rebase_options/">RebaseOptions</a></td>
+<td>the <code>git_rebase_options</code> instance to initialize.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>the version of the struct; you should pass <code>GIT_REBASE_OPTIONS_VERSION</code> here.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="open"></a><span>Rebase.</span>open <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Rebase</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">rebase</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use rebase</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository that has a rebase in-progress</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/rebase_options/">RebaseOptions</a></td>
+<td>Options to specify how rebase is performed</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/rebase/">Rebase</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="abort"></a><span>Rebase#</span>abort <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">rebase</span><span class="p">.</span><span class="nx">abort</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; GIT_ENOTFOUND if a rebase is not in progress,</td>
+</tr>
+<tr>
+<td>-1 on other errors.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="commit"></a><span>Rebase#</span>commit <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">rebase</span><span class="p">.</span><span class="nx">commit</span><span class="p">(</span><span class="nx">author</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">message_encoding</span><span class="p">,</span> <span class="nx">message</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>author</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>message_encoding</td>
+<td>String</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="finish"></a><span>Rebase#</span>finish <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">rebase</span><span class="p">.</span><span class="nx">finish</span><span class="p">(</span><span class="nx">signature</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>signature</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on error</td>
+</tr>
+</tbody></table>
+
+<h2><a name="next"></a><span>Rebase#</span>next <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">rebase</span><span class="p">.</span><span class="nx">next</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">rebaseOperation</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use rebaseOperation</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/rebase_operation/">RebaseOperation</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="operationByIndex"></a><span>Rebase#</span>operationByIndex <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">rebaseOperation</span> <span class="o">=</span> <span class="nx">rebase</span><span class="p">.</span><span class="nx">operationByIndex</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idx</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/rebase_operation/">RebaseOperation</a></td>
+<td>The rebase operation or NULL if <code>idx</code> was out of bounds</td>
+</tr>
+</tbody></table>
+
+<h2><a name="operationCurrent"></a><span>Rebase#</span>operationCurrent <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">rebase</span><span class="p">.</span><span class="nx">operationCurrent</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The index of the rebase operation currently being applied.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="operationEntrycount"></a><span>Rebase#</span>operationEntrycount <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">rebase</span><span class="p">.</span><span class="nx">operationEntrycount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The number of rebase operations in total</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

@@ -1,0 +1,554 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Branch</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#createFromAnnotated">createFromAnnotated</a></li>
+            
+            <li><a href="#delete">delete</a></li>
+            
+            <li><a href="#isHead">isHead</a></li>
+            
+            <li><a href="#iteratorNew">iteratorNew</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#move">move</a></li>
+            
+            <li><a href="#name">name</a></li>
+            
+            <li><a href="#setUpstream">setUpstream</a></li>
+            
+            <li><a href="#upstream">upstream</a></li>
+            
+            <li><a href="#BRANCH">BRANCH</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="create"></a><span>Branch.</span>create <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">branch_name</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">force</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>branch_name</td>
+<td>String</td>
+<td>Name for the branch; this name is validated for consistency. It should also not conflict with an already existing branch name.</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/commit/">Commit</a></td>
+<td>Commit to which this branch should point. This object must belong to the given <code>repo</code>.</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing branch.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td>the underlying reference.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createFromAnnotated"></a><span>Branch.</span>createFromAnnotated <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">reference</span> <span class="o">=</span> <span class="nx">Branch</span><span class="p">.</span><span class="nx">createFromAnnotated</span><span class="p">(</span><span class="nx">repository</span><span class="p">,</span> <span class="nx">branch_name</span><span class="p">,</span> <span class="nx">commit</span><span class="p">,</span> <span class="nx">force</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repository</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>branch_name</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>commit</td>
+<td><a href="/api/annotated_commit/">AnnotatedCommit</a></td>
+<td></td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="delete"></a><span>Branch.</span>delete <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Branch</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">branch</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td><a href="/api/reference/">Reference</a></td>
+<td>A valid reference representing a branch</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, or an error code.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="isHead"></a><span>Branch.</span>isHead <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Branch</span><span class="p">.</span><span class="nx">isHead</span><span class="p">(</span><span class="nx">branch</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td><a href="/api/reference/">Reference</a></td>
+<td>Current underlying reference of the branch.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if HEAD points at the branch, 0 if it isn&#39;t,</td>
+</tr>
+<tr>
+<td>error code otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="iteratorNew"></a><span>Branch.</span>iteratorNew <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">iteratorNew</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">list_flags</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">branchIterator</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use branchIterator</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to find the branches.</td>
+</tr>
+<tr>
+<td>list_flags</td>
+<td>Number</td>
+<td>Filtering flags for the branch listing. Valid values are GIT_BRANCH_LOCAL, GIT_BRANCH_REMOTE or GIT_BRANCH_ALL.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/branch_iterator/">BranchIterator</a></td>
+<td>the iterator</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Branch.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">branch_name</span><span class="p">,</span> <span class="nx">branch_type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to look up the branch</td>
+</tr>
+<tr>
+<td>branch_name</td>
+<td>String</td>
+<td>Name of the branch to be looked-up; this name is validated for consistency.</td>
+</tr>
+<tr>
+<td>branch_type</td>
+<td>Number</td>
+<td>Type of the considered branch. This should be valued with either GIT_BRANCH_LOCAL or GIT_BRANCH_REMOTE.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="move"></a><span>Branch.</span>move <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="nx">branch</span><span class="p">,</span> <span class="nx">new_branch_name</span><span class="p">,</span> <span class="nx">force</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td><a href="/api/reference/">Reference</a></td>
+<td>Current underlying reference of the branch.</td>
+</tr>
+<tr>
+<td>new_branch_name</td>
+<td>String</td>
+<td>Target name of the branch once the move is performed; this name is validated for consistency.</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing branch.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="name"></a><span>Branch.</span>name <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">name</span><span class="p">(</span><span class="nx">ref</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use string</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ref</td>
+<td><a href="/api/reference/">Reference</a></td>
+<td>the reference ideally pointing to a branch</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setUpstream"></a><span>Branch.</span>setUpstream <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">setUpstream</span><span class="p">(</span><span class="nx">branch</span><span class="p">,</span> <span class="nx">upstream_name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td><a href="/api/reference/">Reference</a></td>
+<td>the branch to configure</td>
+</tr>
+<tr>
+<td>upstream_name</td>
+<td>String</td>
+<td>remote-tracking or local branch to set as upstream. Pass NULL to unset.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="upstream"></a><span>Branch.</span>upstream <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Branch</span><span class="p">.</span><span class="nx">upstream</span><span class="p">(</span><span class="nx">branch</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td><a href="/api/reference/">Reference</a></td>
+<td>Current underlying reference of the branch.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td>the retrieved</td>
+</tr>
+<tr>
+<td>reference.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="BRANCH"></a><span>Branch.</span>BRANCH <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Branch.BRANCH.</span>LOCAL</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Branch.BRANCH.</span>REMOTE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Branch.BRANCH.</span>ALL</td>
+<td>3</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

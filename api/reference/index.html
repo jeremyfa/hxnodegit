@@ -1,0 +1,1273 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Reference</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#createMatching">createMatching</a></li>
+            
+            <li><a href="#dwim">dwim</a></li>
+            
+            <li><a href="#ensureLog">ensureLog</a></li>
+            
+            <li><a href="#hasLog">hasLog</a></li>
+            
+            <li><a href="#isValidName">isValidName</a></li>
+            
+            <li><a href="#list">list</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#nameToId">nameToId</a></li>
+            
+            <li><a href="#normalizeName">normalizeName</a></li>
+            
+            <li><a href="#remove">remove</a></li>
+            
+            <li><a href="#symbolicCreate">symbolicCreate</a></li>
+            
+            <li><a href="#symbolicCreateMatching">symbolicCreateMatching</a></li>
+            
+            <li><a href="#cmp">#cmp</a></li>
+            
+            <li><a href="#delete">#delete</a></li>
+            
+            <li><a href="#isBranch">#isBranch</a></li>
+            
+            <li><a href="#isConcrete">#isConcrete</a></li>
+            
+            <li><a href="#isHead">#isHead</a></li>
+            
+            <li><a href="#isNote">#isNote</a></li>
+            
+            <li><a href="#isRemote">#isRemote</a></li>
+            
+            <li><a href="#isSymbolic">#isSymbolic</a></li>
+            
+            <li><a href="#isTag">#isTag</a></li>
+            
+            <li><a href="#isValid">#isValid</a></li>
+            
+            <li><a href="#name">#name</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#peel">#peel</a></li>
+            
+            <li><a href="#rename">#rename</a></li>
+            
+            <li><a href="#resolve">#resolve</a></li>
+            
+            <li><a href="#setTarget">#setTarget</a></li>
+            
+            <li><a href="#shorthand">#shorthand</a></li>
+            
+            <li><a href="#symbolicSetTarget">#symbolicSetTarget</a></li>
+            
+            <li><a href="#symbolicTarget">#symbolicTarget</a></li>
+            
+            <li><a href="#target">#target</a></li>
+            
+            <li><a href="#targetPeel">#targetPeel</a></li>
+            
+            <li><a href="#toString">#toString</a></li>
+            
+            <li><a href="#type">#type</a></li>
+            
+            <li><a href="#NORMALIZE">NORMALIZE</a></li>
+            
+            <li><a href="#TYPE">TYPE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="create"></a><span>Reference.</span>create <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">force</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where that reference will live</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the reference</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>The object id pointed to by the reference.</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing references</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+<td>The one line long message to be appended to the reflog</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createMatching"></a><span>Reference.</span>createMatching <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">createMatching</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">force</span><span class="p">,</span> <span class="nx">current_id</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where that reference will live</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the reference</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>The object id pointed to by the reference.</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing references</td>
+</tr>
+<tr>
+<td>current_id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>The expected value of the reference at the time of update</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+<td>The one line long message to be appended to the reflog</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="dwim"></a><span>Reference.</span>dwim <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">dwim</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the reference by it&#39;s short name</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the reference lives in</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+<td>The reference to lookup</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="ensureLog"></a><span>Reference.</span>ensureLog <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reference</span><span class="p">.</span><span class="nx">ensureLog</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">refname</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository</td>
+</tr>
+<tr>
+<td>refname</td>
+<td>String</td>
+<td>the reference&#39;s name</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="hasLog"></a><span>Reference.</span>hasLog <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reference</span><span class="p">.</span><span class="nx">hasLog</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">refname</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository</td>
+</tr>
+<tr>
+<td>refname</td>
+<td>String</td>
+<td>the reference&#39;s name</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 when no reflog can be found, 1 when it exists;</td>
+</tr>
+<tr>
+<td>otherwise an error code.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isValidName"></a><span>Reference.</span>isValidName <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reference</span><span class="p">.</span><span class="nx">isValidName</span><span class="p">(</span><span class="nx">refname</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refname</td>
+<td>String</td>
+<td>name to be checked.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the reference name is acceptable; 0 if it isn&#39;t</td>
+</tr>
+</tbody></table>
+
+<h2><a name="list"></a><span>Reference.</span>list <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="nx">repo</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use array</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to find the refs</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Reference.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the reference pointed to by the oid</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the reference lives in</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+<td>The reference to lookup</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="nameToId"></a><span>Reference.</span>nameToId <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">nameToId</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository in which to look up the reference</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The long name for the reference (e.g. HEAD, refs/heads/master, refs/tags/v0.1.0, ...)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="normalizeName"></a><span>Reference.</span>normalizeName <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reference</span><span class="p">.</span><span class="nx">normalizeName</span><span class="p">(</span><span class="nx">buffer_out</span><span class="p">,</span> <span class="nx">buffer_size</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">flags</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>buffer_out</td>
+<td>String</td>
+<td>User allocated buffer to store normalized name</td>
+</tr>
+<tr>
+<td>buffer_size</td>
+<td>Number</td>
+<td>Size of buffer_out</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>Reference name to be checked.</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Number</td>
+<td>Flags to constrain name validation rules - see the GIT_REF_FORMAT constants above.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_EBUFS if buffer is too small, GIT_EINVALIDSPEC</td>
+</tr>
+<tr>
+<td>or an error code.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="remove"></a><span>Reference.</span>remove <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reference</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The reference to remove</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="symbolicCreate"></a><span>Reference.</span>symbolicCreate <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">symbolicCreate</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">force</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where that reference will live</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the reference</td>
+</tr>
+<tr>
+<td>target</td>
+<td>String</td>
+<td>The target of the reference</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing references</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+<td>The one line long message to be appended to the reflog</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="symbolicCreateMatching"></a><span>Reference.</span>symbolicCreateMatching <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reference</span><span class="p">.</span><span class="nx">symbolicCreateMatching</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">force</span><span class="p">,</span> <span class="nx">current_value</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where that reference will live</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the reference</td>
+</tr>
+<tr>
+<td>target</td>
+<td>String</td>
+<td>The target of the reference</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing references</td>
+</tr>
+<tr>
+<td>current_value</td>
+<td>String</td>
+<td>The expected value of the reference when updating</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+<td>The one line long message to be appended to the reflog</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="cmp"></a><span>Reference#</span>cmp <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">cmp</span><span class="p">(</span><span class="nx">ref2</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ref2</td>
+<td><a href="/api/reference/">Reference</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 if the same, else a stable but meaningless ordering.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="delete"></a><span>Reference#</span>delete <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="k">delete</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0, GIT_EMODIFIED or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="isBranch"></a><span>Reference#</span>isBranch <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isBranch</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 when the reference lives in the refs/heads</td>
+</tr>
+<tr>
+<td>namespace; 0 otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isConcrete"></a><span>Reference#</span>isConcrete <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isConcrete</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if this reference is not symbolic</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isHead"></a><span>Reference#</span>isHead <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">bool</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isHead</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns if the ref is pointed at by HEAD</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bool</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isNote"></a><span>Reference#</span>isNote <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isNote</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 when the reference lives in the refs/notes</td>
+</tr>
+<tr>
+<td>namespace; 0 otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isRemote"></a><span>Reference#</span>isRemote <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isRemote</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 when the reference lives in the refs/remotes</td>
+</tr>
+<tr>
+<td>namespace; 0 otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isSymbolic"></a><span>Reference#</span>isSymbolic <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isSymbolic</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if this reference is symbolic</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isTag"></a><span>Reference#</span>isTag <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isTag</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 when the reference lives in the refs/tags</td>
+</tr>
+<tr>
+<td>namespace; 0 otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isValid"></a><span>Reference#</span>isValid <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">isValid</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if this reference is valid</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="name"></a><span>Reference#</span>name <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">name</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the full name for the ref</td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Reference#</span>owner <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repo</td>
+</tr>
+</tbody></table>
+
+<h2><a name="peel"></a><span>Reference#</span>peel <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reference</span><span class="p">.</span><span class="nx">peel</span><span class="p">(</span><span class="nx">type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use object</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="rename"></a><span>Reference#</span>rename <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reference</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="nx">new_name</span><span class="p">,</span> <span class="nx">force</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>new_name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="resolve"></a><span>Reference#</span>resolve <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reference</span><span class="p">.</span><span class="nx">resolve</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setTarget"></a><span>Reference#</span>setTarget <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reference</span><span class="p">.</span><span class="nx">setTarget</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="shorthand"></a><span>Reference#</span>shorthand <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">shorthand</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the human-readable version of the name</td>
+</tr>
+</tbody></table>
+
+<h2><a name="symbolicSetTarget"></a><span>Reference#</span>symbolicSetTarget <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reference</span><span class="p">.</span><span class="nx">symbolicSetTarget</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">log_message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>target</td>
+<td>String</td>
+</tr>
+<tr>
+<td>log_message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="symbolicTarget"></a><span>Reference#</span>symbolicTarget <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">symbolicTarget</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the name if available, NULL otherwise</td>
+</tr>
+</tbody></table>
+
+<h2><a name="target"></a><span>Reference#</span>target <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">target</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the oid if available, NULL otherwise</td>
+</tr>
+</tbody></table>
+
+<h2><a name="targetPeel"></a><span>Reference#</span>targetPeel <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">targetPeel</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the oid if available, NULL otherwise</td>
+</tr>
+</tbody></table>
+
+<h2><a name="toString"></a><span>Reference#</span>toString <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns the name of the reference.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="type"></a><span>Reference#</span>type <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reference</span><span class="p">.</span><span class="nx">type</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the type</td>
+</tr>
+</tbody></table>
+
+<h2><a name="NORMALIZE"></a><span>Reference.</span>NORMALIZE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Reference.NORMALIZE.</span>REF_FORMAT_NORMAL</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Reference.NORMALIZE.</span>REF_FORMAT_ALLOW_ONELEVEL</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Reference.NORMALIZE.</span>REF_FORMAT_REFSPEC_PATTERN</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Reference.NORMALIZE.</span>REF_FORMAT_REFSPEC_SHORTHAND</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+<h2><a name="TYPE"></a><span>Reference.</span>TYPE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Reference.TYPE.</span>INVALID</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Reference.TYPE.</span>OID</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Reference.TYPE.</span>SYMBOLIC</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Reference.TYPE.</span>LISTALL</td>
+<td>3</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

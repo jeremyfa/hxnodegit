@@ -1,0 +1,570 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Merge</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#base">base</a></li>
+            
+            <li><a href="#bases">bases</a></li>
+            
+            <li><a href="#commits">commits</a></li>
+            
+            <li><a href="#fileInitInput">fileInitInput</a></li>
+            
+            <li><a href="#initOptions">initOptions</a></li>
+            
+            <li><a href="#merge">merge</a></li>
+            
+            <li><a href="#trees">trees</a></li>
+            
+            <li><a href="#ANALYSIS">ANALYSIS</a></li>
+            
+            <li><a href="#FILE_FAVOR">FILE_FAVOR</a></li>
+            
+            <li><a href="#FILE_FLAGS">FILE_FLAGS</a></li>
+            
+            <li><a href="#PREFERENCE">PREFERENCE</a></li>
+            
+            <li><a href="#TREE_FLAG">TREE_FLAG</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="base"></a><span>Merge.</span>base <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Merge</span><span class="p">.</span><span class="nx">base</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository where the commits exist</td>
+</tr>
+<tr>
+<td>one</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>one of the commits</td>
+</tr>
+<tr>
+<td>two</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the other commit</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the OID of a merge base between &#39;one&#39; and &#39;two&#39;</td>
+</tr>
+</tbody></table>
+
+<h2><a name="bases"></a><span>Merge.</span>bases <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Merge</span><span class="p">.</span><span class="nx">bases</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oidarray</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oidarray</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository where the commits exist</td>
+</tr>
+<tr>
+<td>one</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>one of the commits</td>
+</tr>
+<tr>
+<td>two</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the other commit</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oidarray/">Oidarray</a></td>
+<td>array in which to store the resulting ids</td>
+</tr>
+</tbody></table>
+
+<h2><a name="commits"></a><span>Merge.</span>commits <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Merge</span><span class="p">.</span><span class="nx">commits</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">ourCommit</span><span class="p">,</span> <span class="nx">theirCommit</span><span class="p">,</span> <span class="p">[</span><span class="nx">options</span><span class="p">]);</span>
+</code></pre></div>
+<p>Merge 2 commits together and create an new index that can
+be used to create a merge commit.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository that contains the given commits</td>
+</tr>
+<tr>
+<td>ourCommit</td>
+<td><a href="/api/commit/">Commit</a></td>
+<td>The commit that reflects the destination tree</td>
+</tr>
+<tr>
+<td>theirCommit</td>
+<td><a href="/api/commit/">Commit</a></td>
+<td>The commit to merge into ourCommit</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><a href="/api/merge_options/">MergeOptions</a></td>
+<td>The merge tree options (null for default)</td>
+</tr>
+</tbody></table>
+
+<h2><a name="fileInitInput"></a><span>Merge.</span>fileInitInput <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Merge</span><span class="p">.</span><span class="nx">fileInitInput</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/merge_file_input/">MergeFileInput</a></td>
+<td>the <code>git_merge_file_input</code> instance to initialize.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>the version of the struct; you should pass <code>GIT_MERGE_FILE_INPUT_VERSION</code> here.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="initOptions"></a><span>Merge.</span>initOptions <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Merge</span><span class="p">.</span><span class="nx">initOptions</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/merge_options/">MergeOptions</a></td>
+<td>the <code>git_merge_options</code> instance to initialize.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>the version of the struct; you should pass <code>GIT_MERGE_OPTIONS_VERSION</code> here.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="merge"></a><span>Merge.</span>merge <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Merge</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">theirHead</span><span class="p">,</span> <span class="p">[</span><span class="nx">mergeOpts</span><span class="p">],</span> <span class="p">[</span><span class="nx">checkoutOpts</span><span class="p">]);</span>
+</code></pre></div>
+<p>Merge a commit into HEAD and writes the results to the working directory.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository that contains the given commits</td>
+</tr>
+<tr>
+<td>theirHead</td>
+<td><a href="/api/commit/">Commit</a></td>
+<td>The annotated to merge into HEAD</td>
+</tr>
+<tr>
+<td>[mergeOpts]</td>
+<td><a href="/api/merge_options/">MergeOptions</a></td>
+<td>The merge tree options (null for default)</td>
+</tr>
+<tr>
+<td>[checkoutOpts]</td>
+<td><a href="/api/checkout_options/">CheckoutOptions</a></td>
+<td>The checkout options (null for default)</td>
+</tr>
+</tbody></table>
+
+<h2><a name="trees"></a><span>Merge.</span>trees <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Merge</span><span class="p">.</span><span class="nx">trees</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">ancestor_tree</span><span class="p">,</span> <span class="nx">our_tree</span><span class="p">,</span> <span class="nx">their_tree</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use index</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>repository that contains the given trees</td>
+</tr>
+<tr>
+<td>ancestor_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>the common ancestor between the trees (or null if none)</td>
+</tr>
+<tr>
+<td>our_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>the tree that reflects the destination tree</td>
+</tr>
+<tr>
+<td>their_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>the tree to merge in to <code>our_tree</code></td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/merge_options/">MergeOptions</a></td>
+<td>the merge tree options (or null for defaults)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/index/">Index</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="ANALYSIS"></a><span>Merge.</span>ANALYSIS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Merge.ANALYSIS.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Merge.ANALYSIS.</span>NORMAL</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Merge.ANALYSIS.</span>UP_TO_DATE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Merge.ANALYSIS.</span>FASTFORWARD</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Merge.ANALYSIS.</span>UNBORN</td>
+<td>8</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FILE_FAVOR"></a><span>Merge.</span>FILE_FAVOR <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Merge.FILE_FAVOR.</span>NORMAL</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FAVOR.</span>OURS</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FAVOR.</span>THEIRS</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FAVOR.</span>UNION</td>
+<td>3</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FILE_FLAGS"></a><span>Merge.</span>FILE_FLAGS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_DEFAULT</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_STYLE_MERGE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_STYLE_DIFF3</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_SIMPLIFY_ALNUM</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE_CHANGE</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_IGNORE_WHITESPACE_EOL</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_DIFF_PATIENCE</td>
+<td>64</td>
+</tr>
+<tr>
+<td><span>Merge.FILE_FLAGS.</span>FILE_DIFF_MINIMAL</td>
+<td>128</td>
+</tr>
+</tbody></table>
+
+<h2><a name="PREFERENCE"></a><span>Merge.</span>PREFERENCE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Merge.PREFERENCE.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Merge.PREFERENCE.</span>NO_FASTFORWARD</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Merge.PREFERENCE.</span>FASTFORWARD_ONLY</td>
+<td>2</td>
+</tr>
+</tbody></table>
+
+<h2><a name="TREE_FLAG"></a><span>Merge.</span>TREE_FLAG <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Merge.TREE_FLAG.</span>TREE_FIND_RENAMES</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

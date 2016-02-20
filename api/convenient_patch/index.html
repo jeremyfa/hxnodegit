@@ -1,0 +1,463 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>ConvenientPatch</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#hunks">#hunks</a></li>
+            
+            <li><a href="#isAdded">#isAdded</a></li>
+            
+            <li><a href="#isConflicted">#isConflicted</a></li>
+            
+            <li><a href="#isCopied">#isCopied</a></li>
+            
+            <li><a href="#isDeleted">#isDeleted</a></li>
+            
+            <li><a href="#isIgnored">#isIgnored</a></li>
+            
+            <li><a href="#isModified">#isModified</a></li>
+            
+            <li><a href="#isRenamed">#isRenamed</a></li>
+            
+            <li><a href="#isTypeChange">#isTypeChange</a></li>
+            
+            <li><a href="#isUnmodified">#isUnmodified</a></li>
+            
+            <li><a href="#isUnreadable">#isUnreadable</a></li>
+            
+            <li><a href="#isUntracked">#isUntracked</a></li>
+            
+            <li><a href="#lineStats">#lineStats</a></li>
+            
+            <li><a href="#newFile">#newFile</a></li>
+            
+            <li><a href="#oldFile">#oldFile</a></li>
+            
+            <li><a href="#size">#size</a></li>
+            
+            <li><a href="#status">#status</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="hunks"></a><span>ConvenientPatch#</span>hunks <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">hunks</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayConvenientHunk</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayConvenientHunk</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The hunks in this patch</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;ConvenientHunk&gt;</td>
+<td>a promise that resolves to an array of                                      ConvenientHunks</td>
+</tr>
+</tbody></table>
+
+<h2><a name="isAdded"></a><span>ConvenientPatch#</span>isAdded <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isAdded</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this an added patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isConflicted"></a><span>ConvenientPatch#</span>isConflicted <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isConflicted</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this a conflicted patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isCopied"></a><span>ConvenientPatch#</span>isCopied <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isCopied</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this a copied patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isDeleted"></a><span>ConvenientPatch#</span>isDeleted <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isDeleted</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this a deleted patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isIgnored"></a><span>ConvenientPatch#</span>isIgnored <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isIgnored</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this an ignored patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isModified"></a><span>ConvenientPatch#</span>isModified <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isModified</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this an modified patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isRenamed"></a><span>ConvenientPatch#</span>isRenamed <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isRenamed</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this a renamed patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isTypeChange"></a><span>ConvenientPatch#</span>isTypeChange <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isTypeChange</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this a type change?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isUnmodified"></a><span>ConvenientPatch#</span>isUnmodified <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isUnmodified</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this an unmodified patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isUnreadable"></a><span>ConvenientPatch#</span>isUnreadable <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isUnreadable</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this an undreadable patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isUntracked"></a><span>ConvenientPatch#</span>isUntracked <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">isUntracked</span><span class="p">();</span>
+</code></pre></div>
+<p>Is this an untracked patch?</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lineStats"></a><span>ConvenientPatch#</span>lineStats <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">lineStats</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">lineStats</span><span class="p">();</span>
+</code></pre></div>
+<p>The line statistics of this patch (#contexts, #added, #deleted)</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>lineStats</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="newFile"></a><span>ConvenientPatch#</span>newFile <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">diffFile</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">newFile</span><span class="p">();</span>
+</code></pre></div>
+<p>New attributes of the file</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff_file/">DiffFile</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="oldFile"></a><span>ConvenientPatch#</span>oldFile <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">diffFile</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">oldFile</span><span class="p">();</span>
+</code></pre></div>
+<p>Old attributes of the file</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff_file/">DiffFile</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="size"></a><span>ConvenientPatch#</span>size <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">size</span><span class="p">();</span>
+</code></pre></div>
+<p>The number of hunks in this patch</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="status"></a><span>ConvenientPatch#</span>status <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">convenientPatch</span><span class="p">.</span><span class="nx">status</span><span class="p">();</span>
+</code></pre></div>
+<p>The status of this patch (unmodified, added, deleted)</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

@@ -1,0 +1,519 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Reflog</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#delete">delete</a></li>
+            
+            <li><a href="#entryCommitter">entryCommitter</a></li>
+            
+            <li><a href="#entryIdNew">entryIdNew</a></li>
+            
+            <li><a href="#entryIdOld">entryIdOld</a></li>
+            
+            <li><a href="#entryMessage">entryMessage</a></li>
+            
+            <li><a href="#read">read</a></li>
+            
+            <li><a href="#rename">rename</a></li>
+            
+            <li><a href="#append">#append</a></li>
+            
+            <li><a href="#drop">#drop</a></li>
+            
+            <li><a href="#entryByIndex">#entryByIndex</a></li>
+            
+            <li><a href="#entrycount">#entrycount</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#write">#write</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="delete"></a><span>Reflog.</span>delete <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reflog</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the reflog to delete</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryCommitter"></a><span>Reflog.</span>entryCommitter <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">Reflog</span><span class="p">.</span><span class="nx">entryCommitter</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/reflog_entry/">ReflogEntry</a></td>
+<td>a reflog entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/signature/">Signature</a></td>
+<td>the committer</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryIdNew"></a><span>Reflog.</span>entryIdNew <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">Reflog</span><span class="p">.</span><span class="nx">entryIdNew</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/reflog_entry/">ReflogEntry</a></td>
+<td>a reflog entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the new oid at this time</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryIdOld"></a><span>Reflog.</span>entryIdOld <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">Reflog</span><span class="p">.</span><span class="nx">entryIdOld</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/reflog_entry/">ReflogEntry</a></td>
+<td>a reflog entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the old oid</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryMessage"></a><span>Reflog.</span>entryMessage <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">Reflog</span><span class="p">.</span><span class="nx">entryMessage</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/reflog_entry/">ReflogEntry</a></td>
+<td>a reflog entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the log msg</td>
+</tr>
+</tbody></table>
+
+<h2><a name="read"></a><span>Reflog.</span>read <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Reflog</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reflog</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reflog</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repostiory</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>reference to look up</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reflog/">Reflog</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="rename"></a><span>Reflog.</span>rename <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Reflog</span><span class="p">.</span><span class="nx">rename</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">old_name</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository</td>
+</tr>
+<tr>
+<td>old_name</td>
+<td>String</td>
+<td>the old name of the reference</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the new name of the reference</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_EINVALIDSPEC or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="append"></a><span>Reflog#</span>append <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reflog</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">msg</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="drop"></a><span>Reflog#</span>drop <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reflog</span><span class="p">.</span><span class="nx">drop</span><span class="p">(</span><span class="nx">idx</span><span class="p">,</span> <span class="nx">rewrite_previous_entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idx</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>rewrite_previous_entry</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_ENOTFOUND if the entry doesn&#39;t exist</td>
+</tr>
+<tr>
+<td>or an error code.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryByIndex"></a><span>Reflog#</span>entryByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">reflogEntry</span> <span class="o">=</span> <span class="nx">reflog</span><span class="p">.</span><span class="nx">entryByIndex</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idx</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reflog_entry/">ReflogEntry</a></td>
+<td>the entry; NULL if not found</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entrycount"></a><span>Reflog#</span>entrycount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reflog</span><span class="p">.</span><span class="nx">entrycount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the number of log entries</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Reflog#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">reflog</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="write"></a><span>Reflog#</span>write <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">reflog</span><span class="p">.</span><span class="nx">write</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

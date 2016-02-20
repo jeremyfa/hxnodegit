@@ -1,0 +1,955 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Tree</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#entryCmp">entryCmp</a></li>
+            
+            <li><a href="#entryDup">entryDup</a></li>
+            
+            <li><a href="#entryFilemode">entryFilemode</a></li>
+            
+            <li><a href="#entryFilemodeRaw">entryFilemodeRaw</a></li>
+            
+            <li><a href="#entryId">entryId</a></li>
+            
+            <li><a href="#entryName">entryName</a></li>
+            
+            <li><a href="#entryToObject">entryToObject</a></li>
+            
+            <li><a href="#entryType">entryType</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#lookupPrefix">lookupPrefix</a></li>
+            
+            <li><a href="#_entryByIndex">#_entryByIndex</a></li>
+            
+            <li><a href="#builder">#builder</a></li>
+            
+            <li><a href="#diff">#diff</a></li>
+            
+            <li><a href="#diffWithOptions">#diffWithOptions</a></li>
+            
+            <li><a href="#entries">#entries</a></li>
+            
+            <li><a href="#entryById">#entryById</a></li>
+            
+            <li><a href="#entryByIndex">#entryByIndex</a></li>
+            
+            <li><a href="#entryByName">#entryByName</a></li>
+            
+            <li><a href="#entryByPath">#entryByPath</a></li>
+            
+            <li><a href="#entryCount">#entryCount</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#getEntry">#getEntry</a></li>
+            
+            <li><a href="#id">#id</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#path">#path</a></li>
+            
+            <li><a href="#walk">#walk</a></li>
+            
+            <li><a href="#WALK_MODE">WALK_MODE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="entryCmp"></a><span>Tree.</span>entryCmp <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryCmp</span><span class="p">(</span><span class="nx">e1</span><span class="p">,</span> <span class="nx">e2</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>e1</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>first tree entry</td>
+</tr>
+<tr>
+<td>e2</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>second tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 if e1 is before e2, 0 if e1 == e2, &gt;0 if e1 is after e2 |</p>
+
+<h2><a name="entryDup"></a><span>Tree.</span>entryDup <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryDup</span><span class="p">(</span><span class="nx">dest</span><span class="p">,</span> <span class="nx">source</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>dest</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>pointer where to store the copy</td>
+</tr>
+<tr>
+<td>source</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>tree entry to duplicate</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryFilemode"></a><span>Tree.</span>entryFilemode <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryFilemode</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>a tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>filemode as an integer</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryFilemodeRaw"></a><span>Tree.</span>entryFilemodeRaw <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryFilemodeRaw</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>a tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>filemode as an integer</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryId"></a><span>Tree.</span>entryId <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryId</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>a tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the oid of the object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryName"></a><span>Tree.</span>entryName <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryName</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>a tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the name of the file</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryToObject"></a><span>Tree.</span>entryToObject <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryToObject</span><span class="p">(</span><span class="nx">object_out</span><span class="p">,</span> <span class="nx">repo</span><span class="p">,</span> <span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>object_out</td>
+<td><a href="/api/object/">Object</a></td>
+<td>pointer to the converted object</td>
+</tr>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>repository where to lookup the pointed object</td>
+</tr>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>a tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryType"></a><span>Tree.</span>entryType <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tree</span><span class="p">.</span><span class="nx">entryType</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>a tree entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the type of the pointed object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Tree.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tree</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tree</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the tree pointed to by the oid</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the tree lives in</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String, <a href="/api/oid/">Oid</a>, <a href="/api/tree/">Tree</a></td>
+<td>The tree to lookup</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree/">Tree</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookupPrefix"></a><span>Tree.</span>lookupPrefix <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tree</span><span class="p">.</span><span class="nx">lookupPrefix</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">len</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tree</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repo to use when locating the tree.</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>identity of the tree to locate.</td>
+</tr>
+<tr>
+<td>len</td>
+<td>Number</td>
+<td>the length of the short identifier</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree/">Tree</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="_entryByIndex"></a><span>Tree#</span>_entryByIndex <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">treeEntry</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">_entryByIndex</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idx</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>the tree entry; NULL if not found</td>
+</tr>
+</tbody></table>
+
+<h2><a name="builder"></a><span>Tree#</span>builder <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">treebuilder</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">builder</span><span class="p">();</span>
+</code></pre></div>
+<p>Make builder. This is helpful for modifying trees.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/treebuilder/">Treebuilder</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="diff"></a><span>Tree#</span>diff <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">tree</span><span class="p">.</span><span class="nx">diff</span><span class="p">(</span><span class="nx">tree</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diffList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diffList</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Diff two trees</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DiffList</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="diffWithOptions"></a><span>Tree#</span>diffWithOptions <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">tree</span><span class="p">.</span><span class="nx">diffWithOptions</span><span class="p">(</span><span class="nx">tree</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diffList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diffList</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Diff two trees with options</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="/api/object/">Object</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>DiffList</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="entries"></a><span>Tree#</span>entries <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">arrayTreeEntry</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">entries</span><span class="p">();</span>
+</code></pre></div>
+<p>Return an array of the entries in this tree (excluding its children).</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/tree_entry/">TreeEntry</a>&gt;</td>
+<td>an array of TreeEntrys</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryById"></a><span>Tree#</span>entryById <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">treeEntry</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">entryById</span><span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>the tree entry; NULL if not found</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryByIndex"></a><span>Tree#</span>entryByIndex <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">treeEntry</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">entryByIndex</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+</code></pre></div>
+<p>Get an entry at the ith position.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>i</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryByName"></a><span>Tree#</span>entryByName <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">treeEntry</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">entryByName</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<p>Get an entry by name; if the tree is a directory, the name is the filename.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryByPath"></a><span>Tree#</span>entryByPath <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">tree</span><span class="p">.</span><span class="nx">entryByPath</span><span class="p">(</span><span class="nx">path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">treeEntry</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use treeEntry</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td>the tree entry</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryCount"></a><span>Tree#</span>entryCount <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">entryCount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the number of entries in the tree</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Tree#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">tree</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="getEntry"></a><span>Tree#</span>getEntry <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">treeEntry</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">getEntry</span><span class="p">(</span><span class="nx">filePath</span><span class="p">);</span>
+</code></pre></div>
+<p>Get an entry at a path. Unlike by name, this takes a fully
+qualified path, like <code>/foo/bar/baz.javascript</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filePath</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="id"></a><span>Tree#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">id</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>object identity for the tree.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Tree#</span>owner <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository that contains this tree.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="path"></a><span>Tree#</span>path <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">path</span><span class="p">();</span>
+</code></pre></div>
+<p>Return the path of this tree, like <code>/lib/foo/bar</code></p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="walk"></a><span>Tree#</span>walk <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">eventEmitter</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">walk</span><span class="p">([</span><span class="nx">blobsOnly</span><span class="p">);</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'entry'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tree</span>
+<span class="p">});</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">trees</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use trees</span>
+<span class="p">});</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use error</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Recursively walk the tree in breadth-first order. Fires an event for each
+entry.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>[blobsOnly</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Fires</th>
+<th>Sends</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+<tr>
+<td>end</td>
+<td>Array&lt;<a href="/api/tree/">Tree</a>&gt;</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="/api/error/">Error</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EventEmitter</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="WALK_MODE"></a><span>Tree.</span>WALK_MODE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Tree.WALK_MODE.</span>WALK_PRE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Tree.WALK_MODE.</span>WALK_POST</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

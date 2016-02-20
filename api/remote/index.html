@@ -1,0 +1,1250 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Remote</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#addFetch">addFetch</a></li>
+            
+            <li><a href="#addPush">addPush</a></li>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#createAnonymous">createAnonymous</a></li>
+            
+            <li><a href="#createWithFetchspec">createWithFetchspec</a></li>
+            
+            <li><a href="#delete">delete</a></li>
+            
+            <li><a href="#initCallbacks">initCallbacks</a></li>
+            
+            <li><a href="#isValidName">isValidName</a></li>
+            
+            <li><a href="#list">list</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#setAutotag">setAutotag</a></li>
+            
+            <li><a href="#setPushurl">setPushurl</a></li>
+            
+            <li><a href="#setUrl">setUrl</a></li>
+            
+            <li><a href="#autotag">#autotag</a></li>
+            
+            <li><a href="#connect">#connect</a></li>
+            
+            <li><a href="#connected">#connected</a></li>
+            
+            <li><a href="#defaultBranch">#defaultBranch</a></li>
+            
+            <li><a href="#disconnect">#disconnect</a></li>
+            
+            <li><a href="#download">#download</a></li>
+            
+            <li><a href="#dup">#dup</a></li>
+            
+            <li><a href="#fetch">#fetch</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#getFetchRefspecs">#getFetchRefspecs</a></li>
+            
+            <li><a href="#getPushRefspecs">#getPushRefspecs</a></li>
+            
+            <li><a href="#getRefspec">#getRefspec</a></li>
+            
+            <li><a href="#name">#name</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#prune">#prune</a></li>
+            
+            <li><a href="#pruneRefs">#pruneRefs</a></li>
+            
+            <li><a href="#push">#push</a></li>
+            
+            <li><a href="#pushurl">#pushurl</a></li>
+            
+            <li><a href="#refspecCount">#refspecCount</a></li>
+            
+            <li><a href="#stats">#stats</a></li>
+            
+            <li><a href="#stop">#stop</a></li>
+            
+            <li><a href="#updateTips">#updateTips</a></li>
+            
+            <li><a href="#upload">#upload</a></li>
+            
+            <li><a href="#url">#url</a></li>
+            
+            <li><a href="#AUTOTAG_OPTION">AUTOTAG_OPTION</a></li>
+            
+            <li><a href="#COMPLETION_TYPE">COMPLETION_TYPE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="addFetch"></a><span>Remote.</span>addFetch <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">addFetch</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">remote</span><span class="p">,</span> <span class="nx">refspec</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to change the configuration</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>String</td>
+<td>the name of the remote to change</td>
+</tr>
+<tr>
+<td>refspec</td>
+<td>String</td>
+<td>the new fetch refspec</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0, GIT_EINVALIDSPEC if refspec is invalid or an error value</td>
+</tr>
+</tbody></table>
+
+<h2><a name="addPush"></a><span>Remote.</span>addPush <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">addPush</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">remote</span><span class="p">,</span> <span class="nx">refspec</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to change the configuration</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>String</td>
+<td>the name of the remote to change</td>
+</tr>
+<tr>
+<td>refspec</td>
+<td>String</td>
+<td>the new push refspec</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0, GIT_EINVALIDSPEC if refspec is invalid or an error value</td>
+</tr>
+</tbody></table>
+
+<h2><a name="create"></a><span>Remote.</span>create <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">remote</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to create the remote</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the remote&#39;s name</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>the remote&#39;s url</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/remote/">Remote</a></td>
+<td>the resulting remote</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createAnonymous"></a><span>Remote.</span>createAnonymous <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Remote</span><span class="p">.</span><span class="nx">createAnonymous</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">remote</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use remote</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the associated repository</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>the remote repository&#39;s URL</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/remote/">Remote</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createWithFetchspec"></a><span>Remote.</span>createWithFetchspec <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Remote</span><span class="p">.</span><span class="nx">createWithFetchspec</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">fetch</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">remote</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use remote</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to create the remote</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the remote&#39;s name</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>the remote&#39;s url</td>
+</tr>
+<tr>
+<td>fetch</td>
+<td>String</td>
+<td>the remote fetch value</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/remote/">Remote</a></td>
+<td>the resulting remote</td>
+</tr>
+</tbody></table>
+
+<h2><a name="delete"></a><span>Remote.</span>delete <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Remote</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to act</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the name of the remove to delete</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, or an error code.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="initCallbacks"></a><span>Remote.</span>initCallbacks <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">initCallbacks</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/remote_callbacks/">RemoteCallbacks</a></td>
+<td>the <code>git_remote_callbacks</code> struct to initialize</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>Version of struct; pass <code>GIT_REMOTE_CALLBACKS_VERSION</code></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="isValidName"></a><span>Remote.</span>isValidName <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">isValidName</span><span class="p">(</span><span class="nx">remote_name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>remote_name</td>
+<td>String</td>
+<td>name to be checked.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the reference name is acceptable; 0 if it isn&#39;t</td>
+</tr>
+</tbody></table>
+
+<h2><a name="list"></a><span>Remote.</span>list <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Remote</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="nx">repo</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use array</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to query</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td>a string array which receives the names of the remotes</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Remote.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Remote</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">remote</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use remote</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the remote by name</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the remote lives in</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String, <a href="/api/remote/">Remote</a></td>
+<td>The remote to lookup</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/remote/">Remote</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setAutotag"></a><span>Remote.</span>setAutotag <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">setAutotag</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">remote</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to make the change</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>String</td>
+<td>the name of the remote</td>
+</tr>
+<tr>
+<td>value</td>
+<td>Number</td>
+<td>the new value to take.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setPushurl"></a><span>Remote.</span>setPushurl <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">setPushurl</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">remote</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to perform the change</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>String</td>
+<td>the remote&#39;s name</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>the url to set</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setUrl"></a><span>Remote.</span>setUrl <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Remote</span><span class="p">.</span><span class="nx">setUrl</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">remote</span><span class="p">,</span> <span class="nx">url</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to perform the change</td>
+</tr>
+<tr>
+<td>remote</td>
+<td>String</td>
+<td>the remote&#39;s name</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>the url to set</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error value</td>
+</tr>
+</tbody></table>
+
+<h2><a name="autotag"></a><span>Remote#</span>autotag <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">autotag</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the auto-follow setting</td>
+</tr>
+</tbody></table>
+
+<h2><a name="connect"></a><span>Remote#</span>connect <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="nx">direction</span><span class="p">,</span> <span class="nx">callbacks</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use number</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Connects to a remote</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>direction</td>
+<td><a href="/api/enums/#DIRECTION">Enums.DIRECTION</a></td>
+</tr>
+<tr>
+<td>callbacks</td>
+<td><a href="/api/remote_callbacks/">RemoteCallbacks</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="connected"></a><span>Remote#</span>connected <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">connected</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if it&#39;s connected, 0 otherwise.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="defaultBranch"></a><span>Remote#</span>defaultBranch <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">defaultBranch</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use buf</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/buf/">Buf</a></td>
+<td>the buffern in which to store the reference name</td>
+</tr>
+</tbody></table>
+
+<h2><a name="disconnect"></a><span>Remote#</span>disconnect <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">disconnect</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// method complete});</span>
+</code></pre></div>
+<h2><a name="download"></a><span>Remote#</span>download <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">download</span><span class="p">(</span><span class="nx">refSpecs</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use number</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Connects to a remote</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refSpecs</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/fetch_options/">FetchOptions</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="dup"></a><span>Remote#</span>dup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">dup</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">remote</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use remote</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/remote/">Remote</a></td>
+<td>the copy</td>
+</tr>
+</tbody></table>
+
+<h2><a name="fetch"></a><span>Remote#</span>fetch <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">refSpecs</span><span class="p">,</span> <span class="nx">opts</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use number</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Connects to a remote</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refSpecs</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/fetch_options/">FetchOptions</a></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Remote#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="getFetchRefspecs"></a><span>Remote#</span>getFetchRefspecs <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">getFetchRefspecs</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use array</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getPushRefspecs"></a><span>Remote#</span>getPushRefspecs <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">getPushRefspecs</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use array</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getRefspec"></a><span>Remote#</span>getRefspec <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">refspec</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">getRefspec</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/refspec/">Refspec</a></td>
+<td>the nth refspec</td>
+</tr>
+</tbody></table>
+
+<h2><a name="name"></a><span>Remote#</span>name <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">name</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the name or NULL for in-memory remotes</td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Remote#</span>owner <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository</td>
+</tr>
+</tbody></table>
+
+<h2><a name="prune"></a><span>Remote#</span>prune <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">prune</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callbacks</td>
+<td><a href="/api/remote_callbacks/">RemoteCallbacks</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pruneRefs"></a><span>Remote#</span>pruneRefs <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">pruneRefs</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the ref-prune setting</td>
+</tr>
+</tbody></table>
+
+<h2><a name="push"></a><span>Remote#</span>push <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">refSpecs</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use number</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Pushes to a remote</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refSpecs</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="/api/push_options/">PushOptions</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pushurl"></a><span>Remote#</span>pushurl <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">pushurl</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the url or NULL if no special url for pushing is set</td>
+</tr>
+</tbody></table>
+
+<h2><a name="refspecCount"></a><span>Remote#</span>refspecCount <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">refspecCount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the amount of refspecs configured in this remote</td>
+</tr>
+</tbody></table>
+
+<h2><a name="stats"></a><span>Remote#</span>stats <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">transferProgress</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">stats</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/transfer_progress/">TransferProgress</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="stop"></a><span>Remote#</span>stop <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">remote</span><span class="p">.</span><span class="nx">stop</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="updateTips"></a><span>Remote#</span>updateTips <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">updateTips</span><span class="p">(</span><span class="nx">callbacks</span><span class="p">,</span> <span class="nx">update_fetchhead</span><span class="p">,</span> <span class="nx">download_tags</span><span class="p">,</span> <span class="nx">reflog_message</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callbacks</td>
+<td><a href="/api/remote_callbacks/">RemoteCallbacks</a></td>
+</tr>
+<tr>
+<td>update_fetchhead</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>download_tags</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>reflog_message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="upload"></a><span>Remote#</span>upload <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">upload</span><span class="p">(</span><span class="nx">refspecs</span><span class="p">,</span> <span class="nx">opts</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refspecs</td>
+<td><a href="/api/strarray/">Strarray</a></td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/push_options/">PushOptions</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="url"></a><span>Remote#</span>url <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">remote</span><span class="p">.</span><span class="nx">url</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the url</td>
+</tr>
+</tbody></table>
+
+<h2><a name="AUTOTAG_OPTION"></a><span>Remote.</span>AUTOTAG_OPTION <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_UNSPECIFIED</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_AUTO</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_NONE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Remote.AUTOTAG_OPTION.</span>DOWNLOAD_TAGS_ALL</td>
+<td>3</td>
+</tr>
+</tbody></table>
+
+<h2><a name="COMPLETION_TYPE"></a><span>Remote.</span>COMPLETION_TYPE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Remote.COMPLETION_TYPE.</span>COMPLETION_DOWNLOAD</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Remote.COMPLETION_TYPE.</span>COMPLETION_INDEXING</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Remote.COMPLETION_TYPE.</span>COMPLETION_ERROR</td>
+<td>2</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

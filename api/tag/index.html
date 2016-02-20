@@ -1,0 +1,674 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Tag</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#annotationCreate">annotationCreate</a></li>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#createLightweight">createLightweight</a></li>
+            
+            <li><a href="#delete">delete</a></li>
+            
+            <li><a href="#list">list</a></li>
+            
+            <li><a href="#listMatch">listMatch</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#lookupPrefix">lookupPrefix</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#id">#id</a></li>
+            
+            <li><a href="#message">#message</a></li>
+            
+            <li><a href="#name">#name</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#peel">#peel</a></li>
+            
+            <li><a href="#tagger">#tagger</a></li>
+            
+            <li><a href="#target">#target</a></li>
+            
+            <li><a href="#targetId">#targetId</a></li>
+            
+            <li><a href="#targetType">#targetType</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="annotationCreate"></a><span>Tag.</span>annotationCreate <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="nx">annotationCreate</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">tag_name</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">tagger</span><span class="p">,</span> <span class="nx">message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to store the tag</td>
+</tr>
+<tr>
+<td>tag_name</td>
+<td>String</td>
+<td>Name for the tag</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/object/">Object</a></td>
+<td>Object to which this tag points. This object must belong to the given <code>repo</code>.</td>
+</tr>
+<tr>
+<td>tagger</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td>Signature of the tagger for this tag, and of the tagging time</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Full message for this tag</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the OID of the</td>
+</tr>
+<tr>
+<td>newly created tag</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="create"></a><span>Tag.</span>create <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">tag_name</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">tagger</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">force</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to store the tag</td>
+</tr>
+<tr>
+<td>tag_name</td>
+<td>String</td>
+<td>Name for the tag; this name is validated for consistency. It should also not conflict with an already existing tag name</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/object/">Object</a></td>
+<td>Object to which this tag points. This object must belong to the given <code>repo</code>.</td>
+</tr>
+<tr>
+<td>tagger</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td>Signature of the tagger for this tag, and of the tagging time</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Full message for this tag</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing references</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the OID of the</td>
+</tr>
+</tbody></table>
+
+<p>newly created tag. If the tag already exists, this parameter
+ will be the oid of the existing tag, and the function will
+ return a GIT_EEXISTS error code. |</p>
+
+<h2><a name="createLightweight"></a><span>Tag.</span>createLightweight <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="nx">createLightweight</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">tag_name</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">force</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to store the lightweight tag</td>
+</tr>
+<tr>
+<td>tag_name</td>
+<td>String</td>
+<td>Name for the tag; this name is validated for consistency. It should also not conflict with an already existing tag name</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/object/">Object</a></td>
+<td>Object to which this tag points. This object must belong to the given <code>repo</code>.</td>
+</tr>
+<tr>
+<td>force</td>
+<td>Number</td>
+<td>Overwrite existing references</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the OID of the provided</td>
+</tr>
+</tbody></table>
+
+<p>target object. If the tag already exists, this parameter
+ will be filled with the oid of the existing pointed object
+ and the function will return a GIT_EEXISTS error code. |</p>
+
+<h2><a name="delete"></a><span>Tag.</span>delete <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">tag_name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where lives the tag</td>
+</tr>
+<tr>
+<td>tag_name</td>
+<td>String</td>
+<td>Name of the tag to be deleted; this name is validated for consistency.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_EINVALIDSPEC or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="list"></a><span>Tag.</span>list <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="nx">list</span><span class="p">(</span><span class="nx">repo</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">array</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use array</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to find the tags</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="listMatch"></a><span>Tag.</span>listMatch <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Tag</span><span class="p">.</span><span class="nx">listMatch</span><span class="p">(</span><span class="nx">tag_names</span><span class="p">,</span> <span class="nx">pattern</span><span class="p">,</span> <span class="nx">repo</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tag_names</td>
+<td><a href="/api/strarray/">Strarray</a></td>
+<td>Pointer to a git_strarray structure where the tag names will be stored</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>String</td>
+<td>Standard fnmatch pattern</td>
+</tr>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to find the tags</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Tag.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tag</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the tag pointed to by the oid</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the tag lives in</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String, <a href="/api/oid/">Oid</a>, <a href="/api/tag/">Tag</a></td>
+<td>The tag to lookup</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tag/">Tag</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookupPrefix"></a><span>Tag.</span>lookupPrefix <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Tag</span><span class="p">.</span><span class="nx">lookupPrefix</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">len</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tag</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repo to use when locating the tag.</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>identity of the tag to locate.</td>
+</tr>
+<tr>
+<td>len</td>
+<td>Number</td>
+<td>the length of the short identifier</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tag/">Tag</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Tag#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">tag</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="id"></a><span>Tag#</span>id <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">id</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>object identity for the tag.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="message"></a><span>Tag#</span>message <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">message</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>message of the tag or NULL when unspecified</td>
+</tr>
+</tbody></table>
+
+<h2><a name="name"></a><span>Tag#</span>name <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">name</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>name of the tag</td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Tag#</span>owner <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository that contains this tag.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="peel"></a><span>Tag#</span>peel <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">peel</span><span class="p">(</span><span class="nx">tag_target_out</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tag_target_out</td>
+<td><a href="/api/object/">Object</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="tagger"></a><span>Tag#</span>tagger <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">tagger</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/signature/">Signature</a></td>
+<td>reference to the tag&#39;s author or NULL when unspecified</td>
+</tr>
+</tbody></table>
+
+<h2><a name="target"></a><span>Tag#</span>target <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">target</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td>the target</td>
+</tr>
+</tbody></table>
+
+<h2><a name="targetId"></a><span>Tag#</span>targetId <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">targetId</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="targetType"></a><span>Tag#</span>targetType <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">tag</span><span class="p">.</span><span class="nx">targetType</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>type of the tagged object</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

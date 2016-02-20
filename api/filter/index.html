@@ -1,0 +1,547 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Filter</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#listContains">listContains</a></li>
+            
+            <li><a href="#listLength">listLength</a></li>
+            
+            <li><a href="#listNew">listNew</a></li>
+            
+            <li><a href="#listStreamBlob">listStreamBlob</a></li>
+            
+            <li><a href="#listStreamData">listStreamData</a></li>
+            
+            <li><a href="#listStreamFile">listStreamFile</a></li>
+            
+            <li><a href="#unregister">unregister</a></li>
+            
+            <li><a href="#lookup">#lookup</a></li>
+            
+            <li><a href="#register">#register</a></li>
+            
+            <li><a href="#FLAG">FLAG</a></li>
+            
+            <li><a href="#MODE">MODE</a></li>
+            
+            <li><a href="#ivars">Instance Variables</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="listContains"></a><span>Filter.</span>listContains <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Filter</span><span class="p">.</span><span class="nx">listContains</span><span class="p">(</span><span class="nx">filters</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filters</td>
+<td><a href="/api/filter_list/">FilterList</a></td>
+<td>A loaded git_filter_list (or NULL)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the filter to query</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the filter is in the list, 0 otherwise</td>
+</tr>
+</tbody></table>
+
+<h2><a name="listLength"></a><span>Filter.</span>listLength <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Filter</span><span class="p">.</span><span class="nx">listLength</span><span class="p">(</span><span class="nx">fl</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fl</td>
+<td><a href="/api/filter_list/">FilterList</a></td>
+<td>A filter list</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The number of filters in the list</td>
+</tr>
+</tbody></table>
+
+<h2><a name="listNew"></a><span>Filter.</span>listNew <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Filter</span><span class="p">.</span><span class="nx">listNew</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">mode</span><span class="p">,</span> <span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">filterList</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use filterList</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>mode</td>
+<td>Number</td>
+<td></td>
+</tr>
+<tr>
+<td>options</td>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/filter_list/">FilterList</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="listStreamBlob"></a><span>Filter.</span>listStreamBlob <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Filter</span><span class="p">.</span><span class="nx">listStreamBlob</span><span class="p">(</span><span class="nx">filters</span><span class="p">,</span> <span class="nx">blob</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filters</td>
+<td><a href="/api/filter_list/">FilterList</a></td>
+<td>the list of filters to apply</td>
+</tr>
+<tr>
+<td>blob</td>
+<td><a href="/api/blob/">Blob</a></td>
+<td>the blob to filter</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/writestream/">Writestream</a></td>
+<td>the stream into which the data will be written</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="listStreamData"></a><span>Filter.</span>listStreamData <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Filter</span><span class="p">.</span><span class="nx">listStreamData</span><span class="p">(</span><span class="nx">filters</span><span class="p">,</span> <span class="nx">data</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filters</td>
+<td><a href="/api/filter_list/">FilterList</a></td>
+<td>the list of filters to apply</td>
+</tr>
+<tr>
+<td>data</td>
+<td><a href="/api/buf/">Buf</a></td>
+<td>the buffer to filter</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/writestream/">Writestream</a></td>
+<td>the stream into which the data will be written</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="listStreamFile"></a><span>Filter.</span>listStreamFile <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Filter</span><span class="p">.</span><span class="nx">listStreamFile</span><span class="p">(</span><span class="nx">filters</span><span class="p">,</span> <span class="nx">repo</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filters</td>
+<td><a href="/api/filter_list/">FilterList</a></td>
+<td>the list of filters to apply</td>
+</tr>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to perform the filtering</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>the path of the file to filter, a relative path will be taken as relative to the workdir</td>
+</tr>
+<tr>
+<td>target</td>
+<td><a href="/api/writestream/">Writestream</a></td>
+<td>the stream into which the data will be written</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="unregister"></a><span>Filter.</span>unregister <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Filter</span><span class="p">.</span><span class="nx">unregister</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name under which the filter was registered</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, error code</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure |</p>
+
+<h2><a name="lookup"></a><span>Filter#</span>lookup <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">filter</span> <span class="o">=</span> <span class="nx">filter</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/filter/">Filter</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="register"></a><span>Filter#</span>register <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">filter</span><span class="p">.</span><span class="nx">register</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">priority</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on successful registry, error code</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure |</p>
+
+<h2><a name="FLAG"></a><span>Filter.</span>FLAG <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Filter.FLAG.</span>DEFAULT</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Filter.FLAG.</span>ALLOW_UNSAFE</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h2><a name="MODE"></a><span>Filter.</span>MODE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Filter.MODE.</span>TO_WORKTREE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Filter.MODE.</span>SMUDGE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Filter.MODE.</span>TO_ODB</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Filter.MODE.</span>CLEAN</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h2><a name="ivars"></a>Instance Variables</h2>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a name="attributes"></a>attributes</td>
+<td>String</td>
+</tr>
+<tr>
+<td><a name="stream"></a>stream</td>
+<td>FilterStreamFn</td>
+</tr>
+<tr>
+<td><a name="version"></a>version</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

@@ -1,0 +1,495 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Blob</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#createFromBuffer">createFromBuffer</a></li>
+            
+            <li><a href="#createFromDisk">createFromDisk</a></li>
+            
+            <li><a href="#createFromWorkdir">createFromWorkdir</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#lookupPrefix">lookupPrefix</a></li>
+            
+            <li><a href="#content">#content</a></li>
+            
+            <li><a href="#filemode">#filemode</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#id">#id</a></li>
+            
+            <li><a href="#isBinary">#isBinary</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#rawcontent">#rawcontent</a></li>
+            
+            <li><a href="#rawsize">#rawsize</a></li>
+            
+            <li><a href="#toString">#toString</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="createFromBuffer"></a><span>Blob.</span>createFromBuffer <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">Blob</span><span class="p">.</span><span class="nx">createFromBuffer</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">,</span> <span class="nx">len</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>repository where to blob will be written</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>Buffer</td>
+<td>data to be written into the blob</td>
+</tr>
+<tr>
+<td>len</td>
+<td>Number</td>
+<td>length of the data</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>return the id of the written blob</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createFromDisk"></a><span>Blob.</span>createFromDisk <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Blob</span><span class="p">.</span><span class="nx">createFromDisk</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">repo</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>return the id of the written blob</td>
+</tr>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>repository where the blob will be written. this repository can be bare or not</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>file from which the blob will be created</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createFromWorkdir"></a><span>Blob.</span>createFromWorkdir <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Blob</span><span class="p">.</span><span class="nx">createFromWorkdir</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">repo</span><span class="p">,</span> <span class="nx">relative_path</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>return the id of the written blob</td>
+</tr>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>repository where the blob will be written. this repository cannot be bare</td>
+</tr>
+<tr>
+<td>relative_path</td>
+<td>String</td>
+<td>file from which the blob will be created, relative to the repository&#39;s working dir</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Blob.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Blob</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">blob</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use blob</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the blob pointed to by the oid</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the blob lives in</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String, <a href="/api/oid/">Oid</a>, <a href="/api/blob/">Blob</a></td>
+<td>The blob to lookup</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/blob/">Blob</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookupPrefix"></a><span>Blob.</span>lookupPrefix <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Blob</span><span class="p">.</span><span class="nx">lookupPrefix</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">len</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">blob</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use blob</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repo to use when locating the blob.</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>identity of the blob to locate.</td>
+</tr>
+<tr>
+<td>len</td>
+<td>Number</td>
+<td>the length of the short identifier</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/blob/">Blob</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="content"></a><span>Blob#</span>content <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">content</span><span class="p">();</span>
+</code></pre></div>
+<p>Retrieve the content of the Blob.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Buffer</td>
+<td>Contents as a buffer.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="filemode"></a><span>Blob#</span>filemode <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">filemode</span><span class="p">();</span>
+</code></pre></div>
+<p>Retrieve the Blob&#39;s type.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The filemode of the blob.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Blob#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">blob</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="id"></a><span>Blob#</span>id <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">id</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>SHA1 hash for this blob.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="isBinary"></a><span>Blob#</span>isBinary <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">isBinary</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the content of the blob is detected</td>
+</tr>
+<tr>
+<td>as binary; 0 otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Blob#</span>owner <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository that contains this blob.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="rawcontent"></a><span>Blob#</span>rawcontent <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">buffer</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">rawcontent</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Buffer</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="rawsize"></a><span>Blob#</span>rawsize <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">rawsize</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>size on bytes</td>
+</tr>
+</tbody></table>
+
+<h2><a name="toString"></a><span>Blob#</span>toString <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">blob</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+</code></pre></div>
+<p>Retrieve the Blob&#39;s content as String.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>Contents as a string.</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

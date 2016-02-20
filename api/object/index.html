@@ -1,0 +1,573 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Object</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#lookupPrefix">lookupPrefix</a></li>
+            
+            <li><a href="#size">size</a></li>
+            
+            <li><a href="#string2type">string2type</a></li>
+            
+            <li><a href="#type2string">type2string</a></li>
+            
+            <li><a href="#typeisloose">typeisloose</a></li>
+            
+            <li><a href="#dup">#dup</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#id">#id</a></li>
+            
+            <li><a href="#lookupByPath">#lookupByPath</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#peel">#peel</a></li>
+            
+            <li><a href="#shortId">#shortId</a></li>
+            
+            <li><a href="#type">#type</a></li>
+            
+            <li><a href="#TYPE">TYPE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="lookup"></a><span>Object.</span>lookup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use object</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to look up the object</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the unique identifier for the object</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Number</td>
+<td>the type of the object</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookupPrefix"></a><span>Object.</span>lookupPrefix <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nb">Object</span><span class="p">.</span><span class="nx">lookupPrefix</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">len</span><span class="p">,</span> <span class="nx">type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use object</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to look up the object</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>a short identifier for the object</td>
+</tr>
+<tr>
+<td>len</td>
+<td>Number</td>
+<td>the length of the short identifier</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Number</td>
+<td>the type of the object</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td>the looked-up object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="size"></a><span>Object.</span>size <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">size</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>Number</td>
+<td>object type to get its size</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>size in bytes of the object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="string2type"></a><span>Object.</span>string2type <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">string2type</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>str</td>
+<td>String</td>
+<td>the string to convert.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the corresponding git_otype.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="type2string"></a><span>Object.</span>type2string <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">type2string</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>Number</td>
+<td>object type to convert.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the corresponding string representation.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="typeisloose"></a><span>Object.</span>typeisloose <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">typeisloose</span><span class="p">(</span><span class="nx">type</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td>Number</td>
+<td>object type to test.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>true if the type represents a valid loose object type,</td>
+</tr>
+<tr>
+<td>false otherwise.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="dup"></a><span>Object#</span>dup <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">object</span><span class="p">.</span><span class="nx">dup</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use object</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Object#</span>free <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">object</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="id"></a><span>Object#</span>id <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">id</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the SHA1 id</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookupByPath"></a><span>Object#</span>lookupByPath <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">object</span><span class="p">.</span><span class="nx">lookupByPath</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use object</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+<tr>
+<td>type</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td>buffer that receives the object (which must be freed</td>
+</tr>
+<tr>
+<td>by the caller)</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Object#</span>owner <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository who owns this object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="peel"></a><span>Object#</span>peel <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">object</span><span class="p">.</span><span class="nx">peel</span><span class="p">(</span><span class="nx">target_type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use object</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>target_type</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="shortId"></a><span>Object#</span>shortId <span class="tags"><span class="async">Async</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">object</span><span class="p">.</span><span class="nx">shortId</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use buf</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/buf/">Buf</a></td>
+<td>Buffer to write string into</td>
+</tr>
+</tbody></table>
+
+<h2><a name="type"></a><span>Object#</span>type <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">object</span><span class="p">.</span><span class="nx">type</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the object&#39;s type</td>
+</tr>
+</tbody></table>
+
+<h2><a name="TYPE"></a><span>Object.</span>TYPE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Object.TYPE.</span>ANY</td>
+<td>-2</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>BAD</td>
+<td>-1</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>EXT1</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>COMMIT</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>TREE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>BLOB</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>TAG</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>EXT2</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>OFS_DELTA</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span>Object.TYPE.</span>REF_DELTA</td>
+<td>7</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

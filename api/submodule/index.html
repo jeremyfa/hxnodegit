@@ -1,0 +1,1201 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Submodule</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#addSetup">addSetup</a></li>
+            
+            <li><a href="#foreach">foreach</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#resolveUrl">resolveUrl</a></li>
+            
+            <li><a href="#setBranch">setBranch</a></li>
+            
+            <li><a href="#setFetchRecurseSubmodules">setFetchRecurseSubmodules</a></li>
+            
+            <li><a href="#setIgnore">setIgnore</a></li>
+            
+            <li><a href="#setUpdate">setUpdate</a></li>
+            
+            <li><a href="#setUrl">setUrl</a></li>
+            
+            <li><a href="#status">status</a></li>
+            
+            <li><a href="#updateInitOptions">updateInitOptions</a></li>
+            
+            <li><a href="#addFinalize">#addFinalize</a></li>
+            
+            <li><a href="#addToIndex">#addToIndex</a></li>
+            
+            <li><a href="#branch">#branch</a></li>
+            
+            <li><a href="#fetchRecurseSubmodules">#fetchRecurseSubmodules</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#headId">#headId</a></li>
+            
+            <li><a href="#ignore">#ignore</a></li>
+            
+            <li><a href="#indexId">#indexId</a></li>
+            
+            <li><a href="#init">#init</a></li>
+            
+            <li><a href="#location">#location</a></li>
+            
+            <li><a href="#name">#name</a></li>
+            
+            <li><a href="#open">#open</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#path">#path</a></li>
+            
+            <li><a href="#reload">#reload</a></li>
+            
+            <li><a href="#repoInit">#repoInit</a></li>
+            
+            <li><a href="#sync">#sync</a></li>
+            
+            <li><a href="#update">#update</a></li>
+            
+            <li><a href="#updateStrategy">#updateStrategy</a></li>
+            
+            <li><a href="#url">#url</a></li>
+            
+            <li><a href="#wdId">#wdId</a></li>
+            
+            <li><a href="#IGNORE">IGNORE</a></li>
+            
+            <li><a href="#RECURSE">RECURSE</a></li>
+            
+            <li><a href="#STATUS">STATUS</a></li>
+            
+            <li><a href="#UPDATE">UPDATE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="addSetup"></a><span>Submodule.</span>addSetup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">addSetup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">use_gitlink</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">submodule</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use submodule</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository in which you want to create the submodule</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>URL for the submodule&#39;s remote</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>Path at which the submodule should be created</td>
+</tr>
+<tr>
+<td>use_gitlink</td>
+<td>Number</td>
+<td>Should workdir contain a gitlink to the repo in .git/modules vs. repo directly in workdir.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/submodule/">Submodule</a></td>
+<td>The newly created submodule ready to open for clone</td>
+</tr>
+</tbody></table>
+
+<h2><a name="foreach"></a><span>Submodule.</span>foreach <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">foreach</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>SubmoduleCb</td>
+<td>Function to be called with the name of each submodule. Return a non-zero value to terminate the iteration.</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>Void</td>
+<td>Extra data to pass to callback</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, -1 on error, or non-zero return value of callback</td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Submodule.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">submodule</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use submodule</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The parent repository</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of or path to the submodule; trailing slashes okay</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/submodule/">Submodule</a></td>
+<td>Output ptr to submodule; pass NULL to just get return code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="resolveUrl"></a><span>Submodule.</span>resolveUrl <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">resolveUrl</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use buf</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Pointer to repository object</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>Relative url</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/buf/">Buf</a></td>
+<td>buffer to store the absolute submodule url in</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setBranch"></a><span>Submodule.</span>setBranch <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Submodule</span><span class="p">.</span><span class="nx">setBranch</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">branch</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to affect</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the name of the submodule to configure</td>
+</tr>
+<tr>
+<td>branch</td>
+<td>String</td>
+<td>Branch that should be used for the submodule</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success,</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure |</p>
+
+<h2><a name="setFetchRecurseSubmodules"></a><span>Submodule.</span>setFetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Submodule</span><span class="p">.</span><span class="nx">setFetchRecurseSubmodules</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">fetch_recurse_submodules</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to affect</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the submodule to configure</td>
+</tr>
+<tr>
+<td>fetch_recurse_submodules</td>
+<td>Number</td>
+<td>Boolean value</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>old value for fetchRecurseSubmodules</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setIgnore"></a><span>Submodule.</span>setIgnore <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">setIgnore</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">ignore</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to affect</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the name of the submdule</td>
+</tr>
+<tr>
+<td>ignore</td>
+<td>Number</td>
+<td>The new value for the ignore rule</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setUpdate"></a><span>Submodule.</span>setUpdate <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">setUpdate</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">update</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to affect</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the name of the submodule to configure</td>
+</tr>
+<tr>
+<td>update</td>
+<td>Number</td>
+<td>The new value to use</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setUrl"></a><span>Submodule.</span>setUrl <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">setUrl</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">url</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository to affect</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>the name of the submodule to configure</td>
+</tr>
+<tr>
+<td>url</td>
+<td>String</td>
+<td>URL that should be used for the submodule</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success,</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure |</p>
+
+<h2><a name="status"></a><span>Submodule.</span>status <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Submodule</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">ignore</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository in which to look</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>name of the submodule</td>
+</tr>
+<tr>
+<td>ignore</td>
+<td>Number</td>
+<td>the ignore rules to follow</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Combination of <code>GIT_SUBMODULE_STATUS</code> flags</td>
+</tr>
+</tbody></table>
+
+<h2><a name="updateInitOptions"></a><span>Submodule.</span>updateInitOptions <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Submodule</span><span class="p">.</span><span class="nx">updateInitOptions</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/submodule_update_options/">SubmoduleUpdateOptions</a></td>
+<td>The <code>git_submodule_update_options</code> instance to initialize.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>Version of struct; pass <code>GIT_SUBMODULE_UPDATE_OPTIONS_VERSION</code></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="addFinalize"></a><span>Submodule#</span>addFinalize <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">addFinalize</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="addToIndex"></a><span>Submodule#</span>addToIndex <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">addToIndex</span><span class="p">(</span><span class="nx">write_index</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>write_index</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success,</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure |</p>
+
+<h2><a name="branch"></a><span>Submodule#</span>branch <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">branch</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="fetchRecurseSubmodules"></a><span>Submodule#</span>fetchRecurseSubmodules <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">fetchRecurseSubmodules</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 if fetchRecurseSubmodules is false, 1 if true</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Submodule#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="headId"></a><span>Submodule#</span>headId <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">headId</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="ignore"></a><span>Submodule#</span>ignore <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">ignore</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The current git_submodule_ignore_t valyue what will be used for</td>
+</tr>
+<tr>
+<td>this submodule.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="indexId"></a><span>Submodule#</span>indexId <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">indexId</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="init"></a><span>Submodule#</span>init <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">overwrite</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>overwrite</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success,</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure. |</p>
+
+<h2><a name="location"></a><span>Submodule#</span>location <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">location</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Combination of first four <code>GIT_SUBMODULE_STATUS</code> flags</td>
+</tr>
+</tbody></table>
+
+<h2><a name="name"></a><span>Submodule#</span>name <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">name</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="open"></a><span>Submodule#</span>open <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">open</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Submodule#</span>owner <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="path"></a><span>Submodule#</span>path <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">path</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="reload"></a><span>Submodule#</span>reload <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">reload</span><span class="p">(</span><span class="nx">force</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>force</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success,</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on error |</p>
+
+<h2><a name="repoInit"></a><span>Submodule#</span>repoInit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">repoInit</span><span class="p">(</span><span class="nx">use_gitlink</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>use_gitlink</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="sync"></a><span>Submodule#</span>sync <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">sync</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="update"></a><span>Submodule#</span>update <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">submodule</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">init</span><span class="p">,</span> <span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>init</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="/api/submodule_update_options/">SubmoduleUpdateOptions</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, any non-zero return value from a callback</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre><code class="language-" data-lang="">     function, or a negative value to indicate an error (use
+     `giterr_last` for a detailed error message). |
+</code></pre></div>
+<h2><a name="updateStrategy"></a><span>Submodule#</span>updateStrategy <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">updateStrategy</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The current git_submodule_update_t value that will be used</td>
+</tr>
+<tr>
+<td>for this submodule.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="url"></a><span>Submodule#</span>url <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">url</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="wdId"></a><span>Submodule#</span>wdId <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">submodule</span><span class="p">.</span><span class="nx">wdId</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="IGNORE"></a><span>Submodule.</span>IGNORE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Submodule.IGNORE.</span>UNSPECIFIED</td>
+<td>-1</td>
+</tr>
+<tr>
+<td><span>Submodule.IGNORE.</span>NONE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Submodule.IGNORE.</span>UNTRACKED</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Submodule.IGNORE.</span>DIRTY</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Submodule.IGNORE.</span>ALL</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+<h2><a name="RECURSE"></a><span>Submodule.</span>RECURSE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Submodule.RECURSE.</span>NO</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Submodule.RECURSE.</span>YES</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Submodule.RECURSE.</span>ONDEMAND</td>
+<td>2</td>
+</tr>
+</tbody></table>
+
+<h2><a name="STATUS"></a><span>Submodule.</span>STATUS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Submodule.STATUS.</span>IN_HEAD</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>IN_INDEX</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>IN_CONFIG</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>IN_WD</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>INDEX_ADDED</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>INDEX_DELETED</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>INDEX_MODIFIED</td>
+<td>64</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_UNINITIALIZED</td>
+<td>128</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_ADDED</td>
+<td>256</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_DELETED</td>
+<td>512</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_MODIFIED</td>
+<td>1024</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_INDEX_MODIFIED</td>
+<td>2048</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_WD_MODIFIED</td>
+<td>4096</td>
+</tr>
+<tr>
+<td><span>Submodule.STATUS.</span>WD_UNTRACKED</td>
+<td>8192</td>
+</tr>
+</tbody></table>
+
+<h2><a name="UPDATE"></a><span>Submodule.</span>UPDATE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Submodule.UPDATE.</span>CHECKOUT</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Submodule.UPDATE.</span>REBASE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Submodule.UPDATE.</span>MERGE</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Submodule.UPDATE.</span>NONE</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Submodule.UPDATE.</span>DEFAULT</td>
+<td>0</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

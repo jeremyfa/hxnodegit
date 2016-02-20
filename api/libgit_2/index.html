@@ -1,0 +1,320 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Libgit2</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#features">features</a></li>
+            
+            <li><a href="#init">init</a></li>
+            
+            <li><a href="#opts">opts</a></li>
+            
+            <li><a href="#shutdown">shutdown</a></li>
+            
+            <li><a href="#version">version</a></li>
+            
+            <li><a href="#OPT">OPT</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="features"></a><span>Libgit2.</span>features <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Libgit2</span><span class="p">.</span><span class="nx">features</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>A combination of GIT_FEATURE_* values.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="init"></a><span>Libgit2.</span>init <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Libgit2</span><span class="p">.</span><span class="nx">init</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the number of initializations of the library, or an error code.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="opts"></a><span>Libgit2.</span>opts <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Libgit2</span><span class="p">.</span><span class="nx">opts</span><span class="p">(</span><span class="nx">option</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>option</td>
+<td>Number</td>
+<td>Option key</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success,</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+0 on failure |</p>
+
+<h2><a name="shutdown"></a><span>Libgit2.</span>shutdown <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Libgit2</span><span class="p">.</span><span class="nx">shutdown</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the number of remaining initializations of the library, or an</td>
+</tr>
+<tr>
+<td>error code.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="version"></a><span>Libgit2.</span>version <span class="tags"><span class="sync">Sync</span><span class="experimental">Experimental</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Libgit2</span><span class="p">.</span><span class="nx">version</span><span class="p">(</span><span class="nx">major</span><span class="p">,</span> <span class="nx">minor</span><span class="p">,</span> <span class="nx">rev</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>major</td>
+<td>Number</td>
+<td>Store the major version number</td>
+</tr>
+<tr>
+<td>minor</td>
+<td>Number</td>
+<td>Store the minor version number</td>
+</tr>
+<tr>
+<td>rev</td>
+<td>Number</td>
+<td>Store the revision (patch) number</td>
+</tr>
+</tbody></table>
+
+<h2><a name="OPT"></a><span>Libgit2.</span>OPT <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Libgit2.OPT.</span>GET_MWINDOW_SIZE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_MWINDOW_SIZE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>GET_MWINDOW_MAPPED_LIMIT</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_MWINDOW_MAPPED_LIMIT</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>GET_SEARCH_PATH</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_SEARCH_PATH</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_CACHE_OBJECT_LIMIT</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_CACHE_MAX_SIZE</td>
+<td>7</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>ENABLE_CACHING</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>GET_CACHED_MEMORY</td>
+<td>9</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>GET_TEMPLATE_PATH</td>
+<td>10</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_TEMPLATE_PATH</td>
+<td>11</td>
+</tr>
+<tr>
+<td><span>Libgit2.OPT.</span>SET_SSL_CERT_LOCATIONS</td>
+<td>12</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

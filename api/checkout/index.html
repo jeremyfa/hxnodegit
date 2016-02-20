@@ -1,0 +1,408 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Checkout</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#head">head</a></li>
+            
+            <li><a href="#index">index</a></li>
+            
+            <li><a href="#initOptions">initOptions</a></li>
+            
+            <li><a href="#tree">tree</a></li>
+            
+            <li><a href="#NOTIFY">NOTIFY</a></li>
+            
+            <li><a href="#STRATEGY">STRATEGY</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="head"></a><span>Checkout.</span>head <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Checkout</span><span class="p">.</span><span class="nx">head</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="p">[</span><span class="nx">options</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// checkout complete</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Patch head checkout to automatically coerce objects.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo to checkout head</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><a href="/api/checkout_options/">CheckoutOptions</a></td>
+<td>Options for the checkout</td>
+</tr>
+</tbody></table>
+
+<h2><a name="index"></a><span>Checkout.</span>index <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Checkout</span><span class="p">.</span><span class="nx">index</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">The</span><span class="p">,</span> <span class="p">[</span><span class="nx">options</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// checkout complete</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Patch index checkout to automatically coerce objects.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo to checkout an index</td>
+</tr>
+<tr>
+<td>The</td>
+<td><a href="/api/index/">Index</a></td>
+<td>index to checkout</td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><a href="/api/checkout_options/">CheckoutOptions</a></td>
+<td>Options for the checkout</td>
+</tr>
+</tbody></table>
+
+<h2><a name="initOptions"></a><span>Checkout.</span>initOptions <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Checkout</span><span class="p">.</span><span class="nx">initOptions</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/checkout_options/">CheckoutOptions</a></td>
+<td>the <code>git_checkout_options</code> struct to initialize.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>Version of struct; pass <code>GIT_CHECKOUT_OPTIONS_VERSION</code></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="tree"></a><span>Checkout.</span>tree <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Checkout</span><span class="p">.</span><span class="nx">tree</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">treeish</span><span class="p">,</span> <span class="p">[</span><span class="nx">options</span><span class="p">]).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// checkout complete</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Patch tree checkout to automatically coerce objects.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>treeish</td>
+<td><a href="/api/oid/">Oid</a>, <a href="/api/tree/">Tree</a>, <a href="/api/commit/">Commit</a>, <a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+<tr>
+<td>[options]</td>
+<td><a href="/api/checkout_options/">CheckoutOptions</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="NOTIFY"></a><span>Checkout.</span>NOTIFY <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Checkout.NOTIFY.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Checkout.NOTIFY.</span>CONFLICT</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Checkout.NOTIFY.</span>DIRTY</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Checkout.NOTIFY.</span>UPDATED</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Checkout.NOTIFY.</span>UNTRACKED</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Checkout.NOTIFY.</span>IGNORED</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Checkout.NOTIFY.</span>ALL</td>
+<td>65535</td>
+</tr>
+</tbody></table>
+
+<h2><a name="STRATEGY"></a><span>Checkout.</span>STRATEGY <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Checkout.STRATEGY.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>SAFE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>FORCE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>RECREATE_MISSING</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>ALLOW_CONFLICTS</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>REMOVE_UNTRACKED</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>REMOVE_IGNORED</td>
+<td>64</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>UPDATE_ONLY</td>
+<td>128</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>DONT_UPDATE_INDEX</td>
+<td>256</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>NO_REFRESH</td>
+<td>512</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>SKIP_UNMERGED</td>
+<td>1024</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>USE_OURS</td>
+<td>2048</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>USE_THEIRS</td>
+<td>4096</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>DISABLE_PATHSPEC_MATCH</td>
+<td>8192</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>SKIP_LOCKED_DIRECTORIES</td>
+<td>262144</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>DONT_OVERWRITE_IGNORED</td>
+<td>524288</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>CONFLICT_STYLE_MERGE</td>
+<td>1048576</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>CONFLICT_STYLE_DIFF3</td>
+<td>2097152</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>DONT_REMOVE_EXISTING</td>
+<td>4194304</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>DONT_WRITE_INDEX</td>
+<td>8388608</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>UPDATE_SUBMODULES</td>
+<td>65536</td>
+</tr>
+<tr>
+<td><span>Checkout.STRATEGY.</span>UPDATE_SUBMODULES_IF_CHANGED</td>
+<td>131072</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

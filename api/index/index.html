@@ -1,0 +1,1034 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Index</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#entryIsConflict">entryIsConflict</a></li>
+            
+            <li><a href="#entryStage">entryStage</a></li>
+            
+            <li><a href="#open">open</a></li>
+            
+            <li><a href="#add">#add</a></li>
+            
+            <li><a href="#addAll">#addAll</a></li>
+            
+            <li><a href="#addByPath">#addByPath</a></li>
+            
+            <li><a href="#caps">#caps</a></li>
+            
+            <li><a href="#checksum">#checksum</a></li>
+            
+            <li><a href="#clear">#clear</a></li>
+            
+            <li><a href="#conflictAdd">#conflictAdd</a></li>
+            
+            <li><a href="#conflictCleanup">#conflictCleanup</a></li>
+            
+            <li><a href="#conflictGet">#conflictGet</a></li>
+            
+            <li><a href="#conflictRemove">#conflictRemove</a></li>
+            
+            <li><a href="#entries">#entries</a></li>
+            
+            <li><a href="#entryCount">#entryCount</a></li>
+            
+            <li><a href="#getByIndex">#getByIndex</a></li>
+            
+            <li><a href="#getByPath">#getByPath</a></li>
+            
+            <li><a href="#hasConflicts">#hasConflicts</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#path">#path</a></li>
+            
+            <li><a href="#read">#read</a></li>
+            
+            <li><a href="#readTree">#readTree</a></li>
+            
+            <li><a href="#remove">#remove</a></li>
+            
+            <li><a href="#removeAll">#removeAll</a></li>
+            
+            <li><a href="#removeByPath">#removeByPath</a></li>
+            
+            <li><a href="#removeDirectory">#removeDirectory</a></li>
+            
+            <li><a href="#setCaps">#setCaps</a></li>
+            
+            <li><a href="#updateAll">#updateAll</a></li>
+            
+            <li><a href="#write">#write</a></li>
+            
+            <li><a href="#writeTree">#writeTree</a></li>
+            
+            <li><a href="#writeTreeTo">#writeTreeTo</a></li>
+            
+            <li><a href="#ADD_OPTION">ADD_OPTION</a></li>
+            
+            <li><a href="#CAP">CAP</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="entryIsConflict"></a><span>Index.</span>entryIsConflict <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Index</span><span class="p">.</span><span class="nx">entryIsConflict</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+<td>The entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the entry is a conflict entry, 0 otherwise</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryStage"></a><span>Index.</span>entryStage <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Index</span><span class="p">.</span><span class="nx">entryStage</span><span class="p">(</span><span class="nx">entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>entry</td>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+<td>The entry</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the stage number</td>
+</tr>
+</tbody></table>
+
+<h2><a name="open"></a><span>Index.</span>open <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Index</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">index_path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use index</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>index_path</td>
+<td>String</td>
+<td>the path to the index file in disk</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/index/">Index</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="add"></a><span>Index#</span>add <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">source_entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>source_entry</td>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="addAll"></a><span>Index#</span>addAll <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">index</span><span class="p">.</span><span class="nx">addAll</span><span class="p">(</span><span class="nx">pathspec</span><span class="p">,</span> <span class="nx">flags</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pathspec</td>
+<td><a href="/api/strarray/">Strarray</a></td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Number</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>IndexMatchedPathCb</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>Void</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, negative callback return value, or error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="addByPath"></a><span>Index#</span>addByPath <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">addByPath</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="caps"></a><span>Index#</span>caps <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">caps</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>A combination of GIT_INDEXCAP values</td>
+</tr>
+</tbody></table>
+
+<h2><a name="checksum"></a><span>Index#</span>checksum <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">checksum</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the checksum of the index</td>
+</tr>
+</tbody></table>
+
+<h2><a name="clear"></a><span>Index#</span>clear <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, error code</td>
+</tr>
+</tbody></table>
+
+<p>&lt;
+ 0 on failure |</p>
+
+<h2><a name="conflictAdd"></a><span>Index#</span>conflictAdd <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">conflictAdd</span><span class="p">(</span><span class="nx">ancestor_entry</span><span class="p">,</span> <span class="nx">our_entry</span><span class="p">,</span> <span class="nx">their_entry</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ancestor_entry</td>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+</tr>
+<tr>
+<td>our_entry</td>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+</tr>
+<tr>
+<td>their_entry</td>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="conflictCleanup"></a><span>Index#</span>conflictCleanup <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">conflictCleanup</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="conflictGet"></a><span>Index#</span>conflictGet <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">index</span><span class="p">.</span><span class="nx">conflictGet</span><span class="p">(</span><span class="nx">path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">indexEntry</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use indexEntry</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="conflictRemove"></a><span>Index#</span>conflictRemove <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">conflictRemove</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entries"></a><span>Index#</span>entries <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">arrayIndexEntry</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">entries</span><span class="p">();</span>
+</code></pre></div>
+<p>Return an array of the entries in this index.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/index_entry/">IndexEntry</a>&gt;</td>
+<td>an array of IndexEntrys</td>
+</tr>
+</tbody></table>
+
+<h2><a name="entryCount"></a><span>Index#</span>entryCount <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">entryCount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>integer of count of current entries</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getByIndex"></a><span>Index#</span>getByIndex <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">indexEntry</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">getByIndex</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+<td>the entry; NULL if out of bounds</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getByPath"></a><span>Index#</span>getByPath <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">indexEntry</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">getByPath</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">stage</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+<tr>
+<td>stage</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/index_entry/">IndexEntry</a></td>
+<td>the entry; NULL if it was not found</td>
+</tr>
+</tbody></table>
+
+<h2><a name="hasConflicts"></a><span>Index#</span>hasConflicts <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">hasConflicts</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if at least one conflict is found, 0 otherwise.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Index#</span>owner <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repository</td>
+</tr>
+</tbody></table>
+
+<h2><a name="path"></a><span>Index#</span>path <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">path</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>path to index file or NULL for in-memory index</td>
+</tr>
+</tbody></table>
+
+<h2><a name="read"></a><span>Index#</span>read <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">force</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>force</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="readTree"></a><span>Index#</span>readTree <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">readTree</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="remove"></a><span>Index#</span>remove <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">stage</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+<tr>
+<td>stage</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="removeAll"></a><span>Index#</span>removeAll <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">index</span><span class="p">.</span><span class="nx">removeAll</span><span class="p">(</span><span class="nx">pathspec</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pathspec</td>
+<td><a href="/api/strarray/">Strarray</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>IndexMatchedPathCb</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>Void</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, negative callback return value, or error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="removeByPath"></a><span>Index#</span>removeByPath <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">removeByPath</span><span class="p">(</span><span class="nx">path</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="removeDirectory"></a><span>Index#</span>removeDirectory <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">removeDirectory</span><span class="p">(</span><span class="nx">dir</span><span class="p">,</span> <span class="nx">stage</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>dir</td>
+<td>String</td>
+</tr>
+<tr>
+<td>stage</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setCaps"></a><span>Index#</span>setCaps <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">setCaps</span><span class="p">(</span><span class="nx">caps</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>caps</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, -1 on failure</td>
+</tr>
+</tbody></table>
+
+<h2><a name="updateAll"></a><span>Index#</span>updateAll <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">index</span><span class="p">.</span><span class="nx">updateAll</span><span class="p">(</span><span class="nx">pathspec</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pathspec</td>
+<td><a href="/api/strarray/">Strarray</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>IndexMatchedPathCb</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>Void</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, negative callback return value, or error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="write"></a><span>Index#</span>write <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">index</span><span class="p">.</span><span class="nx">write</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="writeTree"></a><span>Index#</span>writeTree <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">index</span><span class="p">.</span><span class="nx">writeTree</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the OID of the written tree</td>
+</tr>
+</tbody></table>
+
+<h2><a name="writeTreeTo"></a><span>Index#</span>writeTreeTo <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">index</span><span class="p">.</span><span class="nx">writeTreeTo</span><span class="p">(</span><span class="nx">repo</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>OID of the the written tree</td>
+</tr>
+</tbody></table>
+
+<h2><a name="ADD_OPTION"></a><span>Index.</span>ADD_OPTION <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Index.ADD_OPTION.</span>ADD_DEFAULT</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Index.ADD_OPTION.</span>ADD_FORCE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Index.ADD_OPTION.</span>ADD_DISABLE_PATHSPEC_MATCH</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Index.ADD_OPTION.</span>ADD_CHECK_PATHSPEC</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+<h2><a name="CAP"></a><span>Index.</span>CAP <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Index.CAP.</span>IGNORE_CASE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Index.CAP.</span>NO_FILEMODE</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Index.CAP.</span>NO_SYMLINKS</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Index.CAP.</span>FROM_OWNER</td>
+<td>-1</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

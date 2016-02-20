@@ -1,0 +1,1117 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Commit</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#create">create</a></li>
+            
+            <li><a href="#createV">createV</a></li>
+            
+            <li><a href="#lookup">lookup</a></li>
+            
+            <li><a href="#lookupPrefix">lookupPrefix</a></li>
+            
+            <li><a href="#amend">#amend</a></li>
+            
+            <li><a href="#author">#author</a></li>
+            
+            <li><a href="#committer">#committer</a></li>
+            
+            <li><a href="#date">#date</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#getDiff">#getDiff</a></li>
+            
+            <li><a href="#getDiffWithOptions">#getDiffWithOptions</a></li>
+            
+            <li><a href="#getEntry">#getEntry</a></li>
+            
+            <li><a href="#getParents">#getParents</a></li>
+            
+            <li><a href="#getTree">#getTree</a></li>
+            
+            <li><a href="#headerField">#headerField</a></li>
+            
+            <li><a href="#history">#history</a></li>
+            
+            <li><a href="#id">#id</a></li>
+            
+            <li><a href="#message">#message</a></li>
+            
+            <li><a href="#messageEncoding">#messageEncoding</a></li>
+            
+            <li><a href="#messageRaw">#messageRaw</a></li>
+            
+            <li><a href="#nthGenAncestor">#nthGenAncestor</a></li>
+            
+            <li><a href="#owner">#owner</a></li>
+            
+            <li><a href="#parent">#parent</a></li>
+            
+            <li><a href="#parentId">#parentId</a></li>
+            
+            <li><a href="#parentcount">#parentcount</a></li>
+            
+            <li><a href="#parents">#parents</a></li>
+            
+            <li><a href="#rawHeader">#rawHeader</a></li>
+            
+            <li><a href="#sha">#sha</a></li>
+            
+            <li><a href="#summary">#summary</a></li>
+            
+            <li><a href="#time">#time</a></li>
+            
+            <li><a href="#timeMs">#timeMs</a></li>
+            
+            <li><a href="#timeOffset">#timeOffset</a></li>
+            
+            <li><a href="#toString">#toString</a></li>
+            
+            <li><a href="#tree">#tree</a></li>
+            
+            <li><a href="#treeId">#treeId</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="create"></a><span>Commit.</span>create <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">Commit</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">update_ref</span><span class="p">,</span> <span class="nx">author</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">message_encoding</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">tree</span><span class="p">,</span> <span class="nx">parent_count</span><span class="p">,</span> <span class="nx">parents</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to store the commit</td>
+</tr>
+<tr>
+<td>update_ref</td>
+<td>String</td>
+<td>If not NULL, name of the reference that will be updated to point to this commit. If the reference is not direct, it will be resolved to a direct reference. Use &quot;HEAD&quot; to update the HEAD of the current branch and make it point to this commit. If the reference doesn&#39;t exist yet, it will be created. If it does exist, the first parent must be the tip of this branch.</td>
+</tr>
+<tr>
+<td>author</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td>Signature with author and author time of commit</td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td>Signature with committer and * commit time of commit</td>
+</tr>
+<tr>
+<td>message_encoding</td>
+<td>String</td>
+<td>The encoding for the message in the commit, represented with a standard encoding name. E.g. &quot;UTF-8&quot;. If NULL, no encoding header is written and UTF-8 is assumed.</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Full message for this commit</td>
+</tr>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>An instance of a <code>git_tree</code> object that will be used as the tree for the commit. This tree object must also be owned by the given <code>repo</code>.</td>
+</tr>
+<tr>
+<td>parent_count</td>
+<td>Number</td>
+<td>Number of parents for this commit</td>
+</tr>
+<tr>
+<td>parents</td>
+<td>Array</td>
+<td>Array of <code>parent_count</code> pointers to <code>git_commit</code> objects that will be used as the parents for this commit. This array may be NULL if <code>parent_count</code> is 0 (root commit). All the given commits must be owned by the <code>repo</code>.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createV"></a><span>Commit.</span>createV <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Commit</span><span class="p">.</span><span class="nx">createV</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">repo</span><span class="p">,</span> <span class="nx">update_ref</span><span class="p">,</span> <span class="nx">author</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">message_encoding</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">tree</span><span class="p">,</span> <span class="nx">parent_count</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>update_ref</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>author</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td></td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td></td>
+</tr>
+<tr>
+<td>message_encoding</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td></td>
+</tr>
+<tr>
+<td>parent_count</td>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookup"></a><span>Commit.</span>lookup <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Commit</span><span class="p">.</span><span class="nx">lookup</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieves the commit pointed to by the oid</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repo that the commit lives in</td>
+</tr>
+<tr>
+<td>id</td>
+<td>String, <a href="/api/oid/">Oid</a>, <a href="/api/commit/">Commit</a></td>
+<td>The commit to lookup</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="lookupPrefix"></a><span>Commit.</span>lookupPrefix <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Commit</span><span class="p">.</span><span class="nx">lookupPrefix</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">len</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>the repo to use when locating the commit.</td>
+</tr>
+<tr>
+<td>id</td>
+<td><a href="/api/oid/">Oid</a></td>
+<td>identity of the commit to locate. If the object is an annotated tag it will be peeled back to the commit.</td>
+</tr>
+<tr>
+<td>len</td>
+<td>Number</td>
+<td>the length of the short identifier</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="amend"></a><span>Commit#</span>amend <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">amend</span><span class="p">(</span><span class="nx">update_ref</span><span class="p">,</span> <span class="nx">author</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">message_encoding</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">tree</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>update_ref</td>
+<td>String</td>
+</tr>
+<tr>
+<td>author</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>message_encoding</td>
+<td>String</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+</tr>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="author"></a><span>Commit#</span>author <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">author</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/signature/">Signature</a></td>
+<td>the author of a commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="committer"></a><span>Commit#</span>committer <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">committer</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/signature/">Signature</a></td>
+<td>the committer of a commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="date"></a><span>Commit#</span>date <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">date</span><span class="p">();</span>
+</code></pre></div>
+<p>Retrieve the commit time as a Date object.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Date</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Commit#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="getDiff"></a><span>Commit#</span>getDiff <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">getDiff</span><span class="p">(</span><span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayDiff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayDiff</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Generate an array of diff trees showing changes between this commit
+and its parent(s).</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/diff/">Diff</a>&gt;</td>
+<td>an array of diffs</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getDiffWithOptions"></a><span>Commit#</span>getDiffWithOptions <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">getDiffWithOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayDiff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayDiff</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Generate an array of diff trees showing changes between this commit
+and its parent(s).</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>options</td>
+<td><a href="/api/object/">Object</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/diff/">Diff</a>&gt;</td>
+<td>an array of diffs</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getEntry"></a><span>Commit#</span>getEntry <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">getEntry</span><span class="p">(</span><span class="nx">path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">treeEntry</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use treeEntry</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the entry represented by path for this commit.
+Path must be relative to repository root.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree_entry/">TreeEntry</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getParents"></a><span>Commit#</span>getParents <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">getParents</span><span class="p">(</span><span class="nx">limit</span><span class="p">,</span> <span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayCommit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayCommit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the commit&#39;s parents as commit objects.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>number</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/commit/">Commit</a>&gt;</td>
+<td>array of commits</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getTree"></a><span>Commit#</span>getTree <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">getTree</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tree</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Get the tree associated with this commit.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree/">Tree</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="headerField"></a><span>Commit#</span>headerField <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">headerField</span><span class="p">(</span><span class="nx">field</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use buf</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/buf/">Buf</a></td>
+<td>the buffer to fill</td>
+</tr>
+</tbody></table>
+
+<h2><a name="history"></a><span>Commit#</span>history <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">eventEmitter</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">history</span><span class="p">();</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'commit'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'end'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">commits</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commits</span>
+<span class="p">});</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use error</span>
+<span class="p">});</span>
+
+<span class="nx">eventEmitter</span><span class="p">.</span><span class="nx">start</span><span class="p">()</span>
+</code></pre></div>
+<p>Walk the history from this commit backwards.</p>
+
+<p>An EventEmitter is returned that will emit a &quot;commit&quot; event for each
+commit in the history, and one &quot;end&quot; event when the walk is completed.
+Don&#39;t forget to call <code>start()</code> on the returned event.</p>
+
+<table><thead>
+<tr>
+<th>Fires</th>
+<th>Sends</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>commit</td>
+<td><a href="/api/commit/">Commit</a></td>
+</tr>
+<tr>
+<td>end</td>
+<td>Array&lt;<a href="/api/commit/">Commit</a>&gt;</td>
+</tr>
+<tr>
+<td>error</td>
+<td><a href="/api/error/">Error</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>EventEmitter</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="id"></a><span>Commit#</span>id <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">id</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>object identity for the commit.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="message"></a><span>Commit#</span>message <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">message</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the message of a commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="messageEncoding"></a><span>Commit#</span>messageEncoding <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">messageEncoding</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>NULL, or the encoding</td>
+</tr>
+</tbody></table>
+
+<h2><a name="messageRaw"></a><span>Commit#</span>messageRaw <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">messageRaw</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the raw message of a commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="nthGenAncestor"></a><span>Commit#</span>nthGenAncestor <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">nthGenAncestor</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td>the ancestor commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="owner"></a><span>Commit#</span>owner <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">repository</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">owner</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository that contains this commit.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="parent"></a><span>Commit#</span>parent <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">commit</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">n</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td>the parent commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="parentId"></a><span>Commit#</span>parentId <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">parentId</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the id of the parent, NULL on error.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="parentcount"></a><span>Commit#</span>parentcount <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">parentcount</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>integer of count of parents</td>
+</tr>
+</tbody></table>
+
+<h2><a name="parents"></a><span>Commit#</span>parents <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">arrayOid</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">parents</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>
+</code></pre></div>
+<p>Retrieve the commit&quot;s parent shas.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/oid/">Oid</a>&gt;</td>
+<td>array of oids</td>
+</tr>
+</tbody></table>
+
+<h2><a name="rawHeader"></a><span>Commit#</span>rawHeader <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">rawHeader</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the header text of the commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="sha"></a><span>Commit#</span>sha <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">sha</span><span class="p">();</span>
+</code></pre></div>
+<p>Retrieve the SHA.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="summary"></a><span>Commit#</span>summary <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">summary</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the summary of a commit or NULL on error</td>
+</tr>
+</tbody></table>
+
+<h2><a name="time"></a><span>Commit#</span>time <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">time</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the time of a commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="timeMs"></a><span>Commit#</span>timeMs <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">number</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">timeMs</span><span class="p">();</span>
+</code></pre></div>
+<p>Retrieve the commit time as a unix timestamp.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="timeOffset"></a><span>Commit#</span>timeOffset <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">timeOffset</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>positive or negative timezone offset, in minutes from UTC</td>
+</tr>
+</tbody></table>
+
+<h2><a name="toString"></a><span>Commit#</span>toString <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+</code></pre></div>
+<p>The sha of this commit</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="tree"></a><span>Commit#</span>tree <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">tree</span><span class="p">(</span><span class="nx">tree_out</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tree_out</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="treeId"></a><span>Commit#</span>treeId <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">commit</span><span class="p">.</span><span class="nx">treeId</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>the id of tree pointed to by commit.</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

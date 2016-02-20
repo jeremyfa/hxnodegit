@@ -1,0 +1,983 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Diff</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#blobToBuffer">blobToBuffer</a></li>
+            
+            <li><a href="#indexToWorkdir">indexToWorkdir</a></li>
+            
+            <li><a href="#treeToIndex">treeToIndex</a></li>
+            
+            <li><a href="#treeToTree">treeToTree</a></li>
+            
+            <li><a href="#treeToWorkdir">treeToWorkdir</a></li>
+            
+            <li><a href="#treeToWorkdirWithIndex">treeToWorkdirWithIndex</a></li>
+            
+            <li><a href="#findSimilar">#findSimilar</a></li>
+            
+            <li><a href="#getDelta">#getDelta</a></li>
+            
+            <li><a href="#getPerfdata">#getPerfdata</a></li>
+            
+            <li><a href="#numDeltas">#numDeltas</a></li>
+            
+            <li><a href="#patches">#patches</a></li>
+            
+            <li><a href="#DELTA">DELTA</a></li>
+            
+            <li><a href="#FIND">FIND</a></li>
+            
+            <li><a href="#FLAG">FLAG</a></li>
+            
+            <li><a href="#FORMAT">FORMAT</a></li>
+            
+            <li><a href="#FORMAT_EMAIL_FLAGS">FORMAT_EMAIL_FLAGS</a></li>
+            
+            <li><a href="#LINE">LINE</a></li>
+            
+            <li><a href="#OPTION">OPTION</a></li>
+            
+            <li><a href="#STATS_FORMAT">STATS_FORMAT</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="blobToBuffer"></a><span>Diff.</span>blobToBuffer <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Diff</span><span class="p">.</span><span class="nx">blobToBuffer</span><span class="p">(</span><span class="nx">old_blob</span><span class="p">,</span> <span class="nx">old_as_path</span><span class="p">,</span> <span class="nx">buffer</span><span class="p">,</span> <span class="nx">buffer_len</span><span class="p">,</span> <span class="nx">buffer_as_path</span><span class="p">,</span> <span class="nx">options</span><span class="p">,</span> <span class="nx">file_cb</span><span class="p">,</span> <span class="nx">binary_cb</span><span class="p">,</span> <span class="nx">hunk_cb</span><span class="p">,</span> <span class="nx">line_cb</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>old_blob</td>
+<td><a href="/api/blob/">Blob</a></td>
+<td>Blob for old side of diff, or NULL for empty blob</td>
+</tr>
+<tr>
+<td>old_as_path</td>
+<td>String</td>
+<td>Treat old blob as if it had this filename; can be NULL</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>String</td>
+<td>Raw data for new side of diff, or NULL for empty</td>
+</tr>
+<tr>
+<td>buffer_len</td>
+<td>Number</td>
+<td>Length of raw data for new side of diff</td>
+</tr>
+<tr>
+<td>buffer_as_path</td>
+<td>String</td>
+<td>Treat buffer as if it had this filename; can be NULL</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="/api/diff_options/">DiffOptions</a></td>
+<td>Options for diff, or NULL for default options</td>
+</tr>
+<tr>
+<td>file_cb</td>
+<td>DiffFileCb</td>
+<td>Callback for &quot;file&quot;; made once if there is a diff; can be NULL</td>
+</tr>
+<tr>
+<td>binary_cb</td>
+<td>DiffBinaryCb</td>
+<td>Callback for binary files; can be NULL</td>
+</tr>
+<tr>
+<td>hunk_cb</td>
+<td>DiffHunkCb</td>
+<td>Callback for each hunk in diff; can be NULL</td>
+</tr>
+<tr>
+<td>line_cb</td>
+<td>DiffLineCb</td>
+<td>Callback for each line in diff; can be NULL</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>Void</td>
+<td>Payload passed to each callback function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, non-zero callback return value, or error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="indexToWorkdir"></a><span>Diff.</span>indexToWorkdir <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Diff</span><span class="p">.</span><span class="nx">indexToWorkdir</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diff</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository.</td>
+</tr>
+<tr>
+<td>index</td>
+<td><a href="/api/index/">Index</a></td>
+<td>The index to diff from; repo index used if NULL.</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/diff_options/">DiffOptions</a></td>
+<td>Structure with options to influence diff or NULL for defaults.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff/">Diff</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="treeToIndex"></a><span>Diff.</span>treeToIndex <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Diff</span><span class="p">.</span><span class="nx">treeToIndex</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">old_tree</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diff</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository containing the tree and index.</td>
+</tr>
+<tr>
+<td>old_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>A git_tree object to diff from, or NULL for empty tree.</td>
+</tr>
+<tr>
+<td>index</td>
+<td><a href="/api/index/">Index</a></td>
+<td>The index to diff with; repo index used if NULL.</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/diff_options/">DiffOptions</a></td>
+<td>Structure with options to influence diff or NULL for defaults.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff/">Diff</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="treeToTree"></a><span>Diff.</span>treeToTree <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Diff</span><span class="p">.</span><span class="nx">treeToTree</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">old_tree</span><span class="p">,</span> <span class="nx">new_tree</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diff</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository containing the trees.</td>
+</tr>
+<tr>
+<td>old_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>A git_tree object to diff from, or NULL for empty tree.</td>
+</tr>
+<tr>
+<td>new_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>A git_tree object to diff to, or NULL for empty tree.</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/diff_options/">DiffOptions</a></td>
+<td>Structure with options to influence diff or NULL for defaults.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff/">Diff</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="treeToWorkdir"></a><span>Diff.</span>treeToWorkdir <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Diff</span><span class="p">.</span><span class="nx">treeToWorkdir</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">old_tree</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diff</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository containing the tree.</td>
+</tr>
+<tr>
+<td>old_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>A git_tree object to diff from, or NULL for empty tree.</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/diff_options/">DiffOptions</a></td>
+<td>Structure with options to influence diff or NULL for defaults.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff/">Diff</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="treeToWorkdirWithIndex"></a><span>Diff.</span>treeToWorkdirWithIndex <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Diff</span><span class="p">.</span><span class="nx">treeToWorkdirWithIndex</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">old_tree</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diff</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diff</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository containing the tree.</td>
+</tr>
+<tr>
+<td>old_tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+<td>A git_tree object to diff from, or NULL for empty tree.</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/diff_options/">DiffOptions</a></td>
+<td>Structure with options to influence diff or NULL for defaults.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff/">Diff</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="findSimilar"></a><span>Diff#</span>findSimilar <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">diff</span><span class="p">.</span><span class="nx">findSimilar</span><span class="p">(</span><span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>options</td>
+<td><a href="/api/diff_find_options/">DiffFindOptions</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, -1 on failure</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getDelta"></a><span>Diff#</span>getDelta <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">diffDelta</span> <span class="o">=</span> <span class="nx">diff</span><span class="p">.</span><span class="nx">getDelta</span><span class="p">(</span><span class="nx">idx</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>idx</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff_delta/">DiffDelta</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getPerfdata"></a><span>Diff#</span>getPerfdata <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">diff</span><span class="p">.</span><span class="nx">getPerfdata</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">diffPerfdata</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use diffPerfdata</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/diff_perfdata/">DiffPerfdata</a></td>
+<td>Structure to be filled with diff performance data</td>
+</tr>
+</tbody></table>
+
+<h2><a name="numDeltas"></a><span>Diff#</span>numDeltas <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">diff</span><span class="p">.</span><span class="nx">numDeltas</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Count of number of deltas in the list</td>
+</tr>
+</tbody></table>
+
+<h2><a name="patches"></a><span>Diff#</span>patches <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">diff</span><span class="p">.</span><span class="nx">patches</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayConvenientPatch</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayConvenientPatch</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve patches in this difflist</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/convenient_patch/">ConvenientPatch</a>&gt;</td>
+<td>a promise that resolves to an array of                                      ConvenientPatches</td>
+</tr>
+</tbody></table>
+
+<h2><a name="DELTA"></a><span>Diff.</span>DELTA <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.DELTA.</span>UNMODIFIED</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>ADDED</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>DELETED</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>MODIFIED</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>RENAMED</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>COPIED</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>IGNORED</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>UNTRACKED</td>
+<td>7</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>TYPECHANGE</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>UNREADABLE</td>
+<td>9</td>
+</tr>
+<tr>
+<td><span>Diff.DELTA.</span>CONFLICTED</td>
+<td>10</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FIND"></a><span>Diff.</span>FIND <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.FIND.</span>BY_CONFIG</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>RENAMES</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>RENAMES_FROM_REWRITES</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>COPIES</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>COPIES_FROM_UNMODIFIED</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>REWRITES</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>BREAK_REWRITES</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>AND_BREAK_REWRITES</td>
+<td>48</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>FOR_UNTRACKED</td>
+<td>64</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>ALL</td>
+<td>255</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>IGNORE_LEADING_WHITESPACE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>IGNORE_WHITESPACE</td>
+<td>4096</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>DONT_IGNORE_WHITESPACE</td>
+<td>8192</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>EXACT_MATCH_ONLY</td>
+<td>16384</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>BREAK_REWRITES_FOR_RENAMES_ONLY</td>
+<td>32768</td>
+</tr>
+<tr>
+<td><span>Diff.FIND.</span>REMOVE_UNMODIFIED</td>
+<td>65536</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FLAG"></a><span>Diff.</span>FLAG <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.FLAG.</span>BINARY</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Diff.FLAG.</span>NOT_BINARY</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Diff.FLAG.</span>VALID_ID</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Diff.FLAG.</span>EXISTS</td>
+<td>8</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FORMAT"></a><span>Diff.</span>FORMAT <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.FORMAT.</span>PATCH</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Diff.FORMAT.</span>PATCH_HEADER</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Diff.FORMAT.</span>RAW</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Diff.FORMAT.</span>NAME_ONLY</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Diff.FORMAT.</span>NAME_STATUS</td>
+<td>5</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FORMAT_EMAIL_FLAGS"></a><span>Diff.</span>FORMAT_EMAIL_FLAGS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.FORMAT_EMAIL_FLAGS.</span>FORMAT_EMAIL_NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Diff.FORMAT_EMAIL_FLAGS.</span>FORMAT_EMAIL_EXCLUDE_SUBJECT_PATCH_MARKER</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h2><a name="LINE"></a><span>Diff.</span>LINE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.LINE.</span>CONTEXT</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>ADDITION</td>
+<td>43</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>DELETION</td>
+<td>45</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>CONTEXT_EOFNL</td>
+<td>61</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>ADD_EOFNL</td>
+<td>62</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>DEL_EOFNL</td>
+<td>60</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>FILE_HDR</td>
+<td>70</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>HUNK_HDR</td>
+<td>72</td>
+</tr>
+<tr>
+<td><span>Diff.LINE.</span>BINARY</td>
+<td>66</td>
+</tr>
+</tbody></table>
+
+<h2><a name="OPTION"></a><span>Diff.</span>OPTION <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.OPTION.</span>NORMAL</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>REVERSE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_IGNORED</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>RECURSE_IGNORED_DIRS</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_UNTRACKED</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>RECURSE_UNTRACKED_DIRS</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_UNMODIFIED</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_TYPECHANGE</td>
+<td>64</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_TYPECHANGE_TREES</td>
+<td>128</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>IGNORE_FILEMODE</td>
+<td>256</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>IGNORE_SUBMODULES</td>
+<td>512</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>IGNORE_CASE</td>
+<td>1024</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_CASECHANGE</td>
+<td>2048</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>DISABLE_PATHSPEC_MATCH</td>
+<td>4096</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>SKIP_BINARY_CHECK</td>
+<td>8192</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>ENABLE_FAST_UNTRACKED_DIRS</td>
+<td>16384</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>UPDATE_INDEX</td>
+<td>32768</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_UNREADABLE</td>
+<td>65536</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>INCLUDE_UNREADABLE_AS_UNTRACKED</td>
+<td>131072</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>FORCE_TEXT</td>
+<td>1048576</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>FORCE_BINARY</td>
+<td>2097152</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>IGNORE_WHITESPACE</td>
+<td>4194304</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>IGNORE_WHITESPACE_CHANGE</td>
+<td>8388608</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>IGNORE_WHITESPACE_EOL</td>
+<td>16777216</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>SHOW_UNTRACKED_CONTENT</td>
+<td>33554432</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>SHOW_UNMODIFIED</td>
+<td>67108864</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>PATIENCE</td>
+<td>268435456</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>MINIMAL</td>
+<td>536870912</td>
+</tr>
+<tr>
+<td><span>Diff.OPTION.</span>SHOW_BINARY</td>
+<td>1073741824</td>
+</tr>
+</tbody></table>
+
+<h2><a name="STATS_FORMAT"></a><span>Diff.</span>STATS_FORMAT <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Diff.STATS_FORMAT.</span>STATS_NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Diff.STATS_FORMAT.</span>STATS_FULL</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Diff.STATS_FORMAT.</span>STATS_SHORT</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Diff.STATS_FORMAT.</span>STATS_NUMBER</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Diff.STATS_FORMAT.</span>STATS_INCLUDE_SUMMARY</td>
+<td>8</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

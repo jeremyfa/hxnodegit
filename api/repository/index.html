@@ -1,0 +1,2426 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Repository</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#discover">discover</a></li>
+            
+            <li><a href="#init">init</a></li>
+            
+            <li><a href="#initExt">initExt</a></li>
+            
+            <li><a href="#open">open</a></li>
+            
+            <li><a href="#openBare">openBare</a></li>
+            
+            <li><a href="#openExt">openExt</a></li>
+            
+            <li><a href="#wrapOdb">wrapOdb</a></li>
+            
+            <li><a href="#checkoutBranch">#checkoutBranch</a></li>
+            
+            <li><a href="#config">#config</a></li>
+            
+            <li><a href="#configSnapshot">#configSnapshot</a></li>
+            
+            <li><a href="#continueRebase">#continueRebase</a></li>
+            
+            <li><a href="#createBlobFromBuffer">#createBlobFromBuffer</a></li>
+            
+            <li><a href="#createBranch">#createBranch</a></li>
+            
+            <li><a href="#createCommit">#createCommit</a></li>
+            
+            <li><a href="#createCommitOnHead">#createCommitOnHead</a></li>
+            
+            <li><a href="#createLightweightTag">#createLightweightTag</a></li>
+            
+            <li><a href="#createRevWalk">#createRevWalk</a></li>
+            
+            <li><a href="#createTag">#createTag</a></li>
+            
+            <li><a href="#defaultSignature">#defaultSignature</a></li>
+            
+            <li><a href="#deleteTagByName">#deleteTagByName</a></li>
+            
+            <li><a href="#detachHead">#detachHead</a></li>
+            
+            <li><a href="#fetch">#fetch</a></li>
+            
+            <li><a href="#fetchAll">#fetchAll</a></li>
+            
+            <li><a href="#fetchheadForeach">#fetchheadForeach</a></li>
+            
+            <li><a href="#free">#free</a></li>
+            
+            <li><a href="#getBlob">#getBlob</a></li>
+            
+            <li><a href="#getBranch">#getBranch</a></li>
+            
+            <li><a href="#getBranchCommit">#getBranchCommit</a></li>
+            
+            <li><a href="#getCommit">#getCommit</a></li>
+            
+            <li><a href="#getCurrentBranch">#getCurrentBranch</a></li>
+            
+            <li><a href="#getHeadCommit">#getHeadCommit</a></li>
+            
+            <li><a href="#getMasterCommit">#getMasterCommit</a></li>
+            
+            <li><a href="#getNamespace">#getNamespace</a></li>
+            
+            <li><a href="#getReference">#getReference</a></li>
+            
+            <li><a href="#getReferenceCommit">#getReferenceCommit</a></li>
+            
+            <li><a href="#getReferenceNames">#getReferenceNames</a></li>
+            
+            <li><a href="#getReferences">#getReferences</a></li>
+            
+            <li><a href="#getRemote">#getRemote</a></li>
+            
+            <li><a href="#getRemotes">#getRemotes</a></li>
+            
+            <li><a href="#getStatus">#getStatus</a></li>
+            
+            <li><a href="#getStatusExt">#getStatusExt</a></li>
+            
+            <li><a href="#getSubmoduleNames">#getSubmoduleNames</a></li>
+            
+            <li><a href="#getTag">#getTag</a></li>
+            
+            <li><a href="#getTagByName">#getTagByName</a></li>
+            
+            <li><a href="#getTree">#getTree</a></li>
+            
+            <li><a href="#head">#head</a></li>
+            
+            <li><a href="#headDetached">#headDetached</a></li>
+            
+            <li><a href="#headUnborn">#headUnborn</a></li>
+            
+            <li><a href="#index">#index</a></li>
+            
+            <li><a href="#isApplyingMailbox">#isApplyingMailbox</a></li>
+            
+            <li><a href="#isBare">#isBare</a></li>
+            
+            <li><a href="#isBisecting">#isBisecting</a></li>
+            
+            <li><a href="#isCherrypicking">#isCherrypicking</a></li>
+            
+            <li><a href="#isDefaultState">#isDefaultState</a></li>
+            
+            <li><a href="#isEmpty">#isEmpty</a></li>
+            
+            <li><a href="#isMerging">#isMerging</a></li>
+            
+            <li><a href="#isRebasing">#isRebasing</a></li>
+            
+            <li><a href="#isReverting">#isReverting</a></li>
+            
+            <li><a href="#isShallow">#isShallow</a></li>
+            
+            <li><a href="#mergeBranches">#mergeBranches</a></li>
+            
+            <li><a href="#messageRemove">#messageRemove</a></li>
+            
+            <li><a href="#odb">#odb</a></li>
+            
+            <li><a href="#path">#path</a></li>
+            
+            <li><a href="#rebaseBranches">#rebaseBranches</a></li>
+            
+            <li><a href="#refdb">#refdb</a></li>
+            
+            <li><a href="#setHead">#setHead</a></li>
+            
+            <li><a href="#setHeadDetached">#setHeadDetached</a></li>
+            
+            <li><a href="#setHeadDetachedFromAnnotated">#setHeadDetachedFromAnnotated</a></li>
+            
+            <li><a href="#setIdent">#setIdent</a></li>
+            
+            <li><a href="#setNamespace">#setNamespace</a></li>
+            
+            <li><a href="#setWorkdir">#setWorkdir</a></li>
+            
+            <li><a href="#stageFilemode">#stageFilemode</a></li>
+            
+            <li><a href="#stageLines">#stageLines</a></li>
+            
+            <li><a href="#state">#state</a></li>
+            
+            <li><a href="#stateCleanup">#stateCleanup</a></li>
+            
+            <li><a href="#treeBuilder">#treeBuilder</a></li>
+            
+            <li><a href="#workdir">#workdir</a></li>
+            
+            <li><a href="#INIT_FLAG">INIT_FLAG</a></li>
+            
+            <li><a href="#INIT_MODE">INIT_MODE</a></li>
+            
+            <li><a href="#OPEN_FLAG">OPEN_FLAG</a></li>
+            
+            <li><a href="#STATE">STATE</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="discover"></a><span>Repository.</span>discover <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">discover</span><span class="p">(</span><span class="nx">start_path</span><span class="p">,</span> <span class="nx">across_fs</span><span class="p">,</span> <span class="nx">ceiling_dirs</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">buf</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use buf</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>start_path</td>
+<td>String</td>
+<td>The base path where the lookup starts.</td>
+</tr>
+<tr>
+<td>across_fs</td>
+<td>Number</td>
+<td>If true, then the lookup will not stop when a filesystem device change is detected while exploring parent directories.</td>
+</tr>
+<tr>
+<td>ceiling_dirs</td>
+<td>String</td>
+<td>A GIT_PATH_LIST_SEPARATOR separated list of absolute symbolic link free paths. The lookup will stop when any of this paths is reached. Note that the lookup always performs on start_path no matter start_path appears in ceiling_dirs ceiling_dirs might be NULL (which is equivalent to an empty string)</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/buf/">Buf</a></td>
+<td>a user-allocated git_buf which will contain</td>
+</tr>
+<tr>
+<td>the found path.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="init"></a><span>Repository.</span>init <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">init</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">is_bare</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>the path to the repository</td>
+</tr>
+<tr>
+<td>is_bare</td>
+<td>Number</td>
+<td>if true, a Git repository without a working directory is created at the pointed path. If false, provided path will be considered as the working directory into which the .git directory will be created.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="initExt"></a><span>Repository.</span>initExt <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">initExt</span><span class="p">(</span><span class="nx">repo_path</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo_path</td>
+<td>String</td>
+<td>The path to the repository.</td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/repository_init_options/">RepositoryInitOptions</a></td>
+<td>Pointer to git_repository_init_options struct.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="open"></a><span>Repository.</span>open <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>the path to the repository</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="openBare"></a><span>Repository.</span>openBare <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">openBare</span><span class="p">(</span><span class="nx">bare_path</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>bare_path</td>
+<td>String</td>
+<td>Direct path to the bare repository</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="openExt"></a><span>Repository.</span>openExt <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">openExt</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">flags</span><span class="p">,</span> <span class="nx">ceiling_dirs</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>Path to open as git repository. If the flags permit &quot;searching&quot;, then this can be a path to a subdirectory inside the working directory of the repository.</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Number</td>
+<td>A combination of the GIT_REPOSITORY_OPEN flags above.</td>
+</tr>
+<tr>
+<td>ceiling_dirs</td>
+<td>String</td>
+<td>A GIT_PATH_LIST_SEPARATOR delimited list of path prefixes at which the search for a containing repository should terminate.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="wrapOdb"></a><span>Repository.</span>wrapOdb <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Repository</span><span class="p">.</span><span class="nx">wrapOdb</span><span class="p">(</span><span class="nx">odb</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">repository</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use repository</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>odb</td>
+<td><a href="/api/odb/">Odb</a></td>
+<td>the object database to wrap</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="checkoutBranch"></a><span>Repository#</span>checkoutBranch <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">checkoutBranch</span><span class="p">(</span><span class="nx">branch</span><span class="p">,</span> <span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// method complete});</span>
+</code></pre></div>
+<p>This will set the HEAD to point to the local branch and then attempt
+to update the index and working tree to match the content of the
+latest commit on that branch</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+<tr>
+<td>opts</td>
+<td><a href="/api/object/">Object</a>, <a href="/api/checkout_options/">CheckoutOptions</a></td>
+</tr>
+</tbody></table>
+
+<h2><a name="config"></a><span>Repository#</span>config <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">config</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use config</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/config/">Config</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="configSnapshot"></a><span>Repository#</span>configSnapshot <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">configSnapshot</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use config</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/config/">Config</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="continueRebase"></a><span>Repository#</span>continueRebase <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">continueRebase</span><span class="p">(</span><span class="nx">signature</span><span class="p">,</span> <span class="nx">beforeNextFn</span><span class="p">);</span>
+</code></pre></div>
+<p>Continues an existing rebase</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>signature</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>beforeNextFn</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>A commit id for a succesful merge or an index for a                      rebase with conflicts</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createBlobFromBuffer"></a><span>Repository#</span>createBlobFromBuffer <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">createBlobFromBuffer</span><span class="p">(</span><span class="nx">buffer</span><span class="p">);</span>
+</code></pre></div>
+<p>Create a blob from a buffer</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>buffer</td>
+<td>Buffer</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createBranch"></a><span>Repository#</span>createBranch <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">createBranch</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">commit</span><span class="p">,</span> <span class="nx">force</span><span class="p">,</span> <span class="nx">signature</span><span class="p">,</span> <span class="nx">logMessage</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Creates a branch with the passed in name pointing to the commit</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>commit</td>
+<td><a href="/api/commit/">Commit</a>, String, <a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>force</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>signature</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>logMessage</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createCommit"></a><span>Repository#</span>createCommit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">createCommit</span><span class="p">(</span><span class="nx">updateRef</span><span class="p">,</span> <span class="nx">author</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">Tree</span><span class="p">,</span> <span class="nx">parents</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Create a commit</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>updateRef</td>
+<td>String</td>
+</tr>
+<tr>
+<td>author</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Tree</td>
+<td><a href="/api/tree/">Tree</a>, <a href="/api/oid/">Oid</a>, String</td>
+</tr>
+<tr>
+<td>parents</td>
+<td>Array</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>The oid of the commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createCommitOnHead"></a><span>Repository#</span>createCommitOnHead <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">createCommitOnHead</span><span class="p">(</span><span class="nx">filesToAdd</span><span class="p">,</span> <span class="nx">author</span><span class="p">,</span> <span class="nx">committer</span><span class="p">,</span> <span class="nx">message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Creates a new commit on HEAD from the list of passed in files</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filesToAdd</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>author</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>committer</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>The oid of the new commit</td>
+</tr>
+</tbody></table>
+
+<h2><a name="createLightweightTag"></a><span>Repository#</span>createLightweightTag <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">createLightweightTag</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span> <span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Creates a new lightweight tag</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createRevWalk"></a><span>Repository#</span>createRevWalk <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">revWalk</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">createRevWalk</span><span class="p">(</span><span class="nb">String</span><span class="p">);</span>
+</code></pre></div>
+<p>Instantiate a new revision walker for browsing the Repository&quot;s history.
+See also <code>Commit.prototype.history()</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>RevWalk</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="createTag"></a><span>Repository#</span>createTag <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">createTag</span><span class="p">(</span><span class="nb">String</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">message</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tag</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Creates a new annotated tag</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tag/">Tag</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="defaultSignature"></a><span>Repository#</span>defaultSignature <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">signature</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">defaultSignature</span><span class="p">();</span>
+</code></pre></div>
+<p>Gets the default signature for the default user and now timestamp</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/signature/">Signature</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="deleteTagByName"></a><span>Repository#</span>deleteTagByName <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">deleteTagByName</span><span class="p">(</span><span class="nx">Short</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// method complete});</span>
+</code></pre></div>
+<p>Deletes a tag from a repository by the tag name.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Short</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<h2><a name="detachHead"></a><span>Repository#</span>detachHead <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">detachHead</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_EUNBORNBRANCH when HEAD points to a non existing</td>
+</tr>
+<tr>
+<td>branch or an error code</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="fetch"></a><span>Repository#</span>fetch <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">remote</span><span class="p">,</span> <span class="nx">fetchOptions</span><span class="p">);</span>
+</code></pre></div>
+<p>Fetches from a remote</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>remote</td>
+<td>String, <a href="/api/remote/">Remote</a></td>
+</tr>
+<tr>
+<td>fetchOptions</td>
+<td><a href="/api/object/">Object</a>, <a href="/api/fetch_options/">FetchOptions</a></td>
+</tr>
+</tbody></table>
+
+<h2><a name="fetchAll"></a><span>Repository#</span>fetchAll <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">fetchAll</span><span class="p">(</span><span class="nx">fetchOptions</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div>
+<p>Fetches from all remotes. This is done in series due to deadlocking issues
+with fetching from many remotes that can happen.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>fetchOptions</td>
+<td><a href="/api/object/">Object</a>, <a href="/api/fetch_options/">FetchOptions</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<h2><a name="fetchheadForeach"></a><span>Repository#</span>fetchheadForeach <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">fetchheadForeach</span><span class="p">(</span><span class="nx">callback</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// method complete});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>callback</td>
+<td>FetchheadForeachCb</td>
+</tr>
+</tbody></table>
+
+<h2><a name="free"></a><span>Repository#</span>free <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">free</span><span class="p">();</span>
+</code></pre></div>
+<h2><a name="getBlob"></a><span>Repository#</span>getBlob <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getBlob</span><span class="p">(</span><span class="nb">String</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">blob</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use blob</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the blob represented by the oid.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/blob/">Blob</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getBranch"></a><span>Repository#</span>getBranch <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getBranch</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Look up a branch. Alias for <code>getReference</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getBranchCommit"></a><span>Repository#</span>getBranchCommit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getBranchCommit</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Look up a branch&#39;s most recent commit. Alias to <code>getReferenceCommit</code></p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getCommit"></a><span>Repository#</span>getCommit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getCommit</span><span class="p">(</span><span class="nb">String</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the commit identified by oid.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getCurrentBranch"></a><span>Repository#</span>getCurrentBranch <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getCurrentBranch</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Gets the branch that HEAD currently points to
+Is an alias to head()</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getHeadCommit"></a><span>Repository#</span>getHeadCommit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getHeadCommit</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the commit that HEAD is currently pointing to</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getMasterCommit"></a><span>Repository#</span>getMasterCommit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getMasterCommit</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the master branch commit.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getNamespace"></a><span>Repository#</span>getNamespace <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">getNamespace</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the active namespace, or NULL if there isn&#39;t one</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getReference"></a><span>Repository#</span>getReference <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getReference</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Lookup the reference with the given name.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getReferenceCommit"></a><span>Repository#</span>getReferenceCommit <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getReferenceCommit</span><span class="p">(</span><span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">commit</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use commit</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Look up a refs&#39;s commit.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/commit/">Commit</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getReferenceNames"></a><span>Repository#</span>getReferenceNames <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getReferenceNames</span><span class="p">(</span><span class="nx">type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayString</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayString</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Lookup reference names for a repository.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td><a href="/api/reference/#TYPE">Reference.TYPE</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;String&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getReferences"></a><span>Repository#</span>getReferences <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getReferences</span><span class="p">(</span><span class="nx">type</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayReference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayReference</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Lookup references for a repository.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>type</td>
+<td><a href="/api/reference/#TYPE">Reference.TYPE</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;<a href="/api/reference/">Reference</a>&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getRemote"></a><span>Repository#</span>getRemote <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">remote</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">getRemote</span><span class="p">(</span><span class="nx">remote</span><span class="p">,</span> <span class="nx">callback</span><span class="p">);</span>
+</code></pre></div>
+<p>Gets a remote from the repo</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>remote</td>
+<td>String, <a href="/api/remote/">Remote</a></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/remote/">Remote</a></td>
+<td>The remote object</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getRemotes"></a><span>Repository#</span>getRemotes <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">getRemotes</span><span class="p">(</span><span class="nx">Optional</span><span class="p">);</span>
+</code></pre></div>
+<p>Lists out the remotes in the given repository.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Optional</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/object/">Object</a></td>
+<td>Promise object.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="getStatus"></a><span>Repository#</span>getStatus <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getStatus</span><span class="p">(</span><span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayStatusFile</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayStatusFile</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Get the status of a repo to it&#39;s working directory</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td>obj</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;StatusFile&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getStatusExt"></a><span>Repository#</span>getStatusExt <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getStatusExt</span><span class="p">(</span><span class="nx">opts</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayStatusFile</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayStatusFile</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Get extended statuses of a repo to it&#39;s working directory. Status entries
+have <code>status</code>, <code>headToIndex</code> delta, and <code>indexToWorkdir</code> deltas</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td>obj</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;StatusFile&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getSubmoduleNames"></a><span>Repository#</span>getSubmoduleNames <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getSubmoduleNames</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">arrayString</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use arrayString</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Get the names of the submodules in the repository.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array&lt;String&gt;</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getTag"></a><span>Repository#</span>getTag <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getTag</span><span class="p">(</span><span class="nb">String</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tag</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the tag represented by the oid.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tag/">Tag</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getTagByName"></a><span>Repository#</span>getTagByName <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getTagByName</span><span class="p">(</span><span class="nx">Short</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tag</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the tag represented by the tag name.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Short</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tag/">Tag</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="getTree"></a><span>Repository#</span>getTree <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">getTree</span><span class="p">(</span><span class="nb">String</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use tree</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Retrieve the tree represented by the oid.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>String, <a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/tree/">Tree</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="head"></a><span>Repository#</span>head <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">head</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">reference</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use reference</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/reference/">Reference</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="headDetached"></a><span>Repository#</span>headDetached <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">headDetached</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if HEAD is detached, 0 if it&#39;s not; error code if there</td>
+</tr>
+<tr>
+<td>was an error.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="headUnborn"></a><span>Repository#</span>headUnborn <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">headUnborn</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the current branch is unborn, 0 if it&#39;s not; error</td>
+</tr>
+<tr>
+<td>code if there was an error</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="index"></a><span>Repository#</span>index <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">index</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use index</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/index/">Index</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isApplyingMailbox"></a><span>Repository#</span>isApplyingMailbox <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isApplyingMailbox</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the APPLY_MAILBOX or
+APPLY_MAILBOX_OR_REBASE state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isBare"></a><span>Repository#</span>isBare <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isBare</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the repository is bare, 0 otherwise.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="isBisecting"></a><span>Repository#</span>isBisecting <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isBisecting</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the BISECT state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isCherrypicking"></a><span>Repository#</span>isCherrypicking <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isCherrypicking</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the CHERRYPICK state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isDefaultState"></a><span>Repository#</span>isDefaultState <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isDefaultState</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the default NONE state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isEmpty"></a><span>Repository#</span>isEmpty <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if the repository is empty, 0 if it isn&#39;t, error code</td>
+</tr>
+<tr>
+<td>if the repository is corrupted</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isMerging"></a><span>Repository#</span>isMerging <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isMerging</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the MERGE state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isRebasing"></a><span>Repository#</span>isRebasing <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isRebasing</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the REBASE, REBASE_INTERACTIVE, or
+REBASE_MERGE state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isReverting"></a><span>Repository#</span>isReverting <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="kr">boolean</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isReverting</span><span class="p">();</span>
+</code></pre></div>
+<p>Returns true if the repository is in the REVERT state.</p>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Boolean</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="isShallow"></a><span>Repository#</span>isShallow <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">isShallow</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>1 if shallow, zero if not</td>
+</tr>
+</tbody></table>
+
+<h2><a name="mergeBranches"></a><span>Repository#</span>mergeBranches <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">mergeBranches</span><span class="p">(</span><span class="nx">to</span><span class="p">,</span> <span class="nx">from</span><span class="p">,</span> <span class="nx">signature</span><span class="p">,</span> <span class="nx">mergePreference</span><span class="p">,</span> <span class="nx">mergeOptions</span><span class="p">);</span>
+</code></pre></div>
+<p>Merge a branch onto another branch</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>to</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+<tr>
+<td>from</td>
+<td>String, <a href="/api/reference/">Reference</a></td>
+</tr>
+<tr>
+<td>signature</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>mergePreference</td>
+<td><a href="/api/merge/#PREFERENCE">Merge.PREFERENCE</a></td>
+</tr>
+<tr>
+<td>mergeOptions</td>
+<td><a href="/api/merge_options/">MergeOptions</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>A commit id for a succesful merge or an index for a                      merge with conflicts</td>
+</tr>
+</tbody></table>
+
+<h2><a name="messageRemove"></a><span>Repository#</span>messageRemove <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">messageRemove</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="odb"></a><span>Repository#</span>odb <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">odb</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">odb</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use odb</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/odb/">Odb</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="path"></a><span>Repository#</span>path <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">path</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the path to the repository</td>
+</tr>
+</tbody></table>
+
+<h2><a name="rebaseBranches"></a><span>Repository#</span>rebaseBranches <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">oid</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">rebaseBranches</span><span class="p">(</span><span class="nx">branch</span><span class="p">,</span> <span class="nx">upstream</span><span class="p">,</span> <span class="nx">onto</span><span class="p">,</span> <span class="nx">signature</span><span class="p">,</span> <span class="nx">beforeNextFn</span><span class="p">);</span>
+</code></pre></div>
+<p>Rebases a branch onto another branch</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>branch</td>
+<td>String</td>
+</tr>
+<tr>
+<td>upstream</td>
+<td>String</td>
+</tr>
+<tr>
+<td>onto</td>
+<td>String</td>
+</tr>
+<tr>
+<td>signature</td>
+<td><a href="/api/signature/">Signature</a></td>
+</tr>
+<tr>
+<td>beforeNextFn</td>
+<td>Function</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td>A commit id for a succesful merge or an index for a                      rebase with conflicts</td>
+</tr>
+</tbody></table>
+
+<h2><a name="refdb"></a><span>Repository#</span>refdb <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">refdb</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">refdb</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use refdb</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/refdb/">Refdb</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setHead"></a><span>Repository#</span>setHead <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">setHead</span><span class="p">(</span><span class="nx">refname</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refname</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setHeadDetached"></a><span>Repository#</span>setHeadDetached <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">setHeadDetached</span><span class="p">(</span><span class="nx">commitish</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>commitish</td>
+<td><a href="/api/oid/">Oid</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setHeadDetachedFromAnnotated"></a><span>Repository#</span>setHeadDetachedFromAnnotated <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">setHeadDetachedFromAnnotated</span><span class="p">(</span><span class="nx">commitish</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>commitish</td>
+<td><a href="/api/annotated_commit/">AnnotatedCommit</a></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setIdent"></a><span>Repository#</span>setIdent <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">setIdent</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">email</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="setNamespace"></a><span>Repository#</span>setNamespace <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">setNamespace</span><span class="p">(</span><span class="nx">nmspace</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>nmspace</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, -1 on error</td>
+</tr>
+</tbody></table>
+
+<h2><a name="setWorkdir"></a><span>Repository#</span>setWorkdir <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">setWorkdir</span><span class="p">(</span><span class="nx">workdir</span><span class="p">,</span> <span class="nx">update_gitlink</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>workdir</td>
+<td>String</td>
+</tr>
+<tr>
+<td>update_gitlink</td>
+<td>Number</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0, or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="stageFilemode"></a><span>Repository#</span>stageFilemode <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">stageFilemode</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">stageNew</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use number</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Stages or unstages line selection of a specified file</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filePath</td>
+<td>String, Array</td>
+</tr>
+<tr>
+<td>stageNew</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="stageLines"></a><span>Repository#</span>stageLines <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">stageLines</span><span class="p">(</span><span class="nx">filePath</span><span class="p">,</span> <span class="nx">newLines</span><span class="p">,</span> <span class="nx">isStaged</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">number</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use number</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Stages or unstages line selection of a specified file</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>filePath</td>
+<td>String</td>
+</tr>
+<tr>
+<td>newLines</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>isStaged</td>
+<td>Boolean</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 or an error code</td>
+</tr>
+</tbody></table>
+
+<h2><a name="state"></a><span>Repository#</span>state <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">state</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>The state of the repository</td>
+</tr>
+</tbody></table>
+
+<h2><a name="stateCleanup"></a><span>Repository#</span>stateCleanup <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">stateCleanup</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, or error</td>
+</tr>
+</tbody></table>
+
+<h2><a name="treeBuilder"></a><span>Repository#</span>treeBuilder <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">repository</span><span class="p">.</span><span class="nx">treeBuilder</span><span class="p">(</span><span class="nx">tree</span><span class="p">);</span>
+</code></pre></div>
+<p>Create a new tree builder.</p>
+
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>tree</td>
+<td><a href="/api/tree/">Tree</a></td>
+</tr>
+</tbody></table>
+
+<h2><a name="workdir"></a><span>Repository#</span>workdir <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="nx">repository</span><span class="p">.</span><span class="nx">workdir</span><span class="p">();</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>the path to the working dir, if it exists</td>
+</tr>
+</tbody></table>
+
+<h2><a name="INIT_FLAG"></a><span>Repository.</span>INIT_FLAG <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>BARE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>NO_REINIT</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>NO_DOTGIT_DIR</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>MKDIR</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>MKPATH</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>EXTERNAL_TEMPLATE</td>
+<td>32</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_FLAG.</span>RELATIVE_GITLINK</td>
+<td>64</td>
+</tr>
+</tbody></table>
+
+<h2><a name="INIT_MODE"></a><span>Repository.</span>INIT_MODE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Repository.INIT_MODE.</span>INIT_SHARED_UMASK</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_MODE.</span>INIT_SHARED_GROUP</td>
+<td>1533</td>
+</tr>
+<tr>
+<td><span>Repository.INIT_MODE.</span>INIT_SHARED_ALL</td>
+<td>1535</td>
+</tr>
+</tbody></table>
+
+<h2><a name="OPEN_FLAG"></a><span>Repository.</span>OPEN_FLAG <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Repository.OPEN_FLAG.</span>OPEN_NO_SEARCH</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Repository.OPEN_FLAG.</span>OPEN_CROSS_FS</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Repository.OPEN_FLAG.</span>OPEN_BARE</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+<h2><a name="STATE"></a><span>Repository.</span>STATE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Repository.STATE.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>MERGE</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>REVERT</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>CHERRYPICK</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>BISECT</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>REBASE</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>REBASE_INTERACTIVE</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>REBASE_MERGE</td>
+<td>7</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>APPLY_MAILBOX</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Repository.STATE.</span>APPLY_MAILBOX_OR_REBASE</td>
+<td>9</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

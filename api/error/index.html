@@ -1,0 +1,406 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Error</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#CODE">CODE</a></li>
+            
+            <li><a href="#ERROR">ERROR</a></li>
+            
+            <li><a href="#ivars">Instance Variables</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="CODE"></a><span>Error.</span>CODE <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Error.CODE.</span>OK</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ERROR</td>
+<td>-1</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ENOTFOUND</td>
+<td>-3</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EEXISTS</td>
+<td>-4</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EAMBIGUOUS</td>
+<td>-5</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EBUFS</td>
+<td>-6</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EUSER</td>
+<td>-7</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EBAREREPO</td>
+<td>-8</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EUNBORNBRANCH</td>
+<td>-9</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EUNMERGED</td>
+<td>-10</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ENONFASTFORWARD</td>
+<td>-11</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EINVALIDSPEC</td>
+<td>-12</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ECONFLICT</td>
+<td>-13</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ELOCKED</td>
+<td>-14</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EMODIFIED</td>
+<td>-15</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EAUTH</td>
+<td>-16</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ECERTIFICATE</td>
+<td>-17</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EAPPLIED</td>
+<td>-18</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EPEEL</td>
+<td>-19</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EEOF</td>
+<td>-20</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EINVALID</td>
+<td>-21</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EUNCOMMITTED</td>
+<td>-22</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>EDIRECTORY</td>
+<td>-23</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>PASSTHROUGH</td>
+<td>-30</td>
+</tr>
+<tr>
+<td><span>Error.CODE.</span>ITEROVER</td>
+<td>-31</td>
+</tr>
+</tbody></table>
+
+<h2><a name="ERROR"></a><span>Error.</span>ERROR <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_NOMEMORY</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_OS</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_INVALID</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_REFERENCE</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_ZLIB</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_REPOSITORY</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_CONFIG</td>
+<td>7</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_REGEX</td>
+<td>8</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_ODB</td>
+<td>9</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_INDEX</td>
+<td>10</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_OBJECT</td>
+<td>11</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_NET</td>
+<td>12</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_TAG</td>
+<td>13</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_TREE</td>
+<td>14</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_INDEXER</td>
+<td>15</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_SSL</td>
+<td>16</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_SUBMODULE</td>
+<td>17</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_THREAD</td>
+<td>18</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_STASH</td>
+<td>19</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_CHECKOUT</td>
+<td>20</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_FETCHHEAD</td>
+<td>21</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_MERGE</td>
+<td>22</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_SSH</td>
+<td>23</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_FILTER</td>
+<td>24</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_REVERT</td>
+<td>25</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_CALLBACK</td>
+<td>26</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_CHERRYPICK</td>
+<td>27</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_DESCRIBE</td>
+<td>28</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_REBASE</td>
+<td>29</td>
+</tr>
+<tr>
+<td><span>Error.ERROR.</span>GITERR_FILESYSTEM</td>
+<td>30</td>
+</tr>
+</tbody></table>
+
+<h2><a name="ivars"></a>Instance Variables</h2>
+
+<table><thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a name="klass"></a>klass</td>
+<td>Number</td>
+</tr>
+<tr>
+<td><a name="message"></a>message</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

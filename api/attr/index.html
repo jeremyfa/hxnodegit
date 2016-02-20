@@ -1,0 +1,359 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Attr</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#addMacro">addMacro</a></li>
+            
+            <li><a href="#cacheFlush">cacheFlush</a></li>
+            
+            <li><a href="#get">get</a></li>
+            
+            <li><a href="#getMany">getMany</a></li>
+            
+            <li><a href="#value">value</a></li>
+            
+            <li><a href="#STATES">STATES</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="addMacro"></a><span>Attr.</span>addMacro <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Attr</span><span class="p">.</span><span class="nx">addMacro</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">values</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>values</td>
+<td>String</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="cacheFlush"></a><span>Attr.</span>cacheFlush <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Attr</span><span class="p">.</span><span class="nx">cacheFlush</span><span class="p">(</span><span class="nx">repo</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="get"></a><span>Attr.</span>get <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Attr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">flags</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">name</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use string</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository containing the path.</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Number</td>
+<td>A combination of GIT_ATTR_CHECK... flags.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>The path to check for attributes. Relative paths are interpreted relative to the repo root. The file does not have to exist, but if it does not, then it will be treated as a plain file (not a directory).</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String</td>
+<td>The name of the attribute to look up.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>String</td>
+<td>Output of the value of the attribute.  Use the GIT_ATTR_...</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre><code class="language-" data-lang="">         macros to test for TRUE, FALSE, UNSPECIFIED, etc. or just
+         use the string value for attributes set to a value.  You
+         should NOT modify or free this value. |
+</code></pre></div>
+<h2><a name="getMany"></a><span>Attr.</span>getMany <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="nx">Attr</span><span class="p">.</span><span class="nx">getMany</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">flags</span><span class="p">,</span> <span class="nx">path</span><span class="p">,</span> <span class="nx">num_attr</span><span class="p">,</span> <span class="nx">names</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The repository containing the path.</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Number</td>
+<td>A combination of GIT_ATTR_CHECK... flags.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>String</td>
+<td>The path inside the repo to check attributes. This does not have to exist, but if it does not, then it will be treated as a plain file (i.e. not a directory).</td>
+</tr>
+<tr>
+<td>num_attr</td>
+<td>Number</td>
+<td>The number of attributes being looked up</td>
+</tr>
+<tr>
+<td>names</td>
+<td>String</td>
+<td>An array of num_attr strings containing attribute names.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Array</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="value"></a><span>Attr.</span>value <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Attr</span><span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="nx">attr</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>attr</td>
+<td>String</td>
+<td>The attribute</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>the value type for the attribute</td>
+</tr>
+</tbody></table>
+
+<h2><a name="STATES"></a><span>Attr.</span>STATES <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Attr.STATES.</span>UNSPECIFIED_T</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Attr.STATES.</span>TRUE_T</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Attr.STATES.</span>FALSE_T</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Attr.STATES.</span>VALUE_T</td>
+<td>3</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  

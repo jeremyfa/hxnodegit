@@ -1,0 +1,491 @@
+
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <div class="site-info">
+      <h1><a class="site-title" href="/"><img src="/img/nodegit.svg" alt="NodeGit" /></a></h1>
+      <div class="hamburger"></div>
+      <div class="version dropdown">
+        
+          <span>Latest release:</span> 0.11.2
+        
+      </div>
+      <ul class="version-menu">
+        <li><a href="/"><span>Latest release:</span> 0.11.2</a></li>
+        
+        <li><a href="/HEAD/">HEAD</a></li>
+        
+        <li><a href="/0.11.1/">0.11.1</a></li>
+        
+        <li><a href="/0.11.0/">0.11.0</a></li>
+        
+        <li><a href="/0.10.0/">0.10.0</a></li>
+        
+        <li><a href="/0.9.0/">0.9.0</a></li>
+        
+        <li><a href="/0.8.0/">0.8.0</a></li>
+        
+        <li><a href="/0.7.0/">0.7.0</a></li>
+        
+        <li><a href="/0.6.3/">0.6.3</a></li>
+        
+        <li><a href="/0.6.2/">0.6.2</a></li>
+        
+        <li><a href="/0.6.1/">0.6.1</a></li>
+        
+        <li><a href="/0.6.0/">0.6.0</a></li>
+        
+        <li><a href="/0.5.0/">0.5.0</a></li>
+        
+        <li><a href="/0.4.1/">0.4.1</a></li>
+        
+        <li><a href="/0.4.0/">0.4.0</a></li>
+        
+        <li><a href="/0.3.3/">0.3.3</a></li>
+        
+        <li><a href="/0.2.7/">0.2.7</a></li>
+        
+      </ul>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="/">Getting Started</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li class="active"><a href="/api/">API Documentation</a></li>
+        <li><a href="https://github.com/nodegit/nodegit/">Source</a></li>
+        <!--<li><a href="/blog/">Blog</a></li>-->
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="banner">
+  
+    <div class="wrapper">
+      <h2>Stash</h2>
+      <p>Version 0.11.2</p>
+    </div>
+  
+</div>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="outline">
+          
+          
+          <h5><a href="/api/">API Documentation Index</a></h5>
+          
+          
+          <ul>
+            
+            <li><a href="#apply">apply</a></li>
+            
+            <li><a href="#applyInitOptions">applyInitOptions</a></li>
+            
+            <li><a href="#drop">drop</a></li>
+            
+            <li><a href="#foreach">foreach</a></li>
+            
+            <li><a href="#pop">pop</a></li>
+            
+            <li><a href="#save">save</a></li>
+            
+            <li><a href="#APPLY_FLAGS">APPLY_FLAGS</a></li>
+            
+            <li><a href="#APPLY_PROGRESS">APPLY_PROGRESS</a></li>
+            
+            <li><a href="#FLAGS">FLAGS</a></li>
+            
+          </ul>
+        </div>
+        <div class="main">
+          <h2><a name="apply"></a><span>Stash.</span>apply <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Stash</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The owning repository.</td>
+</tr>
+<tr>
+<td>index</td>
+<td>Number</td>
+<td>The position within the stash list. 0 points to the most recent stashed state.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="/api/stash_apply_options/">StashApplyOptions</a></td>
+<td>Options to control how stashes are applied.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_ENOTFOUND if there&#39;s no stashed state for the</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre><code class="language-" data-lang="">     given index, GIT_EMERGECONFLICT if changes exist in the working
+     directory, or an error code |
+</code></pre></div>
+<h2><a name="applyInitOptions"></a><span>Stash.</span>applyInitOptions <span class="tags"><span class="sync">Sync</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">Stash</span><span class="p">.</span><span class="nx">applyInitOptions</span><span class="p">(</span><span class="nx">opts</span><span class="p">,</span> <span class="nx">version</span><span class="p">);</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>opts</td>
+<td><a href="/api/stash_apply_options/">StashApplyOptions</a></td>
+<td>the <code>git_stash_apply_options</code> instance to initialize.</td>
+</tr>
+<tr>
+<td>version</td>
+<td>Number</td>
+<td>the version of the struct; you should pass <code>GIT_STASH_APPLY_OPTIONS_INIT</code> here.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>Zero on success; -1 on failure.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="drop"></a><span>Stash.</span>drop <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Stash</span><span class="p">.</span><span class="nx">drop</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">index</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The owning repository.</td>
+</tr>
+<tr>
+<td>index</td>
+<td>Number</td>
+<td>The position within the stash list. 0 points to the most recent stashed state.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_ENOTFOUND if there&#39;s no stashed state for the given</td>
+</tr>
+<tr>
+<td>index, or error code.</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="foreach"></a><span>Stash.</span>foreach <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Stash</span><span class="p">.</span><span class="nx">foreach</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">payload</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>Repository where to find the stash.</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>StashCb</td>
+<td>Callback to invoke per found stashed state. The most recent stash state will be enumerated first.</td>
+</tr>
+<tr>
+<td>payload</td>
+<td>Void</td>
+<td>Extra parameter to callback function.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, non-zero callback return value, or error code.</td>
+</tr>
+</tbody></table>
+
+<h2><a name="pop"></a><span>Stash.</span>pop <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Stash</span><span class="p">.</span><span class="nx">pop</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">options</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use result</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td>The owning repository.</td>
+</tr>
+<tr>
+<td>index</td>
+<td>Number</td>
+<td>The position within the stash list. 0 points to the most recent stashed state.</td>
+</tr>
+<tr>
+<td>options</td>
+<td><a href="/api/stash_apply_options/">StashApplyOptions</a></td>
+<td>Options to control how stashes are applied.</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Number</td>
+<td>0 on success, GIT_ENOTFOUND if there&#39;s no stashed state for the given</td>
+</tr>
+<tr>
+<td>index, or error code. (see git_stash_apply() above for details)</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="save"></a><span>Stash.</span>save <span class="tags"><span class="async">Async</span></span></h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">Stash</span><span class="p">.</span><span class="nx">save</span><span class="p">(</span><span class="nx">repo</span><span class="p">,</span> <span class="nx">stasher</span><span class="p">,</span> <span class="nx">message</span><span class="p">,</span> <span class="nx">flags</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">oid</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Use oid</span>
+<span class="p">});</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th>Parameters</th>
+<th>Type</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>repo</td>
+<td><a href="/api/repository/">Repository</a></td>
+<td></td>
+</tr>
+<tr>
+<td>stasher</td>
+<td><a href="/api/signature/">Signature</a></td>
+<td></td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Number</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Returns</th>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="/api/oid/">Oid</a></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h2><a name="APPLY_FLAGS"></a><span>Stash.</span>APPLY_FLAGS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Stash.APPLY_FLAGS.</span>APPLY_DEFAULT</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_FLAGS.</span>APPLY_REINSTATE_INDEX</td>
+<td>1</td>
+</tr>
+</tbody></table>
+
+<h2><a name="APPLY_PROGRESS"></a><span>Stash.</span>APPLY_PROGRESS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>NONE</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>LOADING_STASH</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>ANALYZE_INDEX</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>ANALYZE_MODIFIED</td>
+<td>3</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>ANALYZE_UNTRACKED</td>
+<td>4</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>CHECKOUT_UNTRACKED</td>
+<td>5</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>CHECKOUT_MODIFIED</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span>Stash.APPLY_PROGRESS.</span>DONE</td>
+<td>7</td>
+</tr>
+</tbody></table>
+
+<h2><a name="FLAGS"></a><span>Stash.</span>FLAGS <span class="tags"><span class="enum">ENUM</span></span></h2>
+
+<table><thead>
+<tr>
+<th>Flag</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><span>Stash.FLAGS.</span>DEFAULT</td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>Stash.FLAGS.</span>KEEP_INDEX</td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>Stash.FLAGS.</span>INCLUDE_UNTRACKED</td>
+<td>2</td>
+</tr>
+<tr>
+<td><span>Stash.FLAGS.</span>INCLUDE_IGNORED</td>
+<td>4</td>
+</tr>
+</tbody></table>
+
+        </div>
+      </div>
+    </div>
+
+    <footer>
+
+  <div class="wrapper">
+    <hr />
+
+    <p>
+      <a href="https://github.com/nodegit/nodegit/">NodeGit</a>, along with
+      <a href="https://github.com/nodegit/nodegit.github.com">this website</a>,
+      is open source. It’s brought to you by <a href="https://github.com/orgs/nodegit/people">a core team</a>,
+      and a <a href="https://github.com/nodegit/nodegit/graphs/contributors">marvelous group of contributors</a>.
+    </p>
+
+    <p>
+      Follow us on Twitter: <a href="https://twitter.com/nodegit">@NodeGit</a>
+    </p>
+
+    <p><a href="https://github.com/nodegit/nodegit/blob/master/LICENSE">Licenced under MIT</a>.</p>
+
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=star&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=watch&count=true&v=2" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+    <iframe src="https://ghbtns.com/github-btn.html?user=nodegit&repo=nodegit&type=fork&count=true" frameborder="0" scrolling="0" width="100px" height="20px"></iframe>
+
+  </div>
+
+</footer>
+
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550b1da492c6ac049e00013f');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+
+  
