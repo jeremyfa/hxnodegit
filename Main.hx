@@ -2,6 +2,7 @@
 import Sys.println;
 
 import js.JQuery;
+import js.Promise;
 import js.node.Http;
 import js.node.Path.join;
 import js.node.Path.dirname;
@@ -11,6 +12,10 @@ import sys.FileSystem;
 import sys.io.File;
 
 import haxe.Json;
+import haxe.macro.Expr;
+import haxe.macro.Printer;
+
+using haxe.macro.Tools;
 
 using StringTools;
 
@@ -74,11 +79,17 @@ typedef ModuleEnumFlag = {
 
 class Main {
 
-    private static var api_url:String = 'http://www.nodegit.org/api/';
+    static var pos = {min: 0, max: 0, file: ""};
 
-    private static var api_local_path:String = join(Sys.getCwd(), 'api');
+    static var api_url:String = 'http://www.nodegit.org/api/';
 
-    private static var modules:Array<Module> = [];
+    static var api_local_path:String = join(Sys.getCwd(), 'api');
+
+    static var haxe_code_path:String = join(Sys.getCwd(), 'nodegit');
+
+    static var modules:Array<Module> = [];
+
+    static var module_types:Map<String,Bool> = new Map<String,Bool>();
 
     public static function main():Void {
 
@@ -99,9 +110,8 @@ class Main {
 
     } //main
 
-    static function _(value:Dynamic):JQuery {
-        return new JQuery(value);
-    }
+
+    /// Generate api.json from html API docs
 
     static function download(url:String, destination:String, callback:String->Void):Void {
 
@@ -146,6 +156,10 @@ class Main {
 
     } //cleanup_html
 
+    static function _(value:Dynamic):JQuery {
+        return new JQuery(value);
+    }
+
     static function extract_modules(html:String):Void {
 
         html = cleanup_html(html);
@@ -166,7 +180,7 @@ class Main {
 
     } //extract_modules
 
-    static function download_single_module(index:Int) {
+    static function download_single_module(index:Int):Void {
 
         // Get module info
         var module = modules[index];
@@ -186,7 +200,7 @@ class Main {
 
     } //download_single_module
 
-    static function local_html_api_ready() {
+    static function local_html_api_ready():Void {
 
         if (!FileSystem.exists(join(api_local_path, 'api.json'))) {
 
@@ -212,11 +226,14 @@ class Main {
             println('load: api.json');
             modules = Json.parse(File.getContent(join(api_local_path, 'api.json'))).modules;
 
+            // Start conversion to haxe
+            convert_to_haxe();
+
         }
 
     } //local_html_api_ready
 
-    static function extract_extended_module(path:String) {
+    static function extract_extended_module(path:String):Void {
 
         var html = File.getContent(path);
         html = cleanup_html(html);
@@ -369,6 +386,187 @@ class Main {
 
         return orig_el.next(type);
 
-    }
+    } //next_of_type_before
+
+
+    /// Conversion to haxe
+
+    static function convert_to_haxe():Void {
+
+        // Create destination directory if needed
+        if (!FileSystem.exists(haxe_code_path)) {
+            FileSystem.createDirectory(haxe_code_path);
+        }
+
+        // Keep a mapping of all available module types
+        for (module in modules) {
+            module_types.set(module.name, true);
+        }
+
+        var printer = new Printer();
+        for (module in modules) {
+
+            println('convert: nodegit.' + module.name);
+
+            var fields:Array<Field> = [];
+
+            for (property in module.properties) {
+                fields.push(convert_property(property));
+            }
+
+            for (method in module.methods) {
+                fields.push(convert_method(method));
+            }
+
+            for (enum_ in module.enums) {
+                fields.push(convert_enum(enum_));
+            }
+
+            var output = printer.printTypeDefinition({
+                pos: pos,
+                pack: ['nodegit'],
+                name: module.name,
+                isExtern: true,
+                kind: TDClass(null),
+                fields: fields,
+                meta: [
+                    {name: ':jsRequire', params: [{expr: EConst(CString("nodegit")), pos: pos}, {expr: EConst(CString(module.name)), pos: pos}], pos: pos}
+                ]
+            });
+
+            File.saveContent(join(haxe_code_path, module.name + '.hx'), output);
+
+        }
+
+    } //convert_to_haxe
+
+    static function convert_property(property:ModuleProperty):Field {
+
+        return {
+            pos: pos,
+            name: property.name,
+            kind: FVar(convert_type(property.type, {allow_void: true, is_async: false})),
+            access: property.is_static ? [AStatic] : []
+        };
+
+    } //convert_property
+
+    static function convert_method(method:ModuleMethod):Field {
+
+        var args:Array<FunctionArg> = [];
+        for (arg in method.args) {
+            args.push({name: arg.name, type: convert_type(arg.type, {allow_void: false, is_async: false})});
+        }
+
+        return {
+            pos: pos,
+            name: method.name,
+            kind: FFun({
+                args: args,
+                ret: convert_type(method.type, {allow_void: true, is_async: method.is_async}),
+                expr: null
+            }),
+            access: method.is_static ? [AStatic] : []
+        };
+
+    } //convert_method
+
+    static function convert_enum(enum_:ModuleEnum):Field {
+
+        return {
+            pos: pos,
+            name: enum_.name,
+            kind: FVar(convert_type(null, {allow_void: false, is_async: false})),
+            access: [AStatic]
+        };
+
+    } //convert_enum
+
+    static function convert_type(raw_type:String, options:{?is_async: Bool, ?allow_void: Bool}):ComplexType {
+
+        return switch (raw_type) {
+        case null:
+            if (options.allow_void) {
+                if (options.is_async)
+                    macro :Promise<Void>
+                else
+                    macro :Void;
+            } else {
+                if (options.is_async)
+                    macro :Promise<Dynamic>
+                else
+                    macro :Dynamic;
+            }
+        case 'String':
+            if (options.is_async)
+                macro :Promise<String>
+            else
+                macro :String;
+        case 'Bool', 'Boolean', 'bool', 'boolean':
+            if (options.is_async)
+                macro :Promise<Bool>
+            else
+                macro :Bool;
+        case 'Number':
+            if (options.is_async)
+                macro :Promise<Float>
+            else
+                macro :Float;
+        case 'Integer', 'int':
+            if (options.is_async)
+                macro :Promise<Int>
+            else
+                macro :Int;
+        case 'Array':
+            if (options.is_async)
+                macro :Promise<Array<Dynamic>>
+            else
+                macro :Array<Dynamic>;
+        default:
+            if (raw_type.startsWith("Array<")) {
+                var collection_type = raw_type.substring(6, raw_type.lastIndexOf('>'));
+                if (module_types.exists(collection_type)) {
+                    if (options.is_async)
+                        TPath({pack: ['js'], name: 'Promise', params: [TPType(TPath({pack: ['nodegit'], name: raw_type}))]});
+                    else
+                        TPath({pack: ['nodegit'], name: raw_type});
+                } else {
+                    switch (collection_type) {
+                    case 'String':
+                        if (options.is_async)
+                            macro :Promise<Array<String>>
+                        else
+                            macro :Array<String>;
+                    case 'Bool', 'Boolean', 'bool', 'boolean':
+                        if (options.is_async)
+                            macro :Promise<Array<Bool>>
+                        else
+                            macro :Array<Bool>;
+                    case 'Number':
+                        if (options.is_async)
+                            macro :Promise<Array<Float>>
+                        else
+                            macro :Array<Float>;
+                    case 'Integer', 'int':
+                        if (options.is_async)
+                            macro :Promise<Array<Int>>
+                        else
+                            macro :Array<Int>;
+                    default:
+                        if (options.is_async)
+                            macro :Promise<Array<Dynamic>>
+                        else
+                            macro :Array<Dynamic>;
+                    }
+                }
+            } else {
+                if (options.is_async)
+                    macro :Promise<Dynamic>
+                else
+                    macro :Dynamic;
+            }
+        }
+
+    } //convert_type
 
 }

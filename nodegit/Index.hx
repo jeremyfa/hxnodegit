@@ -1,0 +1,36 @@
+package nodegit;
+@:jsRequire("nodegit", "Index") extern class Index {
+	static function entryIsConflict(entry:Dynamic):Float;
+	static function entryStage(entry:Dynamic):Float;
+	static function open(index_path:String):Promise<Dynamic>;
+	function add(source_entry:Dynamic):Float;
+	function addAll(pathspec:Dynamic, flags:Float, callback:Dynamic, payload:Dynamic):Promise<Float>;
+	function addByPath(path:String):Float;
+	function caps():Float;
+	function checksum():Dynamic;
+	function clear():Float;
+	function conflictAdd(ancestor_entry:Dynamic, our_entry:Dynamic, their_entry:Dynamic):Float;
+	function conflictCleanup():Float;
+	function conflictGet(path:String):Promise<Dynamic>;
+	function conflictRemove(path:String):Float;
+	function entries():nodegit.Array<IndexEntry>;
+	function entryCount():Float;
+	function getByIndex(n:Float):Dynamic;
+	function getByPath(path:String, stage:Float):Dynamic;
+	function hasConflicts():Float;
+	function owner():Dynamic;
+	function path():String;
+	function read(force:Float):Float;
+	function readTree(tree:Dynamic):Float;
+	function remove(path:String, stage:Float):Float;
+	function removeAll(pathspec:Dynamic, callback:Dynamic, payload:Dynamic):Promise<Float>;
+	function removeByPath(path:String):Float;
+	function removeDirectory(dir:String, stage:Float):Float;
+	function setCaps(caps:Float):Float;
+	function updateAll(pathspec:Dynamic, callback:Dynamic, payload:Dynamic):Promise<Float>;
+	function write():Float;
+	function writeTree():Promise<Dynamic>;
+	function writeTreeTo(repo:Dynamic):Promise<Dynamic>;
+	static var ADD_OPTION : Dynamic;
+	static var CAP : Dynamic;
+}

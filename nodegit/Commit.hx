@@ -1,0 +1,38 @@
+package nodegit;
+@:jsRequire("nodegit", "Commit") extern class Commit {
+	static function create(repo:Dynamic, update_ref:String, author:Dynamic, committer:Dynamic, message_encoding:String, message:String, tree:Dynamic, parent_count:Float, parents:Array<Dynamic>):Dynamic;
+	static function createV(id:Dynamic, repo:Dynamic, update_ref:String, author:Dynamic, committer:Dynamic, message_encoding:String, message:String, tree:Dynamic, parent_count:Float):Float;
+	static function lookup(repo:Dynamic, id:Dynamic):Promise<Dynamic>;
+	static function lookupPrefix(repo:Dynamic, id:Dynamic, len:Float):Promise<Dynamic>;
+	function amend(update_ref:String, author:Dynamic, committer:Dynamic, message_encoding:String, message:String, tree:Dynamic):Dynamic;
+	function author():Dynamic;
+	function committer():Dynamic;
+	function date():Dynamic;
+	function free():Void;
+	function getDiff(callback:Dynamic):js.Promise<nodegit.Array<Diff>>;
+	function getDiffWithOptions(options:Dynamic, callback:Dynamic):js.Promise<nodegit.Array<Diff>>;
+	function getEntry(path:String):Promise<Dynamic>;
+	function getParents(limit:Dynamic, callback:Dynamic):js.Promise<nodegit.Array<Commit>>;
+	function getTree():Promise<Dynamic>;
+	function headerField(field:String):Promise<Dynamic>;
+	function history():Dynamic;
+	function id():Dynamic;
+	function message():String;
+	function messageEncoding():String;
+	function messageRaw():String;
+	function nthGenAncestor(n:Float):Promise<Dynamic>;
+	function owner():Dynamic;
+	function parent(n:Float):Promise<Dynamic>;
+	function parentId(n:Float):Dynamic;
+	function parentcount():Float;
+	function parents(callback:Dynamic):nodegit.Array<Oid>;
+	function rawHeader():String;
+	function sha():String;
+	function summary():String;
+	function time():Float;
+	function timeMs():Float;
+	function timeOffset():Float;
+	function toString():String;
+	function tree(tree_out:Dynamic):Float;
+	function treeId():Dynamic;
+}
