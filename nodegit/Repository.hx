@@ -36,7 +36,7 @@ package nodegit;
 	function getReference(name:Dynamic):js.Promise<nodegit.Reference>;
 	function getReferenceCommit(name:Dynamic):js.Promise<nodegit.Commit>;
 	function getReferenceNames(type:Dynamic):js.Promise<Array<String>>;
-	function getReferences(type:Dynamic):js.Promise<nodegit.Array<Reference>>;
+	function getReferences(type:Dynamic):js.Promise<Array<nodegit.Reference>>;
 	function getRemote(remote:Dynamic, callback:Dynamic):nodegit.Remote;
 	function getRemotes(Optional:Dynamic):nodegit.Object;
 	function getStatus(opts:Dynamic):js.Promise<Array<Dynamic>>;

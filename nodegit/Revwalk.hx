@@ -3,7 +3,7 @@ package nodegit;
 	static function create(repo:nodegit.Repository):nodegit.Revwalk;
 	function fastWalk(max_count:Float):js.Promise<Dynamic>;
 	function fileHistoryWalk(filePath:String, max_count:Float):js.Promise<Array<Dynamic>>;
-	function getCommits(count:Float):js.Promise<nodegit.Array<Commit>>;
+	function getCommits(count:Float):js.Promise<Array<nodegit.Commit>>;
 	function getCommitsUntil(checkFn:Dynamic):js.Promise<Array<Dynamic>>;
 	function hide(commit_id:nodegit.Oid):Float;
 	function hideGlob(glob:String):Float;

@@ -10,7 +10,7 @@ package nodegit;
 	function getDelta(idx:Float):nodegit.DiffDelta;
 	function getPerfdata():js.Promise<nodegit.DiffPerfdata>;
 	function numDeltas():Float;
-	function patches():js.Promise<nodegit.Array<ConvenientPatch>>;
+	function patches():js.Promise<Array<nodegit.ConvenientPatch>>;
 	static var DELTA(default, null) : DiffDelta;
 	static var FIND(default, null) : DiffFind;
 	static var FLAG(default, null) : DiffFlag;

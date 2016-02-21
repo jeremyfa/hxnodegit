@@ -18,6 +18,8 @@ import haxe.macro.Printer;
 
 using haxe.macro.Tools;
 
+import nodegit.Clone;
+
 using StringTools;
 
 typedef Module = {
@@ -97,6 +99,8 @@ class Main {
     static var module_types:Map<String,Bool> = new Map<String,Bool>();
 
     public static function main():Void {
+
+
 
         // Download files if not done already
         if (!FileSystem.exists(api_local_path)) {
@@ -578,9 +582,9 @@ class Main {
                 var collection_type = raw_type.substring(6, raw_type.lastIndexOf('>'));
                 if (module_types.exists(collection_type)) {
                     if (options.is_async)
-                        TPath({pack: ['js'], name: 'Promise', params: [TPType(TPath({pack: ['nodegit'], name: raw_type}))]});
+                        TPath({pack: ['js'], name: 'Promise', params: [TPType(TPath({pack: [], name: 'Array', params: [TPType(TPath({pack: ['nodegit'], name: collection_type, params: []}))]}))]});
                     else
-                        TPath({pack: ['nodegit'], name: raw_type});
+                        TPath({pack: [], name: 'Array', params: [TPType(TPath({pack: ['nodegit'], name: collection_type, params: []}))]});
                 } else {
                     switch (collection_type) {
                     case 'String':

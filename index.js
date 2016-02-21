@@ -357,7 +357,7 @@ Main.convert_type = function(raw_type,options) {
 		if(StringTools.startsWith(raw_type,"Array<")) {
 			var collection_type = raw_type.substring(6,raw_type.lastIndexOf(">"));
 			if(Main.module_types.exists(collection_type)) {
-				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : raw_type}))]}); else return haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : raw_type});
+				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : collection_type, params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : ["nodegit"], name : collection_type, params : []}))]});
 			} else switch(collection_type) {
 			case "String":
 				if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Array", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "String", params : []}))]});

@@ -14,7 +14,7 @@ package nodegit;
 	function builder():nodegit.Treebuilder;
 	function diff(tree:nodegit.Tree, callback:Dynamic):js.Promise<Dynamic>;
 	function diffWithOptions(tree:nodegit.Tree, options:nodegit.Object, callback:Dynamic):js.Promise<Dynamic>;
-	function entries():nodegit.Array<TreeEntry>;
+	function entries():Array<nodegit.TreeEntry>;
 	function entryById(id:nodegit.Oid):nodegit.TreeEntry;
 	function entryByIndex(i:Float):nodegit.TreeEntry;
 	function entryByName(name:String):nodegit.TreeEntry;

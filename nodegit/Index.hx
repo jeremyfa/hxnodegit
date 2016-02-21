@@ -13,7 +13,7 @@ package nodegit;
 	function conflictCleanup():Float;
 	function conflictGet(path:String):js.Promise<nodegit.IndexEntry>;
 	function conflictRemove(path:String):Float;
-	function entries():nodegit.Array<IndexEntry>;
+	function entries():Array<nodegit.IndexEntry>;
 	function entryCount():Float;
 	function getByIndex(n:Float):nodegit.IndexEntry;
 	function getByPath(path:String, stage:Float):nodegit.IndexEntry;
