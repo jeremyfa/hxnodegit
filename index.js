@@ -137,18 +137,24 @@ Main.download_single_module = function(index) {
 	});
 };
 Main.local_html_api_ready = function() {
-	Main.modules = [];
-	var _g = 0;
-	var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
-	while(_g < _g1.length) {
-		var name = _g1[_g];
-		++_g;
-		var dir = js_node_Path.join(Main.api_local_path,name);
-		if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
+	if(!sys_FileSystem.exists(js_node_Path.join(Main.api_local_path,"api.json"))) {
+		Main.modules = [];
+		var _g = 0;
+		var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
+		while(_g < _g1.length) {
+			var name = _g1[_g];
+			++_g;
+			var dir = js_node_Path.join(Main.api_local_path,name);
+			if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
+		}
+		process.stdout.write("save: api.json");
+		process.stdout.write("\n");
+		sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
+	} else {
+		process.stdout.write("load: api.json");
+		process.stdout.write("\n");
+		Main.modules = JSON.parse(sys_io_File.getContent(js_node_Path.join(Main.api_local_path,"api.json"))).modules;
 	}
-	process.stdout.write("save: api.json");
-	process.stdout.write("\n");
-	sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
 	Main.convert_to_haxe();
 };
 Main.extract_extended_module = function(path) {
@@ -288,15 +294,17 @@ Main.convert_to_haxe = function() {
 		process.stdout.write("\n");
 		var fields = [];
 		var is_typedef = false;
+		if(module1.has_constructor) {
+			if(module1.methods.length > 0) fields.push({ pos : Main.pos, name : "new", kind : haxe_macro_FieldType.FFun({ args : [], ret : null, expr : null}), access : []}); else is_typedef = true;
+		}
 		var _g21 = 0;
 		var _g3 = module1.properties;
 		while(_g21 < _g3.length) {
 			var property = _g3[_g21];
 			++_g21;
-			fields.push(Main.convert_property(property));
-		}
-		if(module1.has_constructor) {
-			if(module1.methods.length > 0) fields.push({ pos : Main.pos, name : "new", kind : haxe_macro_FieldType.FFun({ args : [], ret : null, expr : null}), access : []}); else is_typedef = true;
+			var type = Main.convert_property(property);
+			if(is_typedef) type.meta.push({ name : ":optional", params : [], pos : Main.pos});
+			fields.push(type);
 		}
 		var _g22 = 0;
 		var _g31 = module1.methods;
@@ -325,7 +333,7 @@ Main.convert_to_haxe = function() {
 	}
 };
 Main.convert_property = function(property) {
-	return { pos : Main.pos, name : property.name, kind : haxe_macro_FieldType.FVar(Main.convert_type(property.type,{ allow_void : false, is_async : false})), access : property.is_static?[haxe_macro_Access.AStatic]:[]};
+	return { pos : Main.pos, name : property.name, kind : haxe_macro_FieldType.FVar(Main.convert_type(property.type,{ allow_void : false, is_async : false})), access : property.is_static?[haxe_macro_Access.AStatic]:[], meta : []};
 };
 Main.convert_method = function(method) {
 	var args = [];
@@ -340,7 +348,7 @@ Main.convert_method = function(method) {
 	var meta = [];
 	if(name == "default") {
 		name = name + "_";
-		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 14583, max : 14592}}], pos : Main.pos});
+		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 14855, max : 14864}}], pos : Main.pos});
 	}
 	return { pos : Main.pos, name : name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[], meta : meta};
 };
@@ -1762,6 +1770,9 @@ sys_FileSystem.createDirectory = function(path) {
 };
 var sys_io_File = function() { };
 sys_io_File.__name__ = true;
+sys_io_File.getContent = function(path) {
+	return js_node_Fs.readFileSync(path,{ encoding : "utf8"});
+};
 sys_io_File.saveContent = function(path,content) {
 	js_node_Fs.writeFileSync(path,content);
 };

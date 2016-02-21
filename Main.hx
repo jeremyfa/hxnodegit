@@ -443,10 +443,6 @@ class Main {
             var fields:Array<Field> = [];
             var is_typedef = false;
 
-            for (property in module.properties) {
-                fields.push(convert_property(property));
-            }
-
             if (module.has_constructor) {
                 if (module.methods.length > 0) {
                     fields.push({
@@ -462,6 +458,18 @@ class Main {
                 } else {
                     is_typedef = true;
                 }
+            }
+
+            for (property in module.properties) {
+                var type = convert_property(property);
+                if (is_typedef) {
+                    type.meta.push({
+                        name: ':optional',
+                        params: [],
+                        pos: pos
+                    });
+                }
+                fields.push(type);
             }
 
             for (method in module.methods) {
@@ -504,7 +512,8 @@ class Main {
             pos: pos,
             name: property.name,
             kind: FVar(convert_type(property.type, {allow_void: false, is_async: false})),
-            access: property.is_static ? [AStatic] : []
+            access: property.is_static ? [AStatic] : [],
+            meta: []
         };
 
     } //convert_property
