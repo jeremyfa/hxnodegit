@@ -7,4 +7,5 @@ package nodegit;
 	var newestCommit : nodegit.Oid;
 	var oldestCommit : nodegit.Oid;
 	var version : Float;
+	function new();
 }

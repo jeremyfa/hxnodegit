@@ -12,4 +12,5 @@ package nodegit;
 	var mtime : nodegit.IndexTime;
 	var path : String;
 	var uid : Float;
+	function new();
 }

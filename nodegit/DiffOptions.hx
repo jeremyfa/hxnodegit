@@ -12,4 +12,5 @@ package nodegit;
 	var oldPrefix : String;
 	var pathspec : nodegit.Strarray;
 	var version : Float;
+	function new();
 }

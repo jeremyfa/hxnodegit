@@ -7,4 +7,5 @@ package nodegit;
 	var renameLimit : Float;
 	var renameThreshold : Float;
 	var version : Float;
+	function new();
 }

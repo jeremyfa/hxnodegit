@@ -8,4 +8,5 @@ package nodegit;
 	var templatePath : String;
 	var version : Float;
 	var workdirPath : String;
+	function new();
 }

@@ -8,4 +8,5 @@ package nodegit;
 	var remoteCbPayload : Dynamic;
 	var repositoryCbPayload : Dynamic;
 	var version : Float;
+	function new();
 }

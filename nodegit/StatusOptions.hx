@@ -4,4 +4,5 @@ package nodegit;
 	var pathspec : nodegit.Strarray;
 	var show : Float;
 	var version : Float;
+	function new();
 }

@@ -4,4 +4,5 @@ package nodegit;
 	var mainline : Float;
 	var mergeOpts : nodegit.MergeOptions;
 	var version : Float;
+	function new();
 }

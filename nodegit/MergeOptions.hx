@@ -6,4 +6,5 @@ package nodegit;
 	var targetLimit : Float;
 	var treeFlags : Float;
 	var version : Float;
+	function new();
 }

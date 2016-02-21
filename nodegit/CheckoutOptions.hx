@@ -20,4 +20,5 @@ package nodegit;
 	var targetDirectory : String;
 	var theirLabel : String;
 	var version : Float;
+	function new();
 }

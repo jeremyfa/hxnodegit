@@ -6,4 +6,5 @@ package nodegit;
 	var ourLabel : String;
 	var theirLabel : String;
 	var version : Float;
+	function new();
 }

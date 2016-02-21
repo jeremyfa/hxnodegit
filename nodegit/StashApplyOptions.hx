@@ -5,4 +5,5 @@ package nodegit;
 	var progressCb : Dynamic;
 	var progressPayload : Dynamic;
 	var version : Float;
+	function new();
 }

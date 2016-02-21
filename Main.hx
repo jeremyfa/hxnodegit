@@ -31,6 +31,8 @@ typedef Module = {
     @:optional var properties:Array<ModuleProperty>;
 
     @:optional var enums:Array<ModuleEnum>;
+
+    @:optional var has_constructor:Bool;
 }
 
 typedef ModuleMethod = {
@@ -252,6 +254,12 @@ class Main {
         module.properties = [];
         module.enums = [];
 
+        // Check if we can instanciate this module with a constructor
+        var code = dom.find('.page-content .highlight pre code').first().text().trim();
+        if (code.indexOf('= new ' + module.name + '();') != -1) {
+            module.has_constructor = true;
+        }
+
         dom.find('.page-content h2').each(function(index, el) {
 
             var h2 = J(el);
@@ -412,6 +420,19 @@ class Main {
 
             for (property in module.properties) {
                 fields.push(convert_property(property));
+            }
+
+            if (module.has_constructor) {
+                fields.push({
+                    pos: pos,
+                    name: 'new',
+                    kind: FFun({
+                        args: [],
+                        ret: null,
+                        expr: null
+                    }),
+                    access: []
+                });
             }
 
             for (method in module.methods) {

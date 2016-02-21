@@ -6,4 +6,5 @@ package nodegit;
 	var transferProgress : Dynamic;
 	var transport : Dynamic;
 	var version : Float;
+	function new();
 }

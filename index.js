@@ -170,6 +170,8 @@ Main.extract_extended_module = function(path) {
 	$module.methods = [];
 	$module.properties = [];
 	$module.enums = [];
+	var code = StringTools.trim(dom.find(".page-content .highlight pre code").first().text());
+	if(code.indexOf("= new " + $module.name + "();") != -1) $module.has_constructor = true;
 	dom.find(".page-content h2").each(function(index,el) {
 		var h2 = js.JQuery(el);
 		var a = h2.find("a").first();
@@ -276,6 +278,7 @@ Main.convert_to_haxe = function() {
 			++_g21;
 			fields.push(Main.convert_property(property));
 		}
+		if(module1.has_constructor) fields.push({ pos : Main.pos, name : "new", kind : haxe_macro_FieldType.FFun({ args : [], ret : null, expr : null}), access : []});
 		var _g22 = 0;
 		var _g31 = module1.methods;
 		while(_g22 < _g31.length) {

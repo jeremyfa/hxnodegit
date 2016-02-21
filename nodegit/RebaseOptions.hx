@@ -4,4 +4,5 @@ package nodegit;
 	var quiet : Float;
 	var rewriteNotesRef : String;
 	var version : Float;
+	function new();
 }

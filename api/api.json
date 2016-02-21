@@ -455,7 +455,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Blob",
@@ -1321,7 +1322,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Cherrypick",
@@ -1427,7 +1429,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Clone",
@@ -1538,7 +1541,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Commit",
@@ -3352,7 +3356,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "DiffHunk",
@@ -3484,7 +3489,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "DiffPerfdata",
@@ -3960,7 +3966,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Filter",
@@ -4954,7 +4961,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "IndexTime",
@@ -5449,7 +5457,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "MergeFileOptions",
@@ -5481,7 +5490,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "MergeFileResult",
@@ -5541,7 +5551,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Note",
@@ -6905,7 +6916,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "PushUpdate",
@@ -7162,7 +7174,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Refdb",
@@ -8658,7 +8671,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Repository",
@@ -9829,7 +9843,8 @@
                     "type": "String"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Reset",
@@ -10022,7 +10037,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Revparse",
@@ -10700,7 +10716,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Status",
@@ -11057,7 +11074,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Strarray",
@@ -11680,7 +11698,8 @@
                     "type": "Number"
                 }
             ],
-            "enums": []
+            "enums": [],
+            "has_constructor": true
         },
         {
             "name": "Tag",

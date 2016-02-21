@@ -5,4 +5,5 @@ package nodegit;
 	var ptr : String;
 	var size : Float;
 	var version : Float;
+	function new();
 }
