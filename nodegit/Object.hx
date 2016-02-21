@@ -14,17 +14,17 @@ package nodegit;
 	function peel(target_type:Float):js.Promise<nodegit.Object>;
 	function shortId():js.Promise<nodegit.Buf>;
 	function type():Float;
-	static var TYPE : ObjectType;
+	static var TYPE(default, null) : ObjectType;
 }
 extern class ObjectType {
-	var ANY : Int = -2;
-	var BAD : Int = -1;
-	var EXT1 : Int = 0;
-	var COMMIT : Int = 1;
-	var TREE : Int = 2;
-	var BLOB : Int = 3;
-	var TAG : Int = 4;
-	var EXT2 : Int = 5;
-	var OFS_DELTA : Int = 6;
-	var REF_DELTA : Int = 7;
+	var ANY(default, null) : Int = -2;
+	var BAD(default, null) : Int = -1;
+	var EXT1(default, null) : Int = 0;
+	var COMMIT(default, null) : Int = 1;
+	var TREE(default, null) : Int = 2;
+	var BLOB(default, null) : Int = 3;
+	var TAG(default, null) : Int = 4;
+	var EXT2(default, null) : Int = 5;
+	var OFS_DELTA(default, null) : Int = 6;
+	var REF_DELTA(default, null) : Int = 7;
 }

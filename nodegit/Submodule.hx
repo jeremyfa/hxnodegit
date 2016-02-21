@@ -32,43 +32,43 @@ package nodegit;
 	function updateStrategy():Dynamic;
 	function url():String;
 	function wdId():nodegit.Oid;
-	static var IGNORE : SubmoduleIgnore;
-	static var RECURSE : SubmoduleRecurse;
-	static var STATUS : SubmoduleStatus;
-	static var UPDATE : SubmoduleUpdate;
+	static var IGNORE(default, null) : SubmoduleIgnore;
+	static var RECURSE(default, null) : SubmoduleRecurse;
+	static var STATUS(default, null) : SubmoduleStatus;
+	static var UPDATE(default, null) : SubmoduleUpdate;
 }
 extern class SubmoduleIgnore {
-	var UNSPECIFIED : Int = -1;
-	var NONE : Int = 1;
-	var UNTRACKED : Int = 2;
-	var DIRTY : Int = 3;
-	var ALL : Int = 4;
+	var UNSPECIFIED(default, null) : Int = -1;
+	var NONE(default, null) : Int = 1;
+	var UNTRACKED(default, null) : Int = 2;
+	var DIRTY(default, null) : Int = 3;
+	var ALL(default, null) : Int = 4;
 }
 extern class SubmoduleRecurse {
-	var NO : Int = 0;
-	var YES : Int = 1;
-	var ONDEMAND : Int = 2;
+	var NO(default, null) : Int = 0;
+	var YES(default, null) : Int = 1;
+	var ONDEMAND(default, null) : Int = 2;
 }
 extern class SubmoduleStatus {
-	var IN_HEAD : Int = 1;
-	var IN_INDEX : Int = 2;
-	var IN_CONFIG : Int = 4;
-	var IN_WD : Int = 8;
-	var INDEX_ADDED : Int = 16;
-	var INDEX_DELETED : Int = 32;
-	var INDEX_MODIFIED : Int = 64;
-	var WD_UNINITIALIZED : Int = 128;
-	var WD_ADDED : Int = 256;
-	var WD_DELETED : Int = 512;
-	var WD_MODIFIED : Int = 1024;
-	var WD_INDEX_MODIFIED : Int = 2048;
-	var WD_WD_MODIFIED : Int = 4096;
-	var WD_UNTRACKED : Int = 8192;
+	var IN_HEAD(default, null) : Int = 1;
+	var IN_INDEX(default, null) : Int = 2;
+	var IN_CONFIG(default, null) : Int = 4;
+	var IN_WD(default, null) : Int = 8;
+	var INDEX_ADDED(default, null) : Int = 16;
+	var INDEX_DELETED(default, null) : Int = 32;
+	var INDEX_MODIFIED(default, null) : Int = 64;
+	var WD_UNINITIALIZED(default, null) : Int = 128;
+	var WD_ADDED(default, null) : Int = 256;
+	var WD_DELETED(default, null) : Int = 512;
+	var WD_MODIFIED(default, null) : Int = 1024;
+	var WD_INDEX_MODIFIED(default, null) : Int = 2048;
+	var WD_WD_MODIFIED(default, null) : Int = 4096;
+	var WD_UNTRACKED(default, null) : Int = 8192;
 }
 extern class SubmoduleUpdate {
-	var CHECKOUT : Int = 1;
-	var REBASE : Int = 2;
-	var MERGE : Int = 3;
-	var NONE : Int = 4;
-	var DEFAULT : Int = 0;
+	var CHECKOUT(default, null) : Int = 1;
+	var REBASE(default, null) : Int = 2;
+	var MERGE(default, null) : Int = 3;
+	var NONE(default, null) : Int = 4;
+	var DEFAULT(default, null) : Int = 0;
 }

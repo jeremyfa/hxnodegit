@@ -6,13 +6,13 @@ package nodegit;
 	function setMultivar(name:String, regexp:String, value:String):Float;
 	function setString(name:String, value:String):js.Promise<Float>;
 	function snapshot():js.Promise<nodegit.Config>;
-	static var LEVEL : ConfigLevel;
+	static var LEVEL(default, null) : ConfigLevel;
 }
 extern class ConfigLevel {
-	var SYSTEM : Int = 1;
-	var XDG : Int = 2;
-	var GLOBAL : Int = 3;
-	var LOCAL : Int = 4;
-	var APP : Int = 5;
-	var HIGHEST_LEVEL : Int = -1;
+	var SYSTEM(default, null) : Int = 1;
+	var XDG(default, null) : Int = 2;
+	var GLOBAL(default, null) : Int = 3;
+	var LOCAL(default, null) : Int = 4;
+	var APP(default, null) : Int = 5;
+	var HIGHEST_LEVEL(default, null) : Int = -1;
 }

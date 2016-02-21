@@ -7,13 +7,13 @@ package nodegit;
 	function getHunkByIndex(index:Float):nodegit.BlameHunk;
 	function getHunkByLine(lineno:Float):nodegit.BlameHunk;
 	function getHunkCount():Float;
-	static var FLAG : BlameFlag;
+	static var FLAG(default, null) : BlameFlag;
 }
 extern class BlameFlag {
-	var NORMAL : Int = 0;
-	var TRACK_COPIES_SAME_FILE : Int = 1;
-	var TRACK_COPIES_SAME_COMMIT_MOVES : Int = 2;
-	var TRACK_COPIES_SAME_COMMIT_COPIES : Int = 4;
-	var TRACK_COPIES_ANY_COMMIT_COPIES : Int = 8;
-	var FIRST_PARENT : Int = 16;
+	var NORMAL(default, null) : Int = 0;
+	var TRACK_COPIES_SAME_FILE(default, null) : Int = 1;
+	var TRACK_COPIES_SAME_COMMIT_MOVES(default, null) : Int = 2;
+	var TRACK_COPIES_SAME_COMMIT_COPIES(default, null) : Int = 4;
+	var TRACK_COPIES_ANY_COMMIT_COPIES(default, null) : Int = 8;
+	var FIRST_PARENT(default, null) : Int = 16;
 }

@@ -3,13 +3,13 @@ package nodegit;
 	var exec : String;
 	var id : nodegit.Oid;
 	var type : Float;
-	static var REBASE_OPERATION : RebaseOperationRebaseOperation;
+	static var REBASE_OPERATION(default, null) : RebaseOperationRebaseOperation;
 }
 extern class RebaseOperationRebaseOperation {
-	var PICK : Int = 0;
-	var REWORD : Int = 1;
-	var EDIT : Int = 2;
-	var SQUASH : Int = 3;
-	var FIXUP : Int = 4;
-	var EXEC : Int = 5;
+	var PICK(default, null) : Int = 0;
+	var REWORD(default, null) : Int = 1;
+	var EDIT(default, null) : Int = 2;
+	var SQUASH(default, null) : Int = 3;
+	var FIXUP(default, null) : Int = 4;
+	var EXEC(default, null) : Int = 5;
 }

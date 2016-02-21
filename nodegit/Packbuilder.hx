@@ -11,9 +11,9 @@ package nodegit;
 	function objectCount():Float;
 	function setThreads(n:Float):Float;
 	function written():Float;
-	static var STAGE : PackbuilderStage;
+	static var STAGE(default, null) : PackbuilderStage;
 }
 extern class PackbuilderStage {
-	var ADDING_OBJECTS : Int = 0;
-	var DELTAFICATION : Int = 1;
+	var ADDING_OBJECTS(default, null) : Int = 0;
+	var DELTAFICATION(default, null) : Int = 1;
 }

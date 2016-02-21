@@ -77,39 +77,39 @@ package nodegit;
 	function stateCleanup():Float;
 	function treeBuilder(tree:nodegit.Tree):Void;
 	function workdir():String;
-	static var INIT_FLAG : RepositoryInitFlag;
-	static var INIT_MODE : RepositoryInitMode;
-	static var OPEN_FLAG : RepositoryOpenFlag;
-	static var STATE : RepositoryState;
+	static var INIT_FLAG(default, null) : RepositoryInitFlag;
+	static var INIT_MODE(default, null) : RepositoryInitMode;
+	static var OPEN_FLAG(default, null) : RepositoryOpenFlag;
+	static var STATE(default, null) : RepositoryState;
 }
 extern class RepositoryInitFlag {
-	var BARE : Int = 1;
-	var NO_REINIT : Int = 2;
-	var NO_DOTGIT_DIR : Int = 4;
-	var MKDIR : Int = 8;
-	var MKPATH : Int = 16;
-	var EXTERNAL_TEMPLATE : Int = 32;
-	var RELATIVE_GITLINK : Int = 64;
+	var BARE(default, null) : Int = 1;
+	var NO_REINIT(default, null) : Int = 2;
+	var NO_DOTGIT_DIR(default, null) : Int = 4;
+	var MKDIR(default, null) : Int = 8;
+	var MKPATH(default, null) : Int = 16;
+	var EXTERNAL_TEMPLATE(default, null) : Int = 32;
+	var RELATIVE_GITLINK(default, null) : Int = 64;
 }
 extern class RepositoryInitMode {
-	var INIT_SHARED_UMASK : Int = 0;
-	var INIT_SHARED_GROUP : Int = 1533;
-	var INIT_SHARED_ALL : Int = 1535;
+	var INIT_SHARED_UMASK(default, null) : Int = 0;
+	var INIT_SHARED_GROUP(default, null) : Int = 1533;
+	var INIT_SHARED_ALL(default, null) : Int = 1535;
 }
 extern class RepositoryOpenFlag {
-	var OPEN_NO_SEARCH : Int = 1;
-	var OPEN_CROSS_FS : Int = 2;
-	var OPEN_BARE : Int = 4;
+	var OPEN_NO_SEARCH(default, null) : Int = 1;
+	var OPEN_CROSS_FS(default, null) : Int = 2;
+	var OPEN_BARE(default, null) : Int = 4;
 }
 extern class RepositoryState {
-	var NONE : Int = 0;
-	var MERGE : Int = 1;
-	var REVERT : Int = 2;
-	var CHERRYPICK : Int = 3;
-	var BISECT : Int = 4;
-	var REBASE : Int = 5;
-	var REBASE_INTERACTIVE : Int = 6;
-	var REBASE_MERGE : Int = 7;
-	var APPLY_MAILBOX : Int = 8;
-	var APPLY_MAILBOX_OR_REBASE : Int = 9;
+	var NONE(default, null) : Int = 0;
+	var MERGE(default, null) : Int = 1;
+	var REVERT(default, null) : Int = 2;
+	var CHERRYPICK(default, null) : Int = 3;
+	var BISECT(default, null) : Int = 4;
+	var REBASE(default, null) : Int = 5;
+	var REBASE_INTERACTIVE(default, null) : Int = 6;
+	var REBASE_MERGE(default, null) : Int = 7;
+	var APPLY_MAILBOX(default, null) : Int = 8;
+	var APPLY_MAILBOX_OR_REBASE(default, null) : Int = 9;
 }

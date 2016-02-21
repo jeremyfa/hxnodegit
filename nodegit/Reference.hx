@@ -36,18 +36,18 @@ package nodegit;
 	function targetPeel():nodegit.Oid;
 	function toString():String;
 	function type():Float;
-	static var NORMALIZE : ReferenceNormalize;
-	static var TYPE : ReferenceType;
+	static var NORMALIZE(default, null) : ReferenceNormalize;
+	static var TYPE(default, null) : ReferenceType;
 }
 extern class ReferenceNormalize {
-	var REF_FORMAT_NORMAL : Int = 0;
-	var REF_FORMAT_ALLOW_ONELEVEL : Int = 1;
-	var REF_FORMAT_REFSPEC_PATTERN : Int = 2;
-	var REF_FORMAT_REFSPEC_SHORTHAND : Int = 4;
+	var REF_FORMAT_NORMAL(default, null) : Int = 0;
+	var REF_FORMAT_ALLOW_ONELEVEL(default, null) : Int = 1;
+	var REF_FORMAT_REFSPEC_PATTERN(default, null) : Int = 2;
+	var REF_FORMAT_REFSPEC_SHORTHAND(default, null) : Int = 4;
 }
 extern class ReferenceType {
-	var INVALID : Int = 0;
-	var OID : Int = 1;
-	var SYMBOLIC : Int = 2;
-	var LISTALL : Int = 3;
+	var INVALID(default, null) : Int = 0;
+	var OID(default, null) : Int = 1;
+	var SYMBOLIC(default, null) : Int = 2;
+	var LISTALL(default, null) : Int = 3;
 }

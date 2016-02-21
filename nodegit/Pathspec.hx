@@ -12,14 +12,14 @@ package nodegit;
 	function matchTree(tree:nodegit.Tree, flags:Float):js.Promise<Dynamic>;
 	function matchWorkdir(repo:nodegit.Repository, flags:Float):js.Promise<Dynamic>;
 	function matchesPath(flags:Float, path:String):Float;
-	static var FLAG : PathspecFlag;
+	static var FLAG(default, null) : PathspecFlag;
 }
 extern class PathspecFlag {
-	var DEFAULT : Int = 0;
-	var IGNORE_CASE : Int = 1;
-	var USE_CASE : Int = 2;
-	var NO_GLOB : Int = 4;
-	var NO_MATCH_ERROR : Int = 8;
-	var FIND_FAILURES : Int = 16;
-	var FAILURES_ONLY : Int = 32;
+	var DEFAULT(default, null) : Int = 0;
+	var IGNORE_CASE(default, null) : Int = 1;
+	var USE_CASE(default, null) : Int = 2;
+	var NO_GLOB(default, null) : Int = 4;
+	var NO_MATCH_ERROR(default, null) : Int = 8;
+	var FIND_FAILURES(default, null) : Int = 16;
+	var FAILURES_ONLY(default, null) : Int = 32;
 }

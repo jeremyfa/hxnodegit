@@ -20,11 +20,11 @@ package nodegit;
 	function simplifyFirstParent():Void;
 	function sorting(sort:Float):Void;
 	function walk(oid:nodegit.Oid, callback:Dynamic):nodegit.Commit;
-	static var SORT : RevwalkSort;
+	static var SORT(default, null) : RevwalkSort;
 }
 extern class RevwalkSort {
-	var NONE : Int = 0;
-	var TOPOLOGICAL : Int = 1;
-	var TIME : Int = 2;
-	var REVERSE : Int = 4;
+	var NONE(default, null) : Int = 0;
+	var TOPOLOGICAL(default, null) : Int = 1;
+	var TIME(default, null) : Int = 2;
+	var REVERSE(default, null) : Int = 4;
 }

@@ -480,7 +480,7 @@ class Main {
         return {
             pos: pos,
             name: enum_.name,
-            kind: FVar(TPath({pack: [], name: module.name + camelize(enum_.name)})),
+            kind: FProp('default', 'null', TPath({pack: [], name: module.name + camelize(enum_.name)})),
             access: [AStatic]
         };
 
@@ -495,7 +495,7 @@ class Main {
             fields.push({
                 pos: pos,
                 name: flag.name,
-                kind: FVar(macro :Int, {expr: EConst(CInt(''+flag.value)), pos: pos}),
+                kind: FProp('default', 'null', macro :Int, {expr: EConst(CInt(''+flag.value)), pos: pos}),
                 access: []
             });
         }

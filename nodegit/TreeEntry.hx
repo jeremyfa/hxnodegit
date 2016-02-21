@@ -13,13 +13,13 @@ package nodegit;
 	function path():String;
 	function sha():String;
 	function toString():Void;
-	static var FILEMODE : TreeEntryFilemode;
+	static var FILEMODE(default, null) : TreeEntryFilemode;
 }
 extern class TreeEntryFilemode {
-	var UNREADABLE : Int = 0;
-	var TREE : Int = 16384;
-	var BLOB : Int = 33188;
-	var EXECUTABLE : Int = 33261;
-	var LINK : Int = 40960;
-	var COMMIT : Int = 57344;
+	var UNREADABLE(default, null) : Int = 0;
+	var TREE(default, null) : Int = 16384;
+	var BLOB(default, null) : Int = 33188;
+	var EXECUTABLE(default, null) : Int = 33261;
+	var LINK(default, null) : Int = 40960;
+	var COMMIT(default, null) : Int = 57344;
 }

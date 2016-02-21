@@ -26,9 +26,9 @@ package nodegit;
 	function owner():nodegit.Repository;
 	function path():String;
 	function walk(?blobsOnly:Bool):Dynamic;
-	static var WALK_MODE : TreeWalkMode;
+	static var WALK_MODE(default, null) : TreeWalkMode;
 }
 extern class TreeWalkMode {
-	var WALK_PRE : Int = 0;
-	var WALK_POST : Int = 1;
+	var WALK_PRE(default, null) : Int = 0;
+	var WALK_POST(default, null) : Int = 1;
 }

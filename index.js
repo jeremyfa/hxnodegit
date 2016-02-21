@@ -316,7 +316,7 @@ Main.convert_method = function(method) {
 	return { pos : Main.pos, name : method.name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[]};
 };
 Main.convert_enum_property = function(enum_,module) {
-	return { pos : Main.pos, name : enum_.name, kind : haxe_macro_FieldType.FVar(haxe_macro_ComplexType.TPath({ pack : [], name : module.name + Main.camelize(enum_.name)})), access : [haxe_macro_Access.AStatic]};
+	return { pos : Main.pos, name : enum_.name, kind : haxe_macro_FieldType.FProp("default","null",haxe_macro_ComplexType.TPath({ pack : [], name : module.name + Main.camelize(enum_.name)})), access : [haxe_macro_Access.AStatic]};
 };
 Main.convert_enum_class = function(enum_,module) {
 	var fields = [];
@@ -325,7 +325,7 @@ Main.convert_enum_class = function(enum_,module) {
 	while(_g < _g1.length) {
 		var flag = _g1[_g];
 		++_g;
-		fields.push({ pos : Main.pos, name : flag.name, kind : haxe_macro_FieldType.FVar(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}),{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CInt("" + flag.value)), pos : Main.pos}), access : []});
+		fields.push({ pos : Main.pos, name : flag.name, kind : haxe_macro_FieldType.FProp("default","null",haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}),{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CInt("" + flag.value)), pos : Main.pos}), access : []});
 	}
 	return { pos : Main.pos, pack : ["nodegit"], name : module.name + Main.camelize(enum_.name), isExtern : true, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : []};
 };

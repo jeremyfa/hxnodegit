@@ -7,41 +7,41 @@ package nodegit;
 	static function initOptions(opts:nodegit.MergeOptions, version:Float):Float;
 	static function merge(repo:nodegit.Repository, theirHead:nodegit.Commit, ?mergeOpts:nodegit.MergeOptions, ?checkoutOpts:nodegit.CheckoutOptions):Void;
 	static function trees(repo:nodegit.Repository, ancestor_tree:nodegit.Tree, our_tree:nodegit.Tree, their_tree:nodegit.Tree, opts:nodegit.MergeOptions):js.Promise<nodegit.Index>;
-	static var ANALYSIS : MergeAnalysis;
-	static var FILE_FAVOR : MergeFileFavor;
-	static var FILE_FLAGS : MergeFileFlags;
-	static var PREFERENCE : MergePreference;
-	static var TREE_FLAG : MergeTreeFlag;
+	static var ANALYSIS(default, null) : MergeAnalysis;
+	static var FILE_FAVOR(default, null) : MergeFileFavor;
+	static var FILE_FLAGS(default, null) : MergeFileFlags;
+	static var PREFERENCE(default, null) : MergePreference;
+	static var TREE_FLAG(default, null) : MergeTreeFlag;
 }
 extern class MergeAnalysis {
-	var NONE : Int = 0;
-	var NORMAL : Int = 1;
-	var UP_TO_DATE : Int = 2;
-	var FASTFORWARD : Int = 4;
-	var UNBORN : Int = 8;
+	var NONE(default, null) : Int = 0;
+	var NORMAL(default, null) : Int = 1;
+	var UP_TO_DATE(default, null) : Int = 2;
+	var FASTFORWARD(default, null) : Int = 4;
+	var UNBORN(default, null) : Int = 8;
 }
 extern class MergeFileFavor {
-	var NORMAL : Int = 0;
-	var OURS : Int = 1;
-	var THEIRS : Int = 2;
-	var UNION : Int = 3;
+	var NORMAL(default, null) : Int = 0;
+	var OURS(default, null) : Int = 1;
+	var THEIRS(default, null) : Int = 2;
+	var UNION(default, null) : Int = 3;
 }
 extern class MergeFileFlags {
-	var FILE_DEFAULT : Int = 0;
-	var FILE_STYLE_MERGE : Int = 1;
-	var FILE_STYLE_DIFF3 : Int = 2;
-	var FILE_SIMPLIFY_ALNUM : Int = 4;
-	var FILE_IGNORE_WHITESPACE : Int = 8;
-	var FILE_IGNORE_WHITESPACE_CHANGE : Int = 16;
-	var FILE_IGNORE_WHITESPACE_EOL : Int = 32;
-	var FILE_DIFF_PATIENCE : Int = 64;
-	var FILE_DIFF_MINIMAL : Int = 128;
+	var FILE_DEFAULT(default, null) : Int = 0;
+	var FILE_STYLE_MERGE(default, null) : Int = 1;
+	var FILE_STYLE_DIFF3(default, null) : Int = 2;
+	var FILE_SIMPLIFY_ALNUM(default, null) : Int = 4;
+	var FILE_IGNORE_WHITESPACE(default, null) : Int = 8;
+	var FILE_IGNORE_WHITESPACE_CHANGE(default, null) : Int = 16;
+	var FILE_IGNORE_WHITESPACE_EOL(default, null) : Int = 32;
+	var FILE_DIFF_PATIENCE(default, null) : Int = 64;
+	var FILE_DIFF_MINIMAL(default, null) : Int = 128;
 }
 extern class MergePreference {
-	var NONE : Int = 0;
-	var NO_FASTFORWARD : Int = 1;
-	var FASTFORWARD_ONLY : Int = 2;
+	var NONE(default, null) : Int = 0;
+	var NO_FASTFORWARD(default, null) : Int = 1;
+	var FASTFORWARD_ONLY(default, null) : Int = 2;
 }
 extern class MergeTreeFlag {
-	var TREE_FIND_RENAMES : Int = 1;
+	var TREE_FIND_RENAMES(default, null) : Int = 1;
 }
