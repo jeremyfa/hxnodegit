@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "RepositoryInitOptions") extern class RepositoryInitOptions {
+typedef RepositoryInitOptions = {
 	var description : String;
 	var flags : Float;
 	var initialHead : String;
@@ -8,5 +8,4 @@ package nodegit;
 	var templatePath : String;
 	var version : Float;
 	var workdirPath : String;
-	function new();
 }

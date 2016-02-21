@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "BlameOptions") extern class BlameOptions {
+typedef BlameOptions = {
 	var flags : Float;
 	var maxLine : Float;
 	var minLine : Float;
@@ -7,5 +7,4 @@ package nodegit;
 	var newestCommit : nodegit.Oid;
 	var oldestCommit : nodegit.Oid;
 	var version : Float;
-	function new();
 }

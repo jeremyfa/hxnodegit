@@ -203,7 +203,7 @@ class Main {
 
     static function local_html_api_ready():Void {
 
-        if (true || !FileSystem.exists(join(api_local_path, 'api.json'))) {
+        if (!FileSystem.exists(join(api_local_path, 'api.json'))) {
 
             modules = [];
 
@@ -434,22 +434,27 @@ class Main {
             println('convert: nodegit.' + module.name);
 
             var fields:Array<Field> = [];
+            var is_typedef = false;
 
             for (property in module.properties) {
                 fields.push(convert_property(property));
             }
 
             if (module.has_constructor) {
-                fields.push({
-                    pos: pos,
-                    name: 'new',
-                    kind: FFun({
-                        args: [],
-                        ret: null,
-                        expr: null
-                    }),
-                    access: []
-                });
+                if (module.methods.length > 0) {
+                    fields.push({
+                        pos: pos,
+                        name: 'new',
+                        kind: FFun({
+                            args: [],
+                            ret: null,
+                            expr: null
+                        }),
+                        access: []
+                    });
+                } else {
+                    is_typedef = true;
+                }
             }
 
             for (method in module.methods) {
@@ -464,13 +469,17 @@ class Main {
                 pos: pos,
                 pack: ['nodegit'],
                 name: module.name,
-                isExtern: true,
+                isExtern: !is_typedef,
                 kind: TDClass(null),
                 fields: fields,
-                meta: [
+                meta: is_typedef ? [] : [
                     {name: ':jsRequire', params: [{expr: EConst(CString("nodegit")), pos: pos}, {expr: EConst(CString(module.name)), pos: pos}], pos: pos}
                 ]
             }, true);
+
+            if (is_typedef) {
+                output = output.replace("class " + module.name + " {", "typedef " + module.name + " = {");
+            }
 
             for (enum_ in module.enums) {
                 output += "\n" + printer.printTypeDefinition(convert_enum_class(enum_, module), false);

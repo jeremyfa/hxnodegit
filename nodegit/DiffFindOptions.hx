@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "DiffFindOptions") extern class DiffFindOptions {
+typedef DiffFindOptions = {
 	var breakRewriteThreshold : Float;
 	var copyThreshold : Float;
 	var flags : Float;
@@ -7,5 +7,4 @@ package nodegit;
 	var renameLimit : Float;
 	var renameThreshold : Float;
 	var version : Float;
-	function new();
 }

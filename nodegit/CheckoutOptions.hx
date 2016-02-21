@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "CheckoutOptions") extern class CheckoutOptions {
+typedef CheckoutOptions = {
 	var ancestorLabel : String;
 	var baseline : nodegit.Tree;
 	var baselineIndex : nodegit.Index;
@@ -20,5 +20,4 @@ package nodegit;
 	var targetDirectory : String;
 	var theirLabel : String;
 	var version : Float;
-	function new();
 }

@@ -137,18 +137,24 @@ Main.download_single_module = function(index) {
 	});
 };
 Main.local_html_api_ready = function() {
-	Main.modules = [];
-	var _g = 0;
-	var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
-	while(_g < _g1.length) {
-		var name = _g1[_g];
-		++_g;
-		var dir = js_node_Path.join(Main.api_local_path,name);
-		if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
+	if(!sys_FileSystem.exists(js_node_Path.join(Main.api_local_path,"api.json"))) {
+		Main.modules = [];
+		var _g = 0;
+		var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
+		while(_g < _g1.length) {
+			var name = _g1[_g];
+			++_g;
+			var dir = js_node_Path.join(Main.api_local_path,name);
+			if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
+		}
+		process.stdout.write("save: api.json");
+		process.stdout.write("\n");
+		sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
+	} else {
+		process.stdout.write("load: api.json");
+		process.stdout.write("\n");
+		Main.modules = JSON.parse(sys_io_File.getContent(js_node_Path.join(Main.api_local_path,"api.json"))).modules;
 	}
-	process.stdout.write("save: api.json");
-	process.stdout.write("\n");
-	sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
 	Main.convert_to_haxe();
 };
 Main.extract_extended_module = function(path) {
@@ -285,6 +291,7 @@ Main.convert_to_haxe = function() {
 		process.stdout.write("convert: nodegit." + module1.name);
 		process.stdout.write("\n");
 		var fields = [];
+		var is_typedef = false;
 		var _g21 = 0;
 		var _g3 = module1.properties;
 		while(_g21 < _g3.length) {
@@ -292,7 +299,9 @@ Main.convert_to_haxe = function() {
 			++_g21;
 			fields.push(Main.convert_property(property));
 		}
-		if(module1.has_constructor) fields.push({ pos : Main.pos, name : "new", kind : haxe_macro_FieldType.FFun({ args : [], ret : null, expr : null}), access : []});
+		if(module1.has_constructor) {
+			if(module1.methods.length > 0) fields.push({ pos : Main.pos, name : "new", kind : haxe_macro_FieldType.FFun({ args : [], ret : null, expr : null}), access : []}); else is_typedef = true;
+		}
 		var _g22 = 0;
 		var _g31 = module1.methods;
 		while(_g22 < _g31.length) {
@@ -307,7 +316,8 @@ Main.convert_to_haxe = function() {
 			++_g23;
 			fields.push(Main.convert_enum_property(enum_,module1));
 		}
-		var output = printer.printTypeDefinition({ pos : Main.pos, pack : ["nodegit"], name : module1.name, isExtern : true, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : [{ name : ":jsRequire", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("nodegit")), pos : Main.pos},{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString(module1.name)), pos : Main.pos}], pos : Main.pos}]},true);
+		var output = printer.printTypeDefinition({ pos : Main.pos, pack : ["nodegit"], name : module1.name, isExtern : !is_typedef, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : is_typedef?[]:[{ name : ":jsRequire", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("nodegit")), pos : Main.pos},{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString(module1.name)), pos : Main.pos}], pos : Main.pos}]},true);
+		if(is_typedef) output = StringTools.replace(output,"class " + module1.name + " {","typedef " + module1.name + " = {");
 		var _g24 = 0;
 		var _g33 = module1.enums;
 		while(_g24 < _g33.length) {
@@ -334,7 +344,7 @@ Main.convert_method = function(method) {
 	var meta = [];
 	if(name == "default") {
 		name = name + "_";
-		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 13976, max : 13985}}], pos : Main.pos});
+		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 14352, max : 14361}}], pos : Main.pos});
 	}
 	return { pos : Main.pos, name : name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[], meta : meta};
 };
@@ -1756,6 +1766,9 @@ sys_FileSystem.createDirectory = function(path) {
 };
 var sys_io_File = function() { };
 sys_io_File.__name__ = true;
+sys_io_File.getContent = function(path) {
+	return js_node_Fs.readFileSync(path,{ encoding : "utf8"});
+};
 sys_io_File.saveContent = function(path,content) {
 	js_node_Fs.writeFileSync(path,content);
 };
@@ -1807,5 +1820,3 @@ js_Boot.__toStr = {}.toString;
 js_html_compat_Uint8Array.BYTES_PER_ELEMENT = 1;
 Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}}, typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
-
-//# sourceMappingURL=index.js.map

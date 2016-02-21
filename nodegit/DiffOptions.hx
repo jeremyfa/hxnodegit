@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "DiffOptions") extern class DiffOptions {
+typedef DiffOptions = {
 	var contextLines : Float;
 	var flags : Float;
 	var idAbbrev : Float;
@@ -12,5 +12,4 @@ package nodegit;
 	var oldPrefix : String;
 	var pathspec : nodegit.Strarray;
 	var version : Float;
-	function new();
 }

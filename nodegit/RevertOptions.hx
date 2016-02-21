@@ -1,8 +1,7 @@
 package nodegit;
-@:jsRequire("nodegit", "RevertOptions") extern class RevertOptions {
+typedef RevertOptions = {
 	var checkoutOpts : nodegit.CheckoutOptions;
 	var mainline : Float;
 	var mergeOpts : nodegit.MergeOptions;
 	var version : Float;
-	function new();
 }

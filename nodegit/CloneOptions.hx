@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "CloneOptions") extern class CloneOptions {
+typedef CloneOptions = {
 	var bare : Float;
 	var checkoutBranch : String;
 	var checkoutOpts : nodegit.CheckoutOptions;
@@ -8,5 +8,4 @@ package nodegit;
 	var remoteCbPayload : Dynamic;
 	var repositoryCbPayload : Dynamic;
 	var version : Float;
-	function new();
 }

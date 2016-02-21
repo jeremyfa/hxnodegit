@@ -1,5 +1,5 @@
 package nodegit;
-@:jsRequire("nodegit", "IndexEntry") extern class IndexEntry {
+typedef IndexEntry = {
 	var ctime : nodegit.IndexTime;
 	var dev : Float;
 	var fileSize : Float;
@@ -12,5 +12,4 @@ package nodegit;
 	var mtime : nodegit.IndexTime;
 	var path : String;
 	var uid : Float;
-	function new();
 }
