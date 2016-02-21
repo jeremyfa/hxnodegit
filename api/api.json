@@ -1051,7 +1051,7 @@
                             "is_optional": false
                         },
                         {
-                            "name": "The",
+                            "name": "the",
                             "type": "Index",
                             "is_optional": false
                         },
@@ -8895,7 +8895,7 @@
                             "is_optional": false
                         },
                         {
-                            "name": "Tree",
+                            "name": "tree",
                             "type": "Tree, Oid, String",
                             "is_optional": false
                         },
@@ -8941,7 +8941,7 @@
                     "type": "Reference",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         },
@@ -8959,7 +8959,7 @@
                     "type": "RevWalk",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         }
@@ -8972,7 +8972,7 @@
                     "type": "Tag",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         },
@@ -9002,7 +9002,7 @@
                     "type": null,
                     "args": [
                         {
-                            "name": "Short",
+                            "name": "short",
                             "type": "String",
                             "is_optional": false
                         }
@@ -9078,7 +9078,7 @@
                     "type": "Blob",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         }
@@ -9117,7 +9117,7 @@
                     "type": "Commit",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         }
@@ -9228,7 +9228,7 @@
                     "type": "Object",
                     "args": [
                         {
-                            "name": "Optional",
+                            "name": "optional",
                             "type": "Function",
                             "is_optional": false
                         }
@@ -9274,7 +9274,7 @@
                     "type": "Tag",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         }
@@ -9287,7 +9287,7 @@
                     "type": "Tag",
                     "args": [
                         {
-                            "name": "Short",
+                            "name": "short",
                             "type": "String",
                             "is_optional": false
                         }
@@ -9300,7 +9300,7 @@
                     "type": "Tree",
                     "args": [
                         {
-                            "name": "String",
+                            "name": "string",
                             "type": "String, Oid",
                             "is_optional": false
                         }

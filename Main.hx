@@ -306,7 +306,7 @@ class Main {
                             var td1 = J(J(el).find('td').get(1));
 
                             args.push({
-                                name: td0.text().replace('[','').replace(']','').trim(),
+                                name: first_letter_lowercase(td0.text().replace('[','').replace(']','').trim()),
                                 type: td1.text().trim(),
                                 is_optional: td0.text().indexOf('[') != -1
                             });
@@ -565,93 +565,54 @@ class Main {
 
     static function convert_type(raw_type:String, options:{?is_async: Bool, ?allow_void: Bool}):ComplexType {
 
-        return switch (raw_type) {
-        case null:
+        if (options.is_async) {
+            return TPath({
+                pack: ['js'],
+                name: 'Promise',
+                params: [
+                    TPType(convert_type(raw_type, {allow_void: options.allow_void}))
+                ]
+            });
+        }
+        else if (raw_type == null) {
             if (options.allow_void) {
-                if (options.is_async)
-                    macro :js.Promise<Void>
-                else
-                    macro :Void;
+                return macro :Void;
             } else {
-                if (options.is_async)
-                    macro :js.Promise<Dynamic>
-                else
-                    macro :Dynamic;
+                return macro :Dynamic;
             }
+        }
+        else if (raw_type.indexOf(',') != -1) {
+            return TPath({
+                pack: ['haxe', 'extern'],
+                name: 'EitherType',
+                params: [
+                    TPType(convert_type(raw_type.substr(0, raw_type.indexOf(',')).trim(), {})),
+                    TPType(convert_type(raw_type.substr(raw_type.indexOf(',') + 1).trim(), {}))
+                ]
+            });
+        }
+
+        return switch (raw_type) {
         case 'String':
-            if (options.is_async)
-                macro :js.Promise<String>
-            else
-                macro :String;
+            macro :String;
         case 'Bool', 'Boolean', 'bool', 'boolean':
-            if (options.is_async)
-                macro :js.Promise<Bool>
-            else
-                macro :Bool;
+            macro :Bool;
         case 'Number':
-            if (options.is_async)
-                macro :js.Promise<Float>
-            else
-                macro :Float;
+            macro :Float;
         case 'Integer', 'int':
-            if (options.is_async)
-                macro :js.Promise<Int>
-            else
-                macro :Int;
+            macro :Int;
         case 'Array':
-            if (options.is_async)
-                macro :js.Promise<Array<Dynamic>>
-            else
-                macro :Array<Dynamic>;
+            macro :Array<Dynamic>;
         default:
             if (raw_type.startsWith("Array<")) {
                 var collection_type = raw_type.substring(6, raw_type.lastIndexOf('>'));
-                if (module_types.exists(collection_type)) {
-                    if (options.is_async)
-                        TPath({pack: ['js'], name: 'Promise', params: [TPType(TPath({pack: [], name: 'Array', params: [TPType(TPath({pack: ['nodegit'], name: collection_type, params: []}))]}))]});
-                    else
-                        TPath({pack: [], name: 'Array', params: [TPType(TPath({pack: ['nodegit'], name: collection_type, params: []}))]});
-                } else {
-                    switch (collection_type) {
-                    case 'String':
-                        if (options.is_async)
-                            macro :js.Promise<Array<String>>
-                        else
-                            macro :Array<String>;
-                    case 'Bool', 'Boolean', 'bool', 'boolean':
-                        if (options.is_async)
-                            macro :js.Promise<Array<Bool>>
-                        else
-                            macro :Array<Bool>;
-                    case 'Number':
-                        if (options.is_async)
-                            macro :js.Promise<Array<Float>>
-                        else
-                            macro :Array<Float>;
-                    case 'Integer', 'int':
-                        if (options.is_async)
-                            macro :js.Promise<Array<Int>>
-                        else
-                            macro :Array<Int>;
-                    default:
-                        if (options.is_async)
-                            macro :js.Promise<Array<Dynamic>>
-                        else
-                            macro :Array<Dynamic>;
-                    }
-                }
+                TPath({pack: [], name: 'Array', params: [TPType(convert_type(collection_type, {allow_void: options.allow_void}))]});
             }
             else if (module_types.exists(raw_type)) {
-                if (options.is_async)
-                    TPath({pack: ['js'], name: 'Promise', params: [TPType(TPath({pack: ['nodegit'], name: raw_type}))]});
-                else
-                    TPath({pack: ['nodegit'], name: raw_type});
+                TPath({pack: ['nodegit'], name: raw_type});
             }
             else {
-                if (options.is_async)
-                    macro :js.Promise<Dynamic>
-                else
-                    macro :Dynamic;
+                macro :Dynamic;
             }
         }
 
@@ -670,5 +631,15 @@ class Main {
         return str;
 
     } //camelize
+
+    static function first_letter_lowercase(str:String):String {
+
+        if (str.length > 0) {
+            return str.charAt(0).toLowerCase() + str.substr(1);
+        }
+
+        return str;
+
+    } //first_letter_lowercase
 
 }

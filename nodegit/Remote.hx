@@ -9,7 +9,7 @@ package nodegit;
 	static function initCallbacks(opts:nodegit.RemoteCallbacks, version:Float):Float;
 	static function isValidName(remote_name:String):Float;
 	static function list(repo:nodegit.Repository):js.Promise<Array<Dynamic>>;
-	static function lookup(repo:nodegit.Repository, name:Dynamic, callback:Dynamic):js.Promise<nodegit.Remote>;
+	static function lookup(repo:nodegit.Repository, name:haxe.extern.EitherType<String, nodegit.Remote>, callback:Dynamic):js.Promise<nodegit.Remote>;
 	static function setAutotag(repo:nodegit.Repository, remote:String, value:Float):Float;
 	static function setPushurl(repo:nodegit.Repository, remote:String, url:String):Float;
 	static function setUrl(repo:nodegit.Repository, remote:String, url:String):Float;

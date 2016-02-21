@@ -8,7 +8,7 @@ package nodegit;
 	static function entryName(entry:nodegit.TreeEntry):String;
 	static function entryToObject(object_out:nodegit.Object, repo:nodegit.Repository, entry:nodegit.TreeEntry):Float;
 	static function entryType(entry:nodegit.TreeEntry):Float;
-	static function lookup(repo:nodegit.Repository, id:Dynamic, callback:Dynamic):js.Promise<nodegit.Tree>;
+	static function lookup(repo:nodegit.Repository, id:haxe.extern.EitherType<String, haxe.extern.EitherType<nodegit.Oid, nodegit.Tree>>, callback:Dynamic):js.Promise<nodegit.Tree>;
 	static function lookupPrefix(repo:nodegit.Repository, id:nodegit.Oid, len:Float):js.Promise<nodegit.Tree>;
 	function _entryByIndex(idx:Float):nodegit.TreeEntry;
 	function builder():nodegit.Treebuilder;

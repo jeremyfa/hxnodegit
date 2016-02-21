@@ -3,7 +3,7 @@ package nodegit;
 	static function createFromBuffer(repo:nodegit.Repository, buffer:Dynamic, len:Float):nodegit.Oid;
 	static function createFromDisk(id:nodegit.Oid, repo:nodegit.Repository, path:String):Float;
 	static function createFromWorkdir(id:nodegit.Oid, repo:nodegit.Repository, relative_path:String):Float;
-	static function lookup(repo:nodegit.Repository, id:Dynamic):js.Promise<nodegit.Blob>;
+	static function lookup(repo:nodegit.Repository, id:haxe.extern.EitherType<String, haxe.extern.EitherType<nodegit.Oid, nodegit.Blob>>):js.Promise<nodegit.Blob>;
 	static function lookupPrefix(repo:nodegit.Repository, id:nodegit.Oid, len:Float):js.Promise<nodegit.Blob>;
 	function content():Dynamic;
 	function filemode():Float;

@@ -6,7 +6,7 @@ package nodegit;
 	static function delete(repo:nodegit.Repository, tag_name:String):js.Promise<Float>;
 	static function list(repo:nodegit.Repository):js.Promise<Array<Dynamic>>;
 	static function listMatch(tag_names:nodegit.Strarray, pattern:String, repo:nodegit.Repository):Float;
-	static function lookup(repo:nodegit.Repository, id:Dynamic):js.Promise<nodegit.Tag>;
+	static function lookup(repo:nodegit.Repository, id:haxe.extern.EitherType<String, haxe.extern.EitherType<nodegit.Oid, nodegit.Tag>>):js.Promise<nodegit.Tag>;
 	static function lookupPrefix(repo:nodegit.Repository, id:nodegit.Oid, len:Float):js.Promise<nodegit.Tag>;
 	function free():Void;
 	function id():nodegit.Oid;

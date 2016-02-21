@@ -2,7 +2,7 @@ package nodegit;
 @:jsRequire("nodegit", "Commit") extern class Commit {
 	static function create(repo:nodegit.Repository, update_ref:String, author:nodegit.Signature, committer:nodegit.Signature, message_encoding:String, message:String, tree:nodegit.Tree, parent_count:Float, parents:Array<Dynamic>):nodegit.Oid;
 	static function createV(id:nodegit.Oid, repo:nodegit.Repository, update_ref:String, author:nodegit.Signature, committer:nodegit.Signature, message_encoding:String, message:String, tree:nodegit.Tree, parent_count:Float):Float;
-	static function lookup(repo:nodegit.Repository, id:Dynamic):js.Promise<nodegit.Commit>;
+	static function lookup(repo:nodegit.Repository, id:haxe.extern.EitherType<String, haxe.extern.EitherType<nodegit.Oid, nodegit.Commit>>):js.Promise<nodegit.Commit>;
 	static function lookupPrefix(repo:nodegit.Repository, id:nodegit.Oid, len:Float):js.Promise<nodegit.Commit>;
 	function amend(update_ref:String, author:nodegit.Signature, committer:nodegit.Signature, message_encoding:String, message:String, tree:nodegit.Tree):nodegit.Oid;
 	function author():nodegit.Signature;

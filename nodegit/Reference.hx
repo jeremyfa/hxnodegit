@@ -2,12 +2,12 @@ package nodegit;
 @:jsRequire("nodegit", "Reference") extern class Reference {
 	static function create(repo:nodegit.Repository, name:String, id:nodegit.Oid, force:Float, log_message:String):js.Promise<nodegit.Reference>;
 	static function createMatching(repo:nodegit.Repository, name:String, id:nodegit.Oid, force:Float, current_id:nodegit.Oid, log_message:String):js.Promise<nodegit.Reference>;
-	static function dwim(repo:nodegit.Repository, id:Dynamic, callback:Dynamic):js.Promise<nodegit.Reference>;
+	static function dwim(repo:nodegit.Repository, id:haxe.extern.EitherType<String, nodegit.Reference>, callback:Dynamic):js.Promise<nodegit.Reference>;
 	static function ensureLog(repo:nodegit.Repository, refname:String):Float;
 	static function hasLog(repo:nodegit.Repository, refname:String):Dynamic;
 	static function isValidName(refname:String):Float;
 	static function list(repo:nodegit.Repository):js.Promise<Array<Dynamic>>;
-	static function lookup(repo:nodegit.Repository, id:Dynamic, callback:Dynamic):js.Promise<nodegit.Reference>;
+	static function lookup(repo:nodegit.Repository, id:haxe.extern.EitherType<String, nodegit.Reference>, callback:Dynamic):js.Promise<nodegit.Reference>;
 	static function nameToId(repo:nodegit.Repository, name:String):js.Promise<nodegit.Oid>;
 	static function normalizeName(buffer_out:String, buffer_size:Float, name:String, flags:Float):Dynamic;
 	static function remove(repo:nodegit.Repository, name:String):Float;

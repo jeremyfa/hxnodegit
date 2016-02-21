@@ -1,9 +1,9 @@
 package nodegit;
 @:jsRequire("nodegit", "Checkout") extern class Checkout {
 	static function head(repo:nodegit.Repository, ?options:nodegit.CheckoutOptions):js.Promise<Void>;
-	static function index(repo:nodegit.Repository, The:nodegit.Index, ?options:nodegit.CheckoutOptions):js.Promise<Void>;
+	static function index(repo:nodegit.Repository, the:nodegit.Index, ?options:nodegit.CheckoutOptions):js.Promise<Void>;
 	static function initOptions(opts:nodegit.CheckoutOptions, version:Float):Float;
-	static function tree(repo:nodegit.Repository, treeish:Dynamic, ?options:nodegit.CheckoutOptions):js.Promise<Void>;
+	static function tree(repo:nodegit.Repository, treeish:haxe.extern.EitherType<nodegit.Oid, haxe.extern.EitherType<nodegit.Tree, haxe.extern.EitherType<nodegit.Commit, nodegit.Reference>>>, ?options:nodegit.CheckoutOptions):js.Promise<Void>;
 	static var NOTIFY(default, null) : CheckoutNotify;
 	static var STRATEGY(default, null) : CheckoutStrategy;
 }
