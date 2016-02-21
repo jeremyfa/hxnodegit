@@ -14,6 +14,6 @@ package nodegit;
 	static var STAGE(default, null) : PackbuilderStage;
 }
 extern class PackbuilderStage {
-	var ADDING_OBJECTS(default, null) : Int = 0;
-	var DELTAFICATION(default, null) : Int = 1;
+	var ADDING_OBJECTS(default, null) : Int;
+	var DELTAFICATION(default, null) : Int;
 }

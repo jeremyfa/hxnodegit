@@ -23,8 +23,8 @@ package nodegit;
 	static var SORT(default, null) : RevwalkSort;
 }
 extern class RevwalkSort {
-	var NONE(default, null) : Int = 0;
-	var TOPOLOGICAL(default, null) : Int = 1;
-	var TIME(default, null) : Int = 2;
-	var REVERSE(default, null) : Int = 4;
+	var NONE(default, null) : Int;
+	var TOPOLOGICAL(default, null) : Int;
+	var TIME(default, null) : Int;
+	var REVERSE(default, null) : Int;
 }

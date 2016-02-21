@@ -16,12 +16,12 @@ package nodegit;
 	static var MODE(default, null) : FilterMode;
 }
 extern class FilterFlag {
-	var DEFAULT(default, null) : Int = 0;
-	var ALLOW_UNSAFE(default, null) : Int = 1;
+	var DEFAULT(default, null) : Int;
+	var ALLOW_UNSAFE(default, null) : Int;
 }
 extern class FilterMode {
-	var TO_WORKTREE(default, null) : Int = 0;
-	var SMUDGE(default, null) : Int = 0;
-	var TO_ODB(default, null) : Int = 1;
-	var CLEAN(default, null) : Int = 1;
+	var TO_WORKTREE(default, null) : Int;
+	var SMUDGE(default, null) : Int;
+	var TO_ODB(default, null) : Int;
+	var CLEAN(default, null) : Int;
 }

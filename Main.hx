@@ -18,8 +18,6 @@ import haxe.macro.Printer;
 
 using haxe.macro.Tools;
 
-import nodegit.Clone;
-
 using StringTools;
 
 typedef Module = {
@@ -99,8 +97,6 @@ class Main {
     static var module_types:Map<String,Bool> = new Map<String,Bool>();
 
     public static function main():Void {
-
-
 
         // Download files if not done already
         if (!FileSystem.exists(api_local_path)) {
@@ -207,7 +203,7 @@ class Main {
 
     static function local_html_api_ready():Void {
 
-        if (!FileSystem.exists(join(api_local_path, 'api.json'))) {
+        if (true || !FileSystem.exists(join(api_local_path, 'api.json'))) {
 
             modules = [];
 
@@ -376,7 +372,24 @@ class Main {
                 module.enums.push(enum_);
 
             }
+
         });
+
+        // Remove properties which method exist with the same name
+        var new_properties = [];
+        for (property in module.properties) {
+            var has_method_with_same_name = false;
+            for (method in module.methods) {
+                if (property.name == method.name) {
+                    has_method_with_same_name = true;
+                    break;
+                }
+            }
+            if (!has_method_with_same_name) {
+                new_properties.push(property);
+            }
+        }
+        module.properties = new_properties;
 
     } //extract_extended_module
 
@@ -487,15 +500,28 @@ class Main {
             args.push({name: arg.name, type: convert_type(arg.type, {allow_void: false, is_async: false}), opt: arg.is_optional});
         }
 
+        var name = method.name;
+        var meta = [];
+
+        if (name == 'default') {
+            name = name + '_';
+            meta.push({
+                name: ':native',
+                params: [macro 'default'],
+                pos: pos
+            });
+        }
+
         return {
             pos: pos,
-            name: method.name,
+            name: name,
             kind: FFun({
                 args: args,
                 ret: convert_type(method.type, {allow_void: true, is_async: method.is_async}),
                 expr: null
             }),
-            access: method.is_static ? [AStatic] : []
+            access: method.is_static ? [AStatic] : [],
+            meta: meta
         };
 
     } //convert_method
@@ -520,7 +546,7 @@ class Main {
             fields.push({
                 pos: pos,
                 name: flag.name,
-                kind: FProp('default', 'null', macro :Int, {expr: EConst(CInt(''+flag.value)), pos: pos}),
+                kind: FProp('default', 'null', macro :Int),
                 access: []
             });
         }

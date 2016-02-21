@@ -1,6 +1,5 @@
 package nodegit;
 @:jsRequire("nodegit", "DiffLine") extern class DiffLine {
-	var content : String;
 	var contentLen : Float;
 	var contentOffset : Float;
 	var newLineno : Float;

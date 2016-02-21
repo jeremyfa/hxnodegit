@@ -13,7 +13,7 @@ package nodegit;
 	static var BRANCH(default, null) : BranchBranch;
 }
 extern class BranchBranch {
-	var LOCAL(default, null) : Int = 1;
-	var REMOTE(default, null) : Int = 2;
-	var ALL(default, null) : Int = 3;
+	var LOCAL(default, null) : Int;
+	var REMOTE(default, null) : Int;
+	var ALL(default, null) : Int;
 }

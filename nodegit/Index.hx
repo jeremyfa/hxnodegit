@@ -35,14 +35,14 @@ package nodegit;
 	static var CAP(default, null) : IndexCap;
 }
 extern class IndexAddOption {
-	var ADD_DEFAULT(default, null) : Int = 0;
-	var ADD_FORCE(default, null) : Int = 1;
-	var ADD_DISABLE_PATHSPEC_MATCH(default, null) : Int = 2;
-	var ADD_CHECK_PATHSPEC(default, null) : Int = 4;
+	var ADD_DEFAULT(default, null) : Int;
+	var ADD_FORCE(default, null) : Int;
+	var ADD_DISABLE_PATHSPEC_MATCH(default, null) : Int;
+	var ADD_CHECK_PATHSPEC(default, null) : Int;
 }
 extern class IndexCap {
-	var IGNORE_CASE(default, null) : Int = 1;
-	var NO_FILEMODE(default, null) : Int = 2;
-	var NO_SYMLINKS(default, null) : Int = 4;
-	var FROM_OWNER(default, null) : Int = -1;
+	var IGNORE_CASE(default, null) : Int;
+	var NO_FILEMODE(default, null) : Int;
+	var NO_SYMLINKS(default, null) : Int;
+	var FROM_OWNER(default, null) : Int;
 }

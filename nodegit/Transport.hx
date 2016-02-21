@@ -6,5 +6,5 @@ package nodegit;
 	static var FLAGS(default, null) : TransportFlags;
 }
 extern class TransportFlags {
-	var NONE(default, null) : Int = 0;
+	var NONE(default, null) : Int;
 }

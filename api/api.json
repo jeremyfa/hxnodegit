@@ -3298,28 +3298,7 @@
                     "is_async": false
                 }
             ],
-            "properties": [
-                {
-                    "name": "flags",
-                    "type": "Number"
-                },
-                {
-                    "name": "id",
-                    "type": "Oid"
-                },
-                {
-                    "name": "mode",
-                    "type": "Number"
-                },
-                {
-                    "name": "path",
-                    "type": "String"
-                },
-                {
-                    "name": "size",
-                    "type": "Number"
-                }
-            ],
+            "properties": [],
             "enums": []
         },
         {
@@ -3404,10 +3383,6 @@
                 }
             ],
             "properties": [
-                {
-                    "name": "content",
-                    "type": "String"
-                },
                 {
                     "name": "contentLen",
                     "type": "Number"

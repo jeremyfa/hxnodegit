@@ -41,13 +41,13 @@ package nodegit;
 	static var COMPLETION_TYPE(default, null) : RemoteCompletionType;
 }
 extern class RemoteAutotagOption {
-	var DOWNLOAD_TAGS_UNSPECIFIED(default, null) : Int = 0;
-	var DOWNLOAD_TAGS_AUTO(default, null) : Int = 1;
-	var DOWNLOAD_TAGS_NONE(default, null) : Int = 2;
-	var DOWNLOAD_TAGS_ALL(default, null) : Int = 3;
+	var DOWNLOAD_TAGS_UNSPECIFIED(default, null) : Int;
+	var DOWNLOAD_TAGS_AUTO(default, null) : Int;
+	var DOWNLOAD_TAGS_NONE(default, null) : Int;
+	var DOWNLOAD_TAGS_ALL(default, null) : Int;
 }
 extern class RemoteCompletionType {
-	var COMPLETION_DOWNLOAD(default, null) : Int = 0;
-	var COMPLETION_INDEXING(default, null) : Int = 1;
-	var COMPLETION_ERROR(default, null) : Int = 2;
+	var COMPLETION_DOWNLOAD(default, null) : Int;
+	var COMPLETION_INDEXING(default, null) : Int;
+	var COMPLETION_ERROR(default, null) : Int;
 }

@@ -83,33 +83,33 @@ package nodegit;
 	static var STATE(default, null) : RepositoryState;
 }
 extern class RepositoryInitFlag {
-	var BARE(default, null) : Int = 1;
-	var NO_REINIT(default, null) : Int = 2;
-	var NO_DOTGIT_DIR(default, null) : Int = 4;
-	var MKDIR(default, null) : Int = 8;
-	var MKPATH(default, null) : Int = 16;
-	var EXTERNAL_TEMPLATE(default, null) : Int = 32;
-	var RELATIVE_GITLINK(default, null) : Int = 64;
+	var BARE(default, null) : Int;
+	var NO_REINIT(default, null) : Int;
+	var NO_DOTGIT_DIR(default, null) : Int;
+	var MKDIR(default, null) : Int;
+	var MKPATH(default, null) : Int;
+	var EXTERNAL_TEMPLATE(default, null) : Int;
+	var RELATIVE_GITLINK(default, null) : Int;
 }
 extern class RepositoryInitMode {
-	var INIT_SHARED_UMASK(default, null) : Int = 0;
-	var INIT_SHARED_GROUP(default, null) : Int = 1533;
-	var INIT_SHARED_ALL(default, null) : Int = 1535;
+	var INIT_SHARED_UMASK(default, null) : Int;
+	var INIT_SHARED_GROUP(default, null) : Int;
+	var INIT_SHARED_ALL(default, null) : Int;
 }
 extern class RepositoryOpenFlag {
-	var OPEN_NO_SEARCH(default, null) : Int = 1;
-	var OPEN_CROSS_FS(default, null) : Int = 2;
-	var OPEN_BARE(default, null) : Int = 4;
+	var OPEN_NO_SEARCH(default, null) : Int;
+	var OPEN_CROSS_FS(default, null) : Int;
+	var OPEN_BARE(default, null) : Int;
 }
 extern class RepositoryState {
-	var NONE(default, null) : Int = 0;
-	var MERGE(default, null) : Int = 1;
-	var REVERT(default, null) : Int = 2;
-	var CHERRYPICK(default, null) : Int = 3;
-	var BISECT(default, null) : Int = 4;
-	var REBASE(default, null) : Int = 5;
-	var REBASE_INTERACTIVE(default, null) : Int = 6;
-	var REBASE_MERGE(default, null) : Int = 7;
-	var APPLY_MAILBOX(default, null) : Int = 8;
-	var APPLY_MAILBOX_OR_REBASE(default, null) : Int = 9;
+	var NONE(default, null) : Int;
+	var MERGE(default, null) : Int;
+	var REVERT(default, null) : Int;
+	var CHERRYPICK(default, null) : Int;
+	var BISECT(default, null) : Int;
+	var REBASE(default, null) : Int;
+	var REBASE_INTERACTIVE(default, null) : Int;
+	var REBASE_MERGE(default, null) : Int;
+	var APPLY_MAILBOX(default, null) : Int;
+	var APPLY_MAILBOX_OR_REBASE(default, null) : Int;
 }

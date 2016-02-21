@@ -4,7 +4,7 @@ package nodegit;
 	static var PRUNE(default, null) : FetchPrune;
 }
 extern class FetchPrune {
-	var GIT_FETCH_PRUNE_UNSPECIFIED(default, null) : Int = 0;
-	var GIT_FETCH_PRUNE(default, null) : Int = 1;
-	var GIT_FETCH_NO_PRUNE(default, null) : Int = 2;
+	var GIT_FETCH_PRUNE_UNSPECIFIED(default, null) : Int;
+	var GIT_FETCH_PRUNE(default, null) : Int;
+	var GIT_FETCH_NO_PRUNE(default, null) : Int;
 }

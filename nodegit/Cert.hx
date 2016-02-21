@@ -5,12 +5,12 @@ package nodegit;
 	static var TYPE(default, null) : CertType;
 }
 extern class CertSsh {
-	var MD5(default, null) : Int = 1;
-	var SHA1(default, null) : Int = 2;
+	var MD5(default, null) : Int;
+	var SHA1(default, null) : Int;
 }
 extern class CertType {
-	var NONE(default, null) : Int = 0;
-	var X509(default, null) : Int = 1;
-	var HOSTKEY_LIBSSH2(default, null) : Int = 2;
-	var STRARRAY(default, null) : Int = 3;
+	var NONE(default, null) : Int;
+	var X509(default, null) : Int;
+	var HOSTKEY_LIBSSH2(default, null) : Int;
+	var STRARRAY(default, null) : Int;
 }

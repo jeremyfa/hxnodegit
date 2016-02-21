@@ -5,8 +5,8 @@ package nodegit;
 	static var LOCAL(default, null) : CloneLocal;
 }
 extern class CloneLocal {
-	var AUTO(default, null) : Int = 0;
-	var LOCAL(default, null) : Int = 1;
-	var NO_LOCAL(default, null) : Int = 2;
-	var NO_LINKS(default, null) : Int = 3;
+	var AUTO(default, null) : Int;
+	var LOCAL(default, null) : Int;
+	var NO_LOCAL(default, null) : Int;
+	var NO_LINKS(default, null) : Int;
 }

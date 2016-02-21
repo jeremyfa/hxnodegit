@@ -6,10 +6,10 @@ package nodegit;
 	static var REBASE_OPERATION(default, null) : RebaseOperationRebaseOperation;
 }
 extern class RebaseOperationRebaseOperation {
-	var PICK(default, null) : Int = 0;
-	var REWORD(default, null) : Int = 1;
-	var EDIT(default, null) : Int = 2;
-	var SQUASH(default, null) : Int = 3;
-	var FIXUP(default, null) : Int = 4;
-	var EXEC(default, null) : Int = 5;
+	var PICK(default, null) : Int;
+	var REWORD(default, null) : Int;
+	var EDIT(default, null) : Int;
+	var SQUASH(default, null) : Int;
+	var FIXUP(default, null) : Int;
+	var EXEC(default, null) : Int;
 }

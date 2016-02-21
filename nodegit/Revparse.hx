@@ -5,7 +5,7 @@ package nodegit;
 	static var MODE(default, null) : RevparseMode;
 }
 extern class RevparseMode {
-	var SINGLE(default, null) : Int = 1;
-	var RANGE(default, null) : Int = 2;
-	var MERGE_BASE(default, null) : Int = 4;
+	var SINGLE(default, null) : Int;
+	var RANGE(default, null) : Int;
+	var MERGE_BASE(default, null) : Int;
 }

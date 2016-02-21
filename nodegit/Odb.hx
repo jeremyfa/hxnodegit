@@ -8,7 +8,7 @@ package nodegit;
 	static var STREAM(default, null) : OdbStream;
 }
 extern class OdbStream {
-	var RDONLY(default, null) : Int = 2;
-	var WRONLY(default, null) : Int = 4;
-	var RW(default, null) : Int = 6;
+	var RDONLY(default, null) : Int;
+	var WRONLY(default, null) : Int;
+	var RW(default, null) : Int;
 }

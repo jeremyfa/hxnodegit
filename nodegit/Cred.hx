@@ -10,11 +10,11 @@ package nodegit;
 	static var TYPE(default, null) : CredType;
 }
 extern class CredType {
-	var USERPASS_PLAINTEXT(default, null) : Int = 1;
-	var SSH_KEY(default, null) : Int = 2;
-	var SSH_CUSTOM(default, null) : Int = 4;
-	var DEFAULT(default, null) : Int = 8;
-	var SSH_INTERACTIVE(default, null) : Int = 16;
-	var USERNAME(default, null) : Int = 32;
-	var SSH_MEMORY(default, null) : Int = 64;
+	var USERPASS_PLAINTEXT(default, null) : Int;
+	var SSH_KEY(default, null) : Int;
+	var SSH_CUSTOM(default, null) : Int;
+	var DEFAULT(default, null) : Int;
+	var SSH_INTERACTIVE(default, null) : Int;
+	var USERNAME(default, null) : Int;
+	var SSH_MEMORY(default, null) : Int;
 }

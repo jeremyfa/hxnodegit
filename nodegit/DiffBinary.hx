@@ -5,7 +5,7 @@ package nodegit;
 	static var DIFF_BINARY(default, null) : DiffBinaryDiffBinary;
 }
 extern class DiffBinaryDiffBinary {
-	var NONE(default, null) : Int = 0;
-	var LITERAL(default, null) : Int = 1;
-	var DELTA(default, null) : Int = 2;
+	var NONE(default, null) : Int;
+	var LITERAL(default, null) : Int;
+	var DELTA(default, null) : Int;
 }

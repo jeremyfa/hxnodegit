@@ -15,11 +15,11 @@ package nodegit;
 	static var FLAG(default, null) : PathspecFlag;
 }
 extern class PathspecFlag {
-	var DEFAULT(default, null) : Int = 0;
-	var IGNORE_CASE(default, null) : Int = 1;
-	var USE_CASE(default, null) : Int = 2;
-	var NO_GLOB(default, null) : Int = 4;
-	var NO_MATCH_ERROR(default, null) : Int = 8;
-	var FIND_FAILURES(default, null) : Int = 16;
-	var FAILURES_ONLY(default, null) : Int = 32;
+	var DEFAULT(default, null) : Int;
+	var IGNORE_CASE(default, null) : Int;
+	var USE_CASE(default, null) : Int;
+	var NO_GLOB(default, null) : Int;
+	var NO_MATCH_ERROR(default, null) : Int;
+	var FIND_FAILURES(default, null) : Int;
+	var FAILURES_ONLY(default, null) : Int;
 }

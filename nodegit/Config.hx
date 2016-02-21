@@ -9,10 +9,10 @@ package nodegit;
 	static var LEVEL(default, null) : ConfigLevel;
 }
 extern class ConfigLevel {
-	var SYSTEM(default, null) : Int = 1;
-	var XDG(default, null) : Int = 2;
-	var GLOBAL(default, null) : Int = 3;
-	var LOCAL(default, null) : Int = 4;
-	var APP(default, null) : Int = 5;
-	var HIGHEST_LEVEL(default, null) : Int = -1;
+	var SYSTEM(default, null) : Int;
+	var XDG(default, null) : Int;
+	var GLOBAL(default, null) : Int;
+	var LOCAL(default, null) : Int;
+	var APP(default, null) : Int;
+	var HIGHEST_LEVEL(default, null) : Int;
 }

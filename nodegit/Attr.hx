@@ -8,8 +8,8 @@ package nodegit;
 	static var STATES(default, null) : AttrStates;
 }
 extern class AttrStates {
-	var UNSPECIFIED_T(default, null) : Int = 0;
-	var TRUE_T(default, null) : Int = 1;
-	var FALSE_T(default, null) : Int = 2;
-	var VALUE_T(default, null) : Int = 3;
+	var UNSPECIFIED_T(default, null) : Int;
+	var TRUE_T(default, null) : Int;
+	var FALSE_T(default, null) : Int;
+	var VALUE_T(default, null) : Int;
 }

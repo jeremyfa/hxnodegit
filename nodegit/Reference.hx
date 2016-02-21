@@ -40,14 +40,14 @@ package nodegit;
 	static var TYPE(default, null) : ReferenceType;
 }
 extern class ReferenceNormalize {
-	var REF_FORMAT_NORMAL(default, null) : Int = 0;
-	var REF_FORMAT_ALLOW_ONELEVEL(default, null) : Int = 1;
-	var REF_FORMAT_REFSPEC_PATTERN(default, null) : Int = 2;
-	var REF_FORMAT_REFSPEC_SHORTHAND(default, null) : Int = 4;
+	var REF_FORMAT_NORMAL(default, null) : Int;
+	var REF_FORMAT_ALLOW_ONELEVEL(default, null) : Int;
+	var REF_FORMAT_REFSPEC_PATTERN(default, null) : Int;
+	var REF_FORMAT_REFSPEC_SHORTHAND(default, null) : Int;
 }
 extern class ReferenceType {
-	var INVALID(default, null) : Int = 0;
-	var OID(default, null) : Int = 1;
-	var SYMBOLIC(default, null) : Int = 2;
-	var LISTALL(default, null) : Int = 3;
+	var INVALID(default, null) : Int;
+	var OID(default, null) : Int;
+	var SYMBOLIC(default, null) : Int;
+	var LISTALL(default, null) : Int;
 }

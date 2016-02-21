@@ -29,6 +29,6 @@ package nodegit;
 	static var WALK_MODE(default, null) : TreeWalkMode;
 }
 extern class TreeWalkMode {
-	var WALK_PRE(default, null) : Int = 0;
-	var WALK_POST(default, null) : Int = 1;
+	var WALK_PRE(default, null) : Int;
+	var WALK_POST(default, null) : Int;
 }

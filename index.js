@@ -137,24 +137,18 @@ Main.download_single_module = function(index) {
 	});
 };
 Main.local_html_api_ready = function() {
-	if(!sys_FileSystem.exists(js_node_Path.join(Main.api_local_path,"api.json"))) {
-		Main.modules = [];
-		var _g = 0;
-		var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
-		while(_g < _g1.length) {
-			var name = _g1[_g];
-			++_g;
-			var dir = js_node_Path.join(Main.api_local_path,name);
-			if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
-		}
-		process.stdout.write("save: api.json");
-		process.stdout.write("\n");
-		sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
-	} else {
-		process.stdout.write("load: api.json");
-		process.stdout.write("\n");
-		Main.modules = JSON.parse(sys_io_File.getContent(js_node_Path.join(Main.api_local_path,"api.json"))).modules;
+	Main.modules = [];
+	var _g = 0;
+	var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
+	while(_g < _g1.length) {
+		var name = _g1[_g];
+		++_g;
+		var dir = js_node_Path.join(Main.api_local_path,name);
+		if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
 	}
+	process.stdout.write("save: api.json");
+	process.stdout.write("\n");
+	sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
 	Main.convert_to_haxe();
 };
 Main.extract_extended_module = function(path) {
@@ -241,6 +235,26 @@ Main.extract_extended_module = function(path) {
 			$module.enums.push(enum_);
 		}
 	});
+	var new_properties = [];
+	var _g = 0;
+	var _g1 = $module.properties;
+	while(_g < _g1.length) {
+		var property1 = _g1[_g];
+		++_g;
+		var has_method_with_same_name = false;
+		var _g2 = 0;
+		var _g3 = $module.methods;
+		while(_g2 < _g3.length) {
+			var method1 = _g3[_g2];
+			++_g2;
+			if(property1.name == method1.name) {
+				has_method_with_same_name = true;
+				break;
+			}
+		}
+		if(!has_method_with_same_name) new_properties.push(property1);
+	}
+	$module.properties = new_properties;
 };
 Main.next_of_type_before = function(el,type,stop) {
 	var orig_el = el;
@@ -316,7 +330,13 @@ Main.convert_method = function(method) {
 		++_g;
 		args.push({ name : arg.name, type : Main.convert_type(arg.type,{ allow_void : false, is_async : false}), opt : arg.is_optional});
 	}
-	return { pos : Main.pos, name : method.name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[]};
+	var name = method.name;
+	var meta = [];
+	if(name == "default") {
+		name = name + "_";
+		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 13979, max : 13988}}], pos : Main.pos});
+	}
+	return { pos : Main.pos, name : name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[], meta : meta};
 };
 Main.convert_enum_property = function(enum_,module) {
 	return { pos : Main.pos, name : enum_.name, kind : haxe_macro_FieldType.FProp("default","null",haxe_macro_ComplexType.TPath({ pack : [], name : module.name + Main.camelize(enum_.name)})), access : [haxe_macro_Access.AStatic]};
@@ -328,7 +348,7 @@ Main.convert_enum_class = function(enum_,module) {
 	while(_g < _g1.length) {
 		var flag = _g1[_g];
 		++_g;
-		fields.push({ pos : Main.pos, name : flag.name, kind : haxe_macro_FieldType.FProp("default","null",haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}),{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CInt("" + flag.value)), pos : Main.pos}), access : []});
+		fields.push({ pos : Main.pos, name : flag.name, kind : haxe_macro_FieldType.FProp("default","null",haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []})), access : []});
 	}
 	return { pos : Main.pos, pack : ["nodegit"], name : module.name + Main.camelize(enum_.name), isExtern : true, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : []};
 };
@@ -1747,9 +1767,6 @@ sys_FileSystem.createDirectory = function(path) {
 };
 var sys_io_File = function() { };
 sys_io_File.__name__ = true;
-sys_io_File.getContent = function(path) {
-	return js_node_Fs.readFileSync(path,{ encoding : "utf8"});
-};
 sys_io_File.saveContent = function(path,content) {
 	js_node_Fs.writeFileSync(path,content);
 };

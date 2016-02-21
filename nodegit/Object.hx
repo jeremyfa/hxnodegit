@@ -17,14 +17,14 @@ package nodegit;
 	static var TYPE(default, null) : ObjectType;
 }
 extern class ObjectType {
-	var ANY(default, null) : Int = -2;
-	var BAD(default, null) : Int = -1;
-	var EXT1(default, null) : Int = 0;
-	var COMMIT(default, null) : Int = 1;
-	var TREE(default, null) : Int = 2;
-	var BLOB(default, null) : Int = 3;
-	var TAG(default, null) : Int = 4;
-	var EXT2(default, null) : Int = 5;
-	var OFS_DELTA(default, null) : Int = 6;
-	var REF_DELTA(default, null) : Int = 7;
+	var ANY(default, null) : Int;
+	var BAD(default, null) : Int;
+	var EXT1(default, null) : Int;
+	var COMMIT(default, null) : Int;
+	var TREE(default, null) : Int;
+	var BLOB(default, null) : Int;
+	var TAG(default, null) : Int;
+	var EXT2(default, null) : Int;
+	var OFS_DELTA(default, null) : Int;
+	var REF_DELTA(default, null) : Int;
 }

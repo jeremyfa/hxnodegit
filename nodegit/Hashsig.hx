@@ -7,8 +7,8 @@ package nodegit;
 	static var OPTION(default, null) : HashsigOption;
 }
 extern class HashsigOption {
-	var NORMAL(default, null) : Int = 0;
-	var IGNORE_WHITESPACE(default, null) : Int = 1;
-	var SMART_WHITESPACE(default, null) : Int = 2;
-	var ALLOW_SMALL_FILES(default, null) : Int = 4;
+	var NORMAL(default, null) : Int;
+	var IGNORE_WHITESPACE(default, null) : Int;
+	var SMART_WHITESPACE(default, null) : Int;
+	var ALLOW_SMALL_FILES(default, null) : Int;
 }

@@ -38,37 +38,37 @@ package nodegit;
 	static var UPDATE(default, null) : SubmoduleUpdate;
 }
 extern class SubmoduleIgnore {
-	var UNSPECIFIED(default, null) : Int = -1;
-	var NONE(default, null) : Int = 1;
-	var UNTRACKED(default, null) : Int = 2;
-	var DIRTY(default, null) : Int = 3;
-	var ALL(default, null) : Int = 4;
+	var UNSPECIFIED(default, null) : Int;
+	var NONE(default, null) : Int;
+	var UNTRACKED(default, null) : Int;
+	var DIRTY(default, null) : Int;
+	var ALL(default, null) : Int;
 }
 extern class SubmoduleRecurse {
-	var NO(default, null) : Int = 0;
-	var YES(default, null) : Int = 1;
-	var ONDEMAND(default, null) : Int = 2;
+	var NO(default, null) : Int;
+	var YES(default, null) : Int;
+	var ONDEMAND(default, null) : Int;
 }
 extern class SubmoduleStatus {
-	var IN_HEAD(default, null) : Int = 1;
-	var IN_INDEX(default, null) : Int = 2;
-	var IN_CONFIG(default, null) : Int = 4;
-	var IN_WD(default, null) : Int = 8;
-	var INDEX_ADDED(default, null) : Int = 16;
-	var INDEX_DELETED(default, null) : Int = 32;
-	var INDEX_MODIFIED(default, null) : Int = 64;
-	var WD_UNINITIALIZED(default, null) : Int = 128;
-	var WD_ADDED(default, null) : Int = 256;
-	var WD_DELETED(default, null) : Int = 512;
-	var WD_MODIFIED(default, null) : Int = 1024;
-	var WD_INDEX_MODIFIED(default, null) : Int = 2048;
-	var WD_WD_MODIFIED(default, null) : Int = 4096;
-	var WD_UNTRACKED(default, null) : Int = 8192;
+	var IN_HEAD(default, null) : Int;
+	var IN_INDEX(default, null) : Int;
+	var IN_CONFIG(default, null) : Int;
+	var IN_WD(default, null) : Int;
+	var INDEX_ADDED(default, null) : Int;
+	var INDEX_DELETED(default, null) : Int;
+	var INDEX_MODIFIED(default, null) : Int;
+	var WD_UNINITIALIZED(default, null) : Int;
+	var WD_ADDED(default, null) : Int;
+	var WD_DELETED(default, null) : Int;
+	var WD_MODIFIED(default, null) : Int;
+	var WD_INDEX_MODIFIED(default, null) : Int;
+	var WD_WD_MODIFIED(default, null) : Int;
+	var WD_UNTRACKED(default, null) : Int;
 }
 extern class SubmoduleUpdate {
-	var CHECKOUT(default, null) : Int = 1;
-	var REBASE(default, null) : Int = 2;
-	var MERGE(default, null) : Int = 3;
-	var NONE(default, null) : Int = 4;
-	var DEFAULT(default, null) : Int = 0;
+	var CHECKOUT(default, null) : Int;
+	var REBASE(default, null) : Int;
+	var MERGE(default, null) : Int;
+	var NONE(default, null) : Int;
+	var DEFAULT(default, null) : Int;
 }
