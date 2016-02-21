@@ -276,13 +276,20 @@ class Main {
                     var td0 = J(J(el).find('td').get(0));
                     var td1 = J(J(el).find('td').get(1));
 
-                    // Property
-                    var property:ModuleProperty = {
-                        name: td0.text().trim(),
-                        type: td1.text().trim()
-                    };
+                    var name = td0.text().trim();
+                    var type = td1.text().trim();
 
-                    module.properties.push(property);
+                    if (module.name.endsWith('Callbacks') || name.endsWith('Cb')) {
+
+                        // Make type dynamic for callback types
+                        type = null;
+                    }
+
+                    // Property
+                    module.properties.push({
+                        name: name,
+                        type: type
+                    });
                 });
 
             }
@@ -496,7 +503,7 @@ class Main {
         return {
             pos: pos,
             name: property.name,
-            kind: FVar(convert_type(property.type, {allow_void: true, is_async: false})),
+            kind: FVar(convert_type(property.type, {allow_void: false, is_async: false})),
             access: property.is_static ? [AStatic] : []
         };
 
@@ -506,7 +513,7 @@ class Main {
 
         var args:Array<FunctionArg> = [];
         for (arg in method.args) {
-            args.push({name: arg.name, type: convert_type(arg.type, {allow_void: false, is_async: false}), opt: arg.is_optional});
+            args.push({name: arg.name, type: convert_type(arg.type, {allow_void: true, is_async: false}), opt: arg.is_optional});
         }
 
         var name = method.name;

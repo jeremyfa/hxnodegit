@@ -1275,7 +1275,7 @@
                 },
                 {
                     "name": "notifyCb",
-                    "type": "CheckoutNotifyCb"
+                    "type": null
                 },
                 {
                     "name": "notifyFlags",
@@ -1295,7 +1295,7 @@
                 },
                 {
                     "name": "perfdataCb",
-                    "type": "CheckoutPerfdataCb"
+                    "type": null
                 },
                 {
                     "name": "perfdataPayload",
@@ -1303,7 +1303,7 @@
                 },
                 {
                     "name": "progressCb",
-                    "type": "CheckoutProgressCb"
+                    "type": null
                 },
                 {
                     "name": "progressPayload",
@@ -3445,7 +3445,7 @@
                 },
                 {
                     "name": "notifyCb",
-                    "type": "DiffNotifyCb"
+                    "type": null
                 },
                 {
                     "name": "notifyPayload",
@@ -8623,27 +8623,27 @@
             "properties": [
                 {
                     "name": "certificateCheck",
-                    "type": "TransportCertificateCheckCb"
+                    "type": null
                 },
                 {
                     "name": "credentials",
-                    "type": "CredAcquireCb"
+                    "type": null
                 },
                 {
                     "name": "payload",
-                    "type": "Void"
+                    "type": null
                 },
                 {
                     "name": "transferProgress",
-                    "type": "TransferProgressCb"
+                    "type": null
                 },
                 {
                     "name": "transport",
-                    "type": "TransportCb"
+                    "type": null
                 },
                 {
                     "name": "version",
-                    "type": "Number"
+                    "type": null
                 }
             ],
             "enums": [],
@@ -10680,7 +10680,7 @@
                 },
                 {
                     "name": "progressCb",
-                    "type": "StashApplyProgressCb"
+                    "type": null
                 },
                 {
                     "name": "progressPayload",

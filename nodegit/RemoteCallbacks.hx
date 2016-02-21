@@ -5,5 +5,5 @@ typedef RemoteCallbacks = {
 	var payload : Dynamic;
 	var transferProgress : Dynamic;
 	var transport : Dynamic;
-	var version : Float;
+	var version : Dynamic;
 }

@@ -137,24 +137,18 @@ Main.download_single_module = function(index) {
 	});
 };
 Main.local_html_api_ready = function() {
-	if(!sys_FileSystem.exists(js_node_Path.join(Main.api_local_path,"api.json"))) {
-		Main.modules = [];
-		var _g = 0;
-		var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
-		while(_g < _g1.length) {
-			var name = _g1[_g];
-			++_g;
-			var dir = js_node_Path.join(Main.api_local_path,name);
-			if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
-		}
-		process.stdout.write("save: api.json");
-		process.stdout.write("\n");
-		sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
-	} else {
-		process.stdout.write("load: api.json");
-		process.stdout.write("\n");
-		Main.modules = JSON.parse(sys_io_File.getContent(js_node_Path.join(Main.api_local_path,"api.json"))).modules;
+	Main.modules = [];
+	var _g = 0;
+	var _g1 = js_node_Fs.readdirSync(Main.api_local_path);
+	while(_g < _g1.length) {
+		var name = _g1[_g];
+		++_g;
+		var dir = js_node_Path.join(Main.api_local_path,name);
+		if(js_node_Fs.statSync(dir).isDirectory() && sys_FileSystem.exists(js_node_Path.join(dir,"index.html"))) Main.extract_extended_module(js_node_Path.join(dir,"index.html"));
 	}
+	process.stdout.write("save: api.json");
+	process.stdout.write("\n");
+	sys_io_File.saveContent(js_node_Path.join(Main.api_local_path,"api.json"),JSON.stringify({ modules : Main.modules},null,"    "));
 	Main.convert_to_haxe();
 };
 Main.extract_extended_module = function(path) {
@@ -187,11 +181,13 @@ Main.extract_extended_module = function(path) {
 				var td1;
 				var html3 = js.JQuery(el1).find("td").get(1);
 				td1 = js.JQuery(html3);
-				var property = { name : StringTools.trim(td0.text()), type : StringTools.trim(td1.text())};
-				$module.properties.push(property);
+				var name = StringTools.trim(td0.text());
+				var type = StringTools.trim(td1.text());
+				if(StringTools.endsWith($module.name,"Callbacks") || StringTools.endsWith(name,"Cb")) type = null;
+				$module.properties.push({ name : name, type : type});
 			});
 		} else if(tag_enum.length == 0) {
-			var type = null;
+			var type1 = null;
 			var description = null;
 			var args = [];
 			var table1 = Main.next_of_type_before(h2,"table","h2");
@@ -211,13 +207,13 @@ Main.extract_extended_module = function(path) {
 					var td12;
 					var html7 = js.JQuery(el3).find("td").get(1);
 					td12 = js.JQuery(html7);
-					type = StringTools.trim(td02.text());
+					type1 = StringTools.trim(td02.text());
 					description = StringTools.trim(td12.text());
 					if(description.length == 0) description = null;
 				});
 				table1 = Main.next_of_type_before(table1,"table","h2");
 			}
-			var method = { name : a.attr("name"), type : type, args : args, is_static : !StringTools.endsWith(StringTools.trim(prefix_span.text()),"#"), is_async : tag_async.length > 0};
+			var method = { name : a.attr("name"), type : type1, args : args, is_static : !StringTools.endsWith(StringTools.trim(prefix_span.text()),"#"), is_async : tag_async.length > 0};
 			$module.methods.push(method);
 		} else {
 			var flags = [];
@@ -245,7 +241,7 @@ Main.extract_extended_module = function(path) {
 	var _g = 0;
 	var _g1 = $module.properties;
 	while(_g < _g1.length) {
-		var property1 = _g1[_g];
+		var property = _g1[_g];
 		++_g;
 		var has_method_with_same_name = false;
 		var _g2 = 0;
@@ -253,12 +249,12 @@ Main.extract_extended_module = function(path) {
 		while(_g2 < _g3.length) {
 			var method1 = _g3[_g2];
 			++_g2;
-			if(property1.name == method1.name) {
+			if(property.name == method1.name) {
 				has_method_with_same_name = true;
 				break;
 			}
 		}
-		if(!has_method_with_same_name) new_properties.push(property1);
+		if(!has_method_with_same_name) new_properties.push(property);
 	}
 	$module.properties = new_properties;
 };
@@ -329,7 +325,7 @@ Main.convert_to_haxe = function() {
 	}
 };
 Main.convert_property = function(property) {
-	return { pos : Main.pos, name : property.name, kind : haxe_macro_FieldType.FVar(Main.convert_type(property.type,{ allow_void : true, is_async : false})), access : property.is_static?[haxe_macro_Access.AStatic]:[]};
+	return { pos : Main.pos, name : property.name, kind : haxe_macro_FieldType.FVar(Main.convert_type(property.type,{ allow_void : false, is_async : false})), access : property.is_static?[haxe_macro_Access.AStatic]:[]};
 };
 Main.convert_method = function(method) {
 	var args = [];
@@ -338,13 +334,13 @@ Main.convert_method = function(method) {
 	while(_g < _g1.length) {
 		var arg = _g1[_g];
 		++_g;
-		args.push({ name : arg.name, type : Main.convert_type(arg.type,{ allow_void : false, is_async : false}), opt : arg.is_optional});
+		args.push({ name : arg.name, type : Main.convert_type(arg.type,{ allow_void : true, is_async : false}), opt : arg.is_optional});
 	}
 	var name = method.name;
 	var meta = [];
 	if(name == "default") {
 		name = name + "_";
-		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 14352, max : 14361}}], pos : Main.pos});
+		meta.push({ name : ":native", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("default")), pos : { file : "Main.hx", min : 14583, max : 14592}}], pos : Main.pos});
 	}
 	return { pos : Main.pos, name : name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[], meta : meta};
 };
@@ -1766,9 +1762,6 @@ sys_FileSystem.createDirectory = function(path) {
 };
 var sys_io_File = function() { };
 sys_io_File.__name__ = true;
-sys_io_File.getContent = function(path) {
-	return js_node_Fs.readFileSync(path,{ encoding : "utf8"});
-};
 sys_io_File.saveContent = function(path,content) {
 	js_node_Fs.writeFileSync(path,content);
 };
