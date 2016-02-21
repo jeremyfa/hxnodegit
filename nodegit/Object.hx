@@ -14,5 +14,17 @@ package nodegit;
 	function peel(target_type:Float):js.Promise<nodegit.Object>;
 	function shortId():js.Promise<nodegit.Buf>;
 	function type():Float;
-	static var TYPE : Dynamic;
+	static var TYPE : ObjectType;
+}
+extern class ObjectType {
+	var ANY : Int = -2;
+	var BAD : Int = -1;
+	var EXT1 : Int = 0;
+	var COMMIT : Int = 1;
+	var TREE : Int = 2;
+	var BLOB : Int = 3;
+	var TAG : Int = 4;
+	var EXT2 : Int = 5;
+	var OFS_DELTA : Int = 6;
+	var REF_DELTA : Int = 7;
 }

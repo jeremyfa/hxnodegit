@@ -5,5 +5,10 @@ package nodegit;
 	function free():Void;
 	function read(id:nodegit.Oid):js.Promise<nodegit.OdbObject>;
 	function write(data:Dynamic, len:Float, type:Float):js.Promise<nodegit.Oid>;
-	static var STREAM : Dynamic;
+	static var STREAM : OdbStream;
+}
+extern class OdbStream {
+	var RDONLY : Int = 2;
+	var WRONLY : Int = 4;
+	var RW : Int = 6;
 }

@@ -25,6 +25,10 @@ package nodegit;
 	function id():nodegit.Oid;
 	function owner():nodegit.Repository;
 	function path():String;
-	function walk([blobsOnly:Bool):Dynamic;
-	static var WALK_MODE : Dynamic;
+	function walk(?blobsOnly:Bool):Dynamic;
+	static var WALK_MODE : TreeWalkMode;
+}
+extern class TreeWalkMode {
+	var WALK_PRE : Int = 0;
+	var WALK_POST : Int = 1;
 }

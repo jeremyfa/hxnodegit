@@ -6,6 +6,63 @@ function $extend(from, fields) {
 	if( fields.toString !== Object.prototype.toString ) proto.toString = fields.toString;
 	return proto;
 }
+var EReg = function(r,opt) {
+	opt = opt.split("u").join("");
+	this.r = new RegExp(r,opt);
+};
+EReg.__name__ = true;
+EReg.prototype = {
+	match: function(s) {
+		if(this.r.global) this.r.lastIndex = 0;
+		this.r.m = this.r.exec(s);
+		this.r.s = s;
+		return this.r.m != null;
+	}
+	,matched: function(n) {
+		if(this.r.m != null && n >= 0 && n < this.r.m.length) return this.r.m[n]; else throw new js__$Boot_HaxeError("EReg::matched");
+	}
+	,matchedPos: function() {
+		if(this.r.m == null) throw new js__$Boot_HaxeError("No string matched");
+		return { pos : this.r.m.index, len : this.r.m[0].length};
+	}
+	,matchSub: function(s,pos,len) {
+		if(len == null) len = -1;
+		if(this.r.global) {
+			this.r.lastIndex = pos;
+			this.r.m = this.r.exec(len < 0?s:HxOverrides.substr(s,0,pos + len));
+			var b = this.r.m != null;
+			if(b) this.r.s = s;
+			return b;
+		} else {
+			var b1 = this.match(len < 0?HxOverrides.substr(s,pos,null):HxOverrides.substr(s,pos,len));
+			if(b1) {
+				this.r.s = s;
+				this.r.m.index += pos;
+			}
+			return b1;
+		}
+	}
+	,map: function(s,f) {
+		var offset = 0;
+		var buf = new StringBuf();
+		do {
+			if(offset >= s.length) break; else if(!this.matchSub(s,offset)) {
+				buf.add(HxOverrides.substr(s,offset,null));
+				break;
+			}
+			var p = this.matchedPos();
+			buf.add(HxOverrides.substr(s,offset,p.pos - offset));
+			buf.add(f(this));
+			if(p.len == 0) {
+				buf.add(HxOverrides.substr(s,p.pos,1));
+				offset = p.pos + 1;
+			} else offset = p.pos + p.len;
+		} while(this.r.global);
+		if(!this.r.global && offset > 0 && offset < s.length) buf.add(HxOverrides.substr(s,offset,null));
+		return buf.b;
+	}
+	,__class__: EReg
+};
 var HxOverrides = function() { };
 HxOverrides.__name__ = true;
 HxOverrides.cca = function(s,index) {
@@ -97,8 +154,8 @@ Main.local_html_api_ready = function() {
 		process.stdout.write("load: api.json");
 		process.stdout.write("\n");
 		Main.modules = JSON.parse(sys_io_File.getContent(js_node_Path.join(Main.api_local_path,"api.json"))).modules;
-		Main.convert_to_haxe();
 	}
+	Main.convert_to_haxe();
 };
 Main.extract_extended_module = function(path) {
 	var html = js_node_Fs.readFileSync(path,{ encoding : "utf8"});
@@ -144,7 +201,7 @@ Main.extract_extended_module = function(path) {
 					var td11;
 					var html5 = js.JQuery(el2).find("td").get(1);
 					td11 = js.JQuery(html5);
-					args.push({ name : StringTools.trim(td01.text()), type : StringTools.trim(td11.text())});
+					args.push({ name : StringTools.trim(StringTools.replace(StringTools.replace(td01.text(),"[",""),"]","")), type : StringTools.trim(td11.text()), is_optional : td01.text().indexOf("[") != -1});
 				}); else if(StringTools.trim(table1.find("thead tr th").first().text()) == "Returns") table1.find("tbody tr").each(function(index3,el3) {
 					var td02;
 					var html6 = js.JQuery(el3).find("td").get(0);
@@ -231,9 +288,16 @@ Main.convert_to_haxe = function() {
 		while(_g23 < _g32.length) {
 			var enum_ = _g32[_g23];
 			++_g23;
-			fields.push(Main.convert_enum(enum_));
+			fields.push(Main.convert_enum_property(enum_,module1));
 		}
-		var output = printer.printTypeDefinition({ pos : Main.pos, pack : ["nodegit"], name : module1.name, isExtern : true, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : [{ name : ":jsRequire", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("nodegit")), pos : Main.pos},{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString(module1.name)), pos : Main.pos}], pos : Main.pos}]});
+		var output = printer.printTypeDefinition({ pos : Main.pos, pack : ["nodegit"], name : module1.name, isExtern : true, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : [{ name : ":jsRequire", params : [{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString("nodegit")), pos : Main.pos},{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CString(module1.name)), pos : Main.pos}], pos : Main.pos}]},true);
+		var _g24 = 0;
+		var _g33 = module1.enums;
+		while(_g24 < _g33.length) {
+			var enum_1 = _g33[_g24];
+			++_g24;
+			output += "\n" + printer.printTypeDefinition(Main.convert_enum_class(enum_1,module1),false);
+		}
 		sys_io_File.saveContent(js_node_Path.join(Main.haxe_code_path,module1.name + ".hx"),output);
 	}
 };
@@ -247,12 +311,23 @@ Main.convert_method = function(method) {
 	while(_g < _g1.length) {
 		var arg = _g1[_g];
 		++_g;
-		args.push({ name : arg.name, type : Main.convert_type(arg.type,{ allow_void : false, is_async : false})});
+		args.push({ name : arg.name, type : Main.convert_type(arg.type,{ allow_void : false, is_async : false}), opt : arg.is_optional});
 	}
 	return { pos : Main.pos, name : method.name, kind : haxe_macro_FieldType.FFun({ args : args, ret : Main.convert_type(method.type,{ allow_void : true, is_async : method.is_async}), expr : null}), access : method.is_static?[haxe_macro_Access.AStatic]:[]};
 };
-Main.convert_enum = function(enum_) {
-	return { pos : Main.pos, name : enum_.name, kind : haxe_macro_FieldType.FVar(Main.convert_type(null,{ allow_void : false, is_async : false})), access : [haxe_macro_Access.AStatic]};
+Main.convert_enum_property = function(enum_,module) {
+	return { pos : Main.pos, name : enum_.name, kind : haxe_macro_FieldType.FVar(haxe_macro_ComplexType.TPath({ pack : [], name : module.name + Main.camelize(enum_.name)})), access : [haxe_macro_Access.AStatic]};
+};
+Main.convert_enum_class = function(enum_,module) {
+	var fields = [];
+	var _g = 0;
+	var _g1 = enum_.flags;
+	while(_g < _g1.length) {
+		var flag = _g1[_g];
+		++_g;
+		fields.push({ pos : Main.pos, name : flag.name, kind : haxe_macro_FieldType.FVar(haxe_macro_ComplexType.TPath({ pack : [], name : "Int", params : []}),{ expr : haxe_macro_ExprDef.EConst(haxe_macro_Constant.CInt("" + flag.value)), pos : Main.pos}), access : []});
+	}
+	return { pos : Main.pos, pack : ["nodegit"], name : module.name + Main.camelize(enum_.name), isExtern : true, kind : haxe_macro_TypeDefKind.TDClass(null), fields : fields, meta : []};
 };
 Main.convert_type = function(raw_type,options) {
 	if(raw_type == null) {
@@ -301,6 +376,15 @@ Main.convert_type = function(raw_type,options) {
 		} else if(options.is_async) return haxe_macro_ComplexType.TPath({ pack : ["js"], name : "Promise", params : [haxe_macro_TypeParam.TPType(haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []}))]}); else return haxe_macro_ComplexType.TPath({ pack : [], name : "Dynamic", params : []});
 	}
 };
+Main.camelize = function(str) {
+	str = str.toLowerCase();
+	str = new EReg("(?:^|[-_])(\\w)","g").map(str,function(regex) {
+		var c = regex.matched(1);
+		if(c != null && c.length > 0) return c.toUpperCase();
+		return "";
+	});
+	return str;
+};
 Math.__name__ = true;
 var Std = function() { };
 Std.__name__ = true;
@@ -312,6 +396,16 @@ Std.parseInt = function(x) {
 	if(v == 0 && (HxOverrides.cca(x,1) == 120 || HxOverrides.cca(x,1) == 88)) v = parseInt(x);
 	if(isNaN(v)) return null;
 	return v;
+};
+var StringBuf = function() {
+	this.b = "";
+};
+StringBuf.__name__ = true;
+StringBuf.prototype = {
+	add: function(x) {
+		this.b += Std.string(x);
+	}
+	,__class__: StringBuf
 };
 var StringTools = function() { };
 StringTools.__name__ = true;

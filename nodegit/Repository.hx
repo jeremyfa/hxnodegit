@@ -77,8 +77,39 @@ package nodegit;
 	function stateCleanup():Float;
 	function treeBuilder(tree:nodegit.Tree):Void;
 	function workdir():String;
-	static var INIT_FLAG : Dynamic;
-	static var INIT_MODE : Dynamic;
-	static var OPEN_FLAG : Dynamic;
-	static var STATE : Dynamic;
+	static var INIT_FLAG : RepositoryInitFlag;
+	static var INIT_MODE : RepositoryInitMode;
+	static var OPEN_FLAG : RepositoryOpenFlag;
+	static var STATE : RepositoryState;
+}
+extern class RepositoryInitFlag {
+	var BARE : Int = 1;
+	var NO_REINIT : Int = 2;
+	var NO_DOTGIT_DIR : Int = 4;
+	var MKDIR : Int = 8;
+	var MKPATH : Int = 16;
+	var EXTERNAL_TEMPLATE : Int = 32;
+	var RELATIVE_GITLINK : Int = 64;
+}
+extern class RepositoryInitMode {
+	var INIT_SHARED_UMASK : Int = 0;
+	var INIT_SHARED_GROUP : Int = 1533;
+	var INIT_SHARED_ALL : Int = 1535;
+}
+extern class RepositoryOpenFlag {
+	var OPEN_NO_SEARCH : Int = 1;
+	var OPEN_CROSS_FS : Int = 2;
+	var OPEN_BARE : Int = 4;
+}
+extern class RepositoryState {
+	var NONE : Int = 0;
+	var MERGE : Int = 1;
+	var REVERT : Int = 2;
+	var CHERRYPICK : Int = 3;
+	var BISECT : Int = 4;
+	var REBASE : Int = 5;
+	var REBASE_INTERACTIVE : Int = 6;
+	var REBASE_MERGE : Int = 7;
+	var APPLY_MAILBOX : Int = 8;
+	var APPLY_MAILBOX_OR_REBASE : Int = 9;
 }

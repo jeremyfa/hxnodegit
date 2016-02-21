@@ -32,8 +32,43 @@ package nodegit;
 	function updateStrategy():Dynamic;
 	function url():String;
 	function wdId():nodegit.Oid;
-	static var IGNORE : Dynamic;
-	static var RECURSE : Dynamic;
-	static var STATUS : Dynamic;
-	static var UPDATE : Dynamic;
+	static var IGNORE : SubmoduleIgnore;
+	static var RECURSE : SubmoduleRecurse;
+	static var STATUS : SubmoduleStatus;
+	static var UPDATE : SubmoduleUpdate;
+}
+extern class SubmoduleIgnore {
+	var UNSPECIFIED : Int = -1;
+	var NONE : Int = 1;
+	var UNTRACKED : Int = 2;
+	var DIRTY : Int = 3;
+	var ALL : Int = 4;
+}
+extern class SubmoduleRecurse {
+	var NO : Int = 0;
+	var YES : Int = 1;
+	var ONDEMAND : Int = 2;
+}
+extern class SubmoduleStatus {
+	var IN_HEAD : Int = 1;
+	var IN_INDEX : Int = 2;
+	var IN_CONFIG : Int = 4;
+	var IN_WD : Int = 8;
+	var INDEX_ADDED : Int = 16;
+	var INDEX_DELETED : Int = 32;
+	var INDEX_MODIFIED : Int = 64;
+	var WD_UNINITIALIZED : Int = 128;
+	var WD_ADDED : Int = 256;
+	var WD_DELETED : Int = 512;
+	var WD_MODIFIED : Int = 1024;
+	var WD_INDEX_MODIFIED : Int = 2048;
+	var WD_WD_MODIFIED : Int = 4096;
+	var WD_UNTRACKED : Int = 8192;
+}
+extern class SubmoduleUpdate {
+	var CHECKOUT : Int = 1;
+	var REBASE : Int = 2;
+	var MERGE : Int = 3;
+	var NONE : Int = 4;
+	var DEFAULT : Int = 0;
 }

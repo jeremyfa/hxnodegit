@@ -7,5 +7,14 @@ package nodegit;
 	static function usernameNew(username:String):js.Promise<nodegit.Cred>;
 	static function userpassPlaintextNew(username:String, password:String):nodegit.Cred;
 	function hasUsername():Float;
-	static var TYPE : Dynamic;
+	static var TYPE : CredType;
+}
+extern class CredType {
+	var USERPASS_PLAINTEXT : Int = 1;
+	var SSH_KEY : Int = 2;
+	var SSH_CUSTOM : Int = 4;
+	var DEFAULT : Int = 8;
+	var SSH_INTERACTIVE : Int = 16;
+	var USERNAME : Int = 32;
+	var SSH_MEMORY : Int = 64;
 }

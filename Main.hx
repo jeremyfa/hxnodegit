@@ -51,6 +51,8 @@ typedef ModuleMethodArg = {
     var name:String;
 
     var type:String;
+
+    var is_optional:Bool;
 }
 
 typedef ModuleProperty = {
@@ -223,10 +225,10 @@ class Main {
             println('load: api.json');
             modules = Json.parse(File.getContent(join(api_local_path, 'api.json'))).modules;
 
-            // Start conversion to haxe
-            convert_to_haxe();
-
         }
+
+        // Start conversion to haxe
+        convert_to_haxe();
 
     } //local_html_api_ready
 
@@ -296,8 +298,9 @@ class Main {
                             var td1 = J(J(el).find('td').get(1));
 
                             args.push({
-                                name: td0.text().trim(),
-                                type: td1.text().trim()
+                                name: td0.text().replace('[','').replace(']','').trim(),
+                                type: td1.text().trim(),
+                                is_optional: td0.text().indexOf('[') != -1
                             });
                         });
                     }
@@ -325,7 +328,7 @@ class Main {
                     type: type,
                     args: args,
                     is_static: !prefix_span.text().trim().endsWith('#'),
-                    is_async: tag_async.length > 0
+                    is_async: tag_async.length > 0,
                 };
 
                 module.methods.push(method);
@@ -416,7 +419,7 @@ class Main {
             }
 
             for (enum_ in module.enums) {
-                fields.push(convert_enum(enum_));
+                fields.push(convert_enum_property(enum_, module));
             }
 
             var output = printer.printTypeDefinition({
@@ -429,7 +432,11 @@ class Main {
                 meta: [
                     {name: ':jsRequire', params: [{expr: EConst(CString("nodegit")), pos: pos}, {expr: EConst(CString(module.name)), pos: pos}], pos: pos}
                 ]
-            });
+            }, true);
+
+            for (enum_ in module.enums) {
+                output += "\n" + printer.printTypeDefinition(convert_enum_class(enum_, module), false);
+            }
 
             File.saveContent(join(haxe_code_path, module.name + '.hx'), output);
 
@@ -452,7 +459,7 @@ class Main {
 
         var args:Array<FunctionArg> = [];
         for (arg in method.args) {
-            args.push({name: arg.name, type: convert_type(arg.type, {allow_void: false, is_async: false})});
+            args.push({name: arg.name, type: convert_type(arg.type, {allow_void: false, is_async: false}), opt: arg.is_optional});
         }
 
         return {
@@ -468,16 +475,42 @@ class Main {
 
     } //convert_method
 
-    static function convert_enum(enum_:ModuleEnum):Field {
+    static function convert_enum_property(enum_:ModuleEnum, module:Module):Field {
 
         return {
             pos: pos,
             name: enum_.name,
-            kind: FVar(convert_type(null, {allow_void: false, is_async: false})),
+            kind: FVar(TPath({pack: [], name: module.name + camelize(enum_.name)})),
             access: [AStatic]
         };
 
-    } //convert_enum
+    } //convert_enum_property
+
+    static function convert_enum_class(enum_:ModuleEnum, module:Module):TypeDefinition {
+
+        var fields:Array<Field> = [];
+
+        for (flag in enum_.flags) {
+
+            fields.push({
+                pos: pos,
+                name: flag.name,
+                kind: FVar(macro :Int, {expr: EConst(CInt(''+flag.value)), pos: pos}),
+                access: []
+            });
+        }
+
+        return {
+            pos: pos,
+            pack: ['nodegit'],
+            name: module.name + camelize(enum_.name),
+            isExtern: true,
+            kind: TDClass(null),
+            fields: fields,
+            meta: []
+        };
+
+    } //convert_enum_class
 
     static function convert_type(raw_type:String, options:{?is_async: Bool, ?allow_void: Bool}):ComplexType {
 
@@ -572,5 +605,19 @@ class Main {
         }
 
     } //convert_type
+
+    static function camelize(str:String):String {
+
+        str = str.toLowerCase();
+
+        str = ~/(?:^|[-_])(\w)/g.map(str, function(regex:EReg):String {
+            var c = regex.matched(1);
+            if (c != null && c.length > 0) return c.toUpperCase();
+            return '';
+        });
+
+        return str;
+
+    } //camelize
 
 }

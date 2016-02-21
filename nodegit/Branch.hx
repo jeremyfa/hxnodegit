@@ -10,5 +10,10 @@ package nodegit;
 	static function name(ref:nodegit.Reference):js.Promise<String>;
 	static function setUpstream(branch:nodegit.Reference, upstream_name:String):js.Promise<Float>;
 	static function upstream(branch:nodegit.Reference):js.Promise<Dynamic>;
-	static var BRANCH : Dynamic;
+	static var BRANCH : BranchBranch;
+}
+extern class BranchBranch {
+	var LOCAL : Int = 1;
+	var REMOTE : Int = 2;
+	var ALL : Int = 3;
 }

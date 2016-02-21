@@ -37,6 +37,17 @@ package nodegit;
 	function updateTips(callbacks:nodegit.RemoteCallbacks, update_fetchhead:Float, download_tags:Float, reflog_message:String):Float;
 	function upload(refspecs:nodegit.Strarray, opts:nodegit.PushOptions):Float;
 	function url():String;
-	static var AUTOTAG_OPTION : Dynamic;
-	static var COMPLETION_TYPE : Dynamic;
+	static var AUTOTAG_OPTION : RemoteAutotagOption;
+	static var COMPLETION_TYPE : RemoteCompletionType;
+}
+extern class RemoteAutotagOption {
+	var DOWNLOAD_TAGS_UNSPECIFIED : Int = 0;
+	var DOWNLOAD_TAGS_AUTO : Int = 1;
+	var DOWNLOAD_TAGS_NONE : Int = 2;
+	var DOWNLOAD_TAGS_ALL : Int = 3;
+}
+extern class RemoteCompletionType {
+	var COMPLETION_DOWNLOAD : Int = 0;
+	var COMPLETION_INDEXING : Int = 1;
+	var COMPLETION_ERROR : Int = 2;
 }

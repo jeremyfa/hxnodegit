@@ -12,6 +12,16 @@ package nodegit;
 	static function unregister(name:String):Float;
 	function lookup(name:String):nodegit.Filter;
 	function register(name:String, priority:Float):Float;
-	static var FLAG : Dynamic;
-	static var MODE : Dynamic;
+	static var FLAG : FilterFlag;
+	static var MODE : FilterMode;
+}
+extern class FilterFlag {
+	var DEFAULT : Int = 0;
+	var ALLOW_UNSAFE : Int = 1;
+}
+extern class FilterMode {
+	var TO_WORKTREE : Int = 0;
+	var SMUDGE : Int = 0;
+	var TO_ODB : Int = 1;
+	var CLEAN : Int = 1;
 }

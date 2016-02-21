@@ -31,6 +31,18 @@ package nodegit;
 	function write():Float;
 	function writeTree():js.Promise<nodegit.Oid>;
 	function writeTreeTo(repo:nodegit.Repository):js.Promise<nodegit.Oid>;
-	static var ADD_OPTION : Dynamic;
-	static var CAP : Dynamic;
+	static var ADD_OPTION : IndexAddOption;
+	static var CAP : IndexCap;
+}
+extern class IndexAddOption {
+	var ADD_DEFAULT : Int = 0;
+	var ADD_FORCE : Int = 1;
+	var ADD_DISABLE_PATHSPEC_MATCH : Int = 2;
+	var ADD_CHECK_PATHSPEC : Int = 4;
+}
+extern class IndexCap {
+	var IGNORE_CASE : Int = 1;
+	var NO_FILEMODE : Int = 2;
+	var NO_SYMLINKS : Int = 4;
+	var FROM_OWNER : Int = -1;
 }
